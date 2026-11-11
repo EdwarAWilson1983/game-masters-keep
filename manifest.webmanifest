@@ -1,0 +1,10 @@
+{
+  "name": "Game Master's Keep",
+  "short_name": "GM's Keep",
+  "description": "A personal command center for tabletop campaigns.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1421",
+  "theme_color": "#101b2b",
+  "icons": []
+}
