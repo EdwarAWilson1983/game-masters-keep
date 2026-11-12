@@ -1,42 +1,44 @@
-GAME MASTER'S KEEP — PROTOTYPE 0.1
+GAME MASTER'S KEEP — PROTOTYPE 0.6
+==================================
 
-WHAT THIS IS
-A first visual and functional prototype of the DM Headquarters interface.
-It is designed desktop-first for Windows, with responsive layouts for tablets
-and phones. It includes three visual universe themes, navigation, campaign
-creation, campaign search, a dice roller, and JSON backup/restore.
+GALACTIC ADVENTURES DESIGN PASS
+- Deep-black, starfield-inspired backdrop across the Star Wars universe.
+- Stronger cinematic contrast between the Jedi / Light Side (blue) and Sith / Dark Side (crimson).
+- Crossed blue and red energy blades at the center of the Force display.
+- More dramatic split-panel treatment for Jedi Archives and Sith Holocrons.
+- Force balance bar now visually communicates tension between the two sides.
+- Adds layered space atmosphere to the hero and dashboard panels.
+- Classic LCARS Starfleet theme and supplied emblem are retained.
+- Fantasy Realms remains unchanged.
+- Existing local campaign storage key is retained.
 
-HOW TO PREVIEW
-1. Extract the ZIP file.
-2. Open index.html in a modern browser (Edge or Chrome recommended).
+NOTE
+The crossed energy blades and balance bar are visual design elements only. The era selector remains a presentation control; no new game mechanics or persistent Force-alignment tracking have been added.
+This is still a local, single-browser prototype with no subscription or server costs.
 
-HOW TO USE
-- Use the left menu to move between sections.
-- Use the universe buttons to switch the visual theme.
-- Create a campaign from the dashboard or Campaigns page.
-- Campaigns are saved in this browser using local storage.
-- Use Settings & Backup to export or import a JSON backup.
-
-IMPORTANT LIMITATIONS
-- This is a local prototype, not yet a public multi-user application.
-- There are no accounts, cloud synchronization, invitations or multiplayer yet.
-- Characters, sessions and the searchable rules library are interface placeholders.
-- The app currently uses local browser storage. Export backups regularly.
-- The font is loaded from Google Fonts when internet access is available; the
-  interface falls back to system fonts if it is not.
-
-ZERO-COST DESIGN
-The prototype itself has no subscription or API dependency. Public hosting,
-accounts, cloud synchronization and multiplayer will be evaluated separately
-and must meet the project's $0/month requirement.
-
-NEXT MILESTONE
-Refine the dashboard and implement campaign details, notes, quests and
-character/NPC records before tackling accounts and multiplayer.
+INSTALLATION
+Upload the contents of game_masters_keep_v1 to the root of the GitHub repository, replacing matching files and retaining the assets folder.
 
 
-Version 0.2 visual update:
-- Fantasy Realms retains its medieval navy, parchment and antique-gold identity.
-- Starfleet Command now uses a Starfleet-inspired command palette with science blue, command gold, operations red and medical teal cues.
-- Galactic Adventures now uses a cinematic charcoal palette with desert amber, rebel orange, holographic blue and crimson accents.
-- Shared navigation and layout remain consistent across all three universes.
+PROTOTYPE 0.6 — FORCE-DUALITY EMBLEM
+- Integrates the user's uploaded blue / red Jedi-versus-Sith insignia in the Galactic Adventures sidebar identity and hero emblem positions.
+- Black background is keyed to transparency so the emblem's smoke, glow and outlines blend into the starfield.
+- The emblem is scoped to Galactic Adventures; Fantasy Realms and Starfleet Command retain their own brand marks.
+
+PROTOTYPE 0.7 — FORCE-DUALITY DASHBOARD
+- Extended the Jedi blue / Sith red visual language into Galactic Adventures stats, campaign panel, quick access, and prototype note.
+- Added subtle faction gradients, split-light accents, and a clearer Light // Dark dashboard header while preserving readability.
+
+PROTOTYPE 0.8 — FORCE MEDALLION REFINEMENT
+- Refined the central Force insignia with a restrained circular seal, subtle blue/red split illumination, cleaner concentric rings, and shorter centered lightsabers.
+- The central emblem is designed to sit naturally between the Jedi and Sith panels and use the same dark-space visual language.
+
+
+Prototype 1.0 — Fantasy Chronicle visual pass — Fantasy Realms visual identity pass
+Fantasy-only high-fantasy styling and a decorative campaign-inspiration atlas have been added. Starfleet Command and Galactic Adventures styling and assets are preserved.
+
+Prototype 14: Fantasy universe renamed The Chronicles of Puma; restored original Galactic Adventures Force emblem visibility.
+
+Prototype 15: corrected the Fantasy hero title display; the visible title is now live HTML text reading The Chronicles of Puma, masking the obsolete lettering in the legacy hero art.
+
+Prototype 16: replaced the old Fantasy Realms hero banner artwork with newly generated The Chronicles of Puma artwork. Removed the prior title-overlay patch; the new Puma wordmark is part of the replacement banner image itself.

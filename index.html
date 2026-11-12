@@ -13,12 +13,12 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand">
-        <div class="brand-mark">✦</div>
+        <div class="brand-mark"><span class="brand-mark-default">✦</span><img class="galaxy-brand-emblem" src="assets/force-duality-icon.png" alt=""></div>
         <div><div class="brand-name">GAME MASTER'S</div><div class="brand-sub">KEEP</div></div>
       </div>
       <div class="universe-label">YOUR REALMS</div>
       <div class="universe-switcher" role="group" aria-label="Choose gaming universe">
-        <button class="universe active" data-universe-choice="fantasy"><span class="universe-icon">♜</span><span>Fantasy Realms</span></button>
+        <button class="universe active" data-universe-choice="fantasy"><span class="universe-icon">♜</span><span>The Chronicles of Puma</span></button>
         <button class="universe" data-universe-choice="starfleet"><span class="universe-icon">✧</span><span>Starfleet Command</span></button>
         <button class="universe" data-universe-choice="galaxy"><span class="universe-icon">◈</span><span>Galactic Adventures</span></button>
       </div>
@@ -34,32 +34,132 @@
       <div class="sidebar-bottom">
         <div class="local-status"><span class="status-dot"></span><div><strong>Local workspace</strong><small>Your demo data stays in this browser</small></div></div>
         <button class="nav-item" data-view="settings"><span>⚙</span> Settings & Backup</button>
-        <div class="version">PROTOTYPE 0.2 · NO SUBSCRIPTION</div>
+        <div class="version">PROTOTYPE 1.0 · NO SUBSCRIPTION</div>
       </div>
     </aside>
 
     <main class="main-content">
       <header class="topbar">
         <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
-        <div class="breadcrumb"><span id="realmName">FANTASY REALMS</span><i>/</i><strong id="pageName">Headquarters</strong></div>
+        <div class="breadcrumb"><span id="realmName">THE CHRONICLES OF PUMA</span><i>/</i><strong id="pageName">Headquarters</strong></div>
         <div class="top-actions"><span class="offline-pill"><span class="status-dot"></span> LOCAL MODE</span><div class="avatar">GM</div></div>
       </header>
 
       <section class="page-view active" id="view-dashboard">
-        <div class="welcome-row">
-          <div><div class="eyebrow" id="welcomeEyebrow">THE ADVENTURE BEGINS HERE</div><h1 id="welcomeTitle">Your Keep Awaits.</h1><p class="intro" id="welcomeText">A quiet place to plan bold adventures, keep your worlds in order, and prepare for the next session.</p></div>
+        <div class="welcome-row fantasy-welcome">
+          <div><div class="eyebrow" id="welcomeEyebrow">THE CHRONICLES OF YOUR REALM</div><h1 id="welcomeTitle">Your Keep Awaits.</h1><p class="intro" id="welcomeText">A quiet place to plan bold adventures, keep your worlds in order, and prepare for the next session.</p></div>
           <button class="primary-btn" id="newCampaignTop">＋ Create campaign</button>
         </div>
-        <div class="hero-panel">
-          <div class="hero-copy"><div class="hero-kicker">YOUR GAME MASTER WORKSPACE</div><h2 id="heroTitle">Every great adventure<br>starts with a story.</h2><p id="heroText">Bring your campaigns, characters, session notes and reference tools together in one organized place.</p><button class="outline-btn" data-go="campaigns">Explore campaigns <span>→</span></button></div>
-          <div class="hero-emblem" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="emblem-core">✦</div><div class="emblem-caption">IMAGINE · PREPARE · PLAY</div></div>
+        <div class="hero-panel fantasy-chronicle-hero">
+          <div class="hero-copy">
+            <div class="hero-kicker">THE CAMPAIGN ARCHIVE</div>
+            <h2 id="heroTitle">The Chronicles of Puma</h2>
+            <p id="heroText">A realm of kingdoms, ancient lore and untold adventures. Chronicle your world, its peoples, its history and the heroes who shape its fate.</p>
+            <button class="outline-btn" data-go="campaigns">Enter your chronicles <span>→</span></button>
+          </div>
+          <div class="hero-emblem galaxy-original-emblem" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="emblem-core">✦</div>
+            <img class="galaxy-hero-emblem" src="assets/force-duality-emblem.png" alt="">
+            <div class="emblem-caption">IMAGINE · PREPARE · PLAY</div>
+          </div>
+          <div class="lcars-identity" aria-label="Starfleet Command identity"><img src="assets/starfleet-command-emblem.png" alt="Starfleet Command emblem and LCARS-inspired insignia artwork"><div class="lcars-identity-caption"><span>UNITED FEDERATION OF PLANETS</span><span>STARFLEET COMMAND SYSTEM</span></div></div>
         </div>
-        <div class="section-heading"><div><div class="eyebrow">YOUR WORKSPACE</div><h2>At a glance</h2></div><button class="text-btn" data-go="campaigns">All campaigns →</button></div>
+
+        <section class="fantasy-atlas fantasy-five-halls" aria-label="The Keep's five halls">
+          <div class="fantasy-atlas-heading">
+            <div>
+              <div class="fantasy-atlas-kicker">THE KEEP'S FIVE HALLS</div>
+              <h2>Where every story finds its place.</h2>
+              <p>Five halls. Countless paths. One world waiting to be written.</p>
+            </div>
+            <div class="atlas-compass" aria-hidden="true"><span>✥</span><small>ANCIENT · TRUE · BOUND</small></div>
+          </div>
+          <div class="fantasy-paths">
+            <article class="fantasy-path hall-card hall-atlas">
+              <div class="hall-art"></div><div class="path-ornament">✥</div>
+              <div class="path-label">CHART THE KNOWN &amp; UNKNOWN</div>
+              <h3>The World Atlas</h3>
+              <p>Maps, regions, peoples, borders and the lands beyond the edge of the map.</p>
+              <span class="path-rule">GEOGRAPHY · EXPLORATION · DISCOVERY</span>
+            </article>
+            <article class="fantasy-path hall-card hall-court">
+              <div class="hall-art"></div><div class="path-ornament">♛</div>
+              <div class="path-label">POWER HAS A PRICE</div>
+              <h3>The Royal Court</h3>
+              <p>Kingdoms, rulers, noble houses, rivalries, treaties and succession.</p>
+              <span class="path-rule">HOUSES · ALLIANCES · INTRIGUE</span>
+            </article>
+            <article class="fantasy-path hall-card hall-archives">
+              <div class="hall-art"></div><div class="path-ornament">♜</div>
+              <div class="path-label">KNOWLEDGE ENDURES</div>
+              <h3>The Great Archives</h3>
+              <p>Ancient history, myths, magic, creatures, relics and forbidden knowledge.</p>
+              <span class="path-rule">LORE · MAGIC · MEMORY</span>
+            </article>
+            <article class="fantasy-path hall-card hall-chronicle">
+              <div class="hall-art"></div><div class="path-ornament">⚔</div>
+              <div class="path-label">THE HEROES OF YOUR TALE</div>
+              <h3>The Adventurer's Chronicle</h3>
+              <p>Characters, companions, quests, session records and the choices that shape a legend.</p>
+              <span class="path-rule">HEROES · QUESTS · LEGACY</span>
+            </article>
+            <article class="fantasy-path hall-card hall-shadow">
+              <div class="hall-art"></div><div class="path-ornament">☼</div>
+              <div class="path-label">BEYOND THE LAST BEACON</div>
+              <h3>The Shadowlands</h3>
+              <p>Enemies, lost kingdoms, ancient threats and the darkness gathering at the borders.</p>
+              <span class="path-rule">DANGER · MYSTERY · CONFLICT</span>
+            </article>
+          </div>
+          <div class="atlas-footer"><span>✦</span> SET DOWN YOUR PEN. THE WORLD IS WAITING. <span>✦</span></div>
+        </section>
+        <section class="force-console" id="forceConsole" aria-label="The Force: Jedi and Sith campaign overview">
+          <div class="force-console-head">
+            <div><div class="force-kicker">GALACTIC ADVENTURES // THE FORCE AWAKENS</div><h2>Light. Darkness. One galaxy.</h2><p>Two ancient orders. One living Force. The fate of the galaxy hangs in the balance.</p></div>
+            <label class="era-picker">CAMPAIGN ERA
+              <select id="galaxyEra" aria-label="Choose Star Wars campaign era">
+                <option>Old Republic</option><option>High Republic</option><option>Clone Wars</option><option>Galactic Civil War</option><option>New Republic</option><option>Custom Era</option>
+              </select>
+            </label>
+          </div>
+          <div class="force-duality">
+            <article class="force-side jedi-side">
+              <div class="force-side-top"><span class="force-sigil">✧</span><span class="force-label">THE LIGHT</span></div>
+              <h3>Jedi Archives</h3>
+              <p>Wisdom · Discipline · Guardianship</p>
+              <div class="force-links"><span>Order records</span><span>Holocron index</span><span>Temple locations</span></div>
+            </article>
+            <div class="force-center" aria-hidden="true">
+              <div class="duel-aura"></div>
+              <div class="force-ring ring-a"></div><div class="force-ring ring-b"></div>
+              <div class="saber saber-blue"></div><div class="saber saber-red"></div>
+              <div class="force-core"><img src="assets/force-duality-core.png" alt="Jedi and Sith Force emblem"></div><small>THE FORCE</small>
+            </div>
+            <article class="force-side sith-side">
+              <div class="force-side-top"><span class="force-sigil">◈</span><span class="force-label">THE DARK</span></div>
+              <h3>Sith Holocrons</h3>
+              <p>Power · Passion · Knowledge</p>
+              <div class="force-links"><span>Dark teachings</span><span>Artifact index</span><span>Stronghold records</span></div>
+            </article>
+          </div>
+          <div class="force-balance">
+            <div class="balance-caption"><span>JEDI / LIGHT SIDE</span><span>CAMPAIGN BALANCE</span><span>SITH / DARK SIDE</span></div>
+            <div class="balance-track"><span class="balance-light"></span><span class="balance-dark"></span></div>
+            <p>The balance is never fixed. Every alliance, betrayal and choice can move the galaxy toward light — or darkness.</p>
+          </div>
+          <div class="galaxy-shortcuts">
+            <button data-go="campaigns"><b>✦</b><span><strong>Campaign chronicles</strong><small>Stories, arcs and turning points</small></span><i>→</i></button>
+            <button data-go="characters"><b>♙</b><span><strong>Force & character registry</strong><small>Jedi, Sith, allies and rivals</small></span><i>→</i></button>
+            <button data-go="library"><b>⌕</b><span><strong>Galactic databank</strong><small>Worlds, lore, powers and artifacts</small></span><i>→</i></button>
+          </div>
+        </section>
+        <div class="section-heading"><div><div class="eyebrow" id="statsEyebrow">YOUR WORKSPACE</div><h2 id="statsTitle">At a glance</h2></div><button class="text-btn" data-go="campaigns">All campaigns →</button></div>
         <div class="stats-grid">
-          <article class="stat-card"><div class="stat-icon">⚑</div><div class="stat-number" id="campaignCount">0</div><div class="stat-label">Campaigns</div></article>
-          <article class="stat-card"><div class="stat-icon">♙</div><div class="stat-number" id="characterCount">0</div><div class="stat-label">Characters & NPCs</div></article>
-          <article class="stat-card"><div class="stat-icon">▤</div><div class="stat-number" id="sessionCount">0</div><div class="stat-label">Session notes</div></article>
-          <article class="stat-card"><div class="stat-icon">✎</div><div class="stat-number" id="questCount">0</div><div class="stat-label">Open quests</div></article>
+          <article class="stat-card"><div class="stat-icon">⚑</div><div class="stat-number" id="campaignCount">0</div><div class="stat-label" id="campaignStatLabel">Campaigns</div></article>
+          <article class="stat-card"><div class="stat-icon">♙</div><div class="stat-number" id="characterCount">0</div><div class="stat-label" id="characterStatLabel">Characters & NPCs</div></article>
+          <article class="stat-card"><div class="stat-icon">▤</div><div class="stat-number" id="sessionCount">0</div><div class="stat-label" id="sessionStatLabel">Session notes</div></article>
+          <article class="stat-card"><div class="stat-icon">✎</div><div class="stat-number" id="questCount">0</div><div class="stat-label" id="questStatLabel">Open quests</div></article>
         </div>
         <div class="dashboard-columns">
           <section class="panel"><div class="panel-heading"><div><div class="eyebrow">RECENTLY IN YOUR KEEP</div><h3>Campaigns</h3></div><button class="small-link" data-go="campaigns">View all</button></div><div id="recentCampaigns" class="empty-state"><span class="empty-symbol">⚑</span><strong>Your first campaign is waiting.</strong><p>Create a campaign to start organizing its world, characters and adventures.</p><button class="secondary-btn" id="emptyCreate">Create your first campaign</button></div></section>
@@ -107,7 +207,7 @@
     <form method="dialog" id="campaignForm">
       <div class="dialog-head"><div><div class="eyebrow">A NEW ADVENTURE</div><h2>Create a campaign</h2></div><button class="close-btn" value="cancel" aria-label="Close">×</button></div>
       <label>Campaign name<input id="campaignName" required maxlength="70" placeholder="The Lost Crown of…" /></label>
-      <label>Game universe<select id="campaignUniverse"><option value="fantasy">Fantasy Realms</option><option value="starfleet">Star Trek</option><option value="galaxy">Star Wars</option></select></label>
+      <label>Game universe<select id="campaignUniverse"><option value="fantasy">The Chronicles of Puma</option><option value="starfleet">Star Trek</option><option value="galaxy">Star Wars</option></select></label>
       <label>Campaign premise<textarea id="campaignPremise" rows="4" placeholder="A few words about the adventure, its setting or central mystery…"></textarea></label>
       <div class="dialog-actions"><button class="secondary-btn" value="cancel">Cancel</button><button class="primary-btn" id="saveCampaign" value="default">Create campaign</button></div>
     </form>

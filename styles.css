@@ -75,3 +75,1240 @@ body[data-universe="galaxy"] .prototype-note strong{color:#8ccbf0}
 .universe,.nav-item,.hero-panel,.stat-card,.panel,.campaign-card,.primary-btn,.secondary-btn,.outline-btn{transition:background-color .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease,transform .2s ease}
 @media(max-width:1050px){.main-content{padding:0 25px 40px}.campaign-grid{grid-template-columns:repeat(2,1fr)}.hero-emblem{margin-right:0;width:180px}.dashboard-columns{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.sidebar{transform:translateX(-100%);transition:.25s;width:275px;box-shadow:var(--shadow)}.sidebar.open{transform:translateX(0)}.main-content{margin-left:0;padding:0 17px 35px}.topbar{height:62px;margin-bottom:25px}.mobile-menu{display:block;margin-right:12px}.breadcrumb{flex:1}.offline-pill{display:none}.welcome-row,.page-heading{align-items:flex-start;flex-direction:column}.welcome-row .primary-btn,.page-heading .primary-btn{width:100%}.hero-panel{padding:25px;min-height:240px}.hero-emblem{display:none}.stats-grid{grid-template-columns:repeat(2,1fr)}.dashboard-columns,.settings-grid{grid-template-columns:1fr}.campaign-grid{grid-template-columns:1fr}.toolbar input{width:100%}.toolbar .muted{display:none}.dice-controls{flex-wrap:wrap}.dice-controls select{flex:1}.version{padding-bottom:10px}}
+
+/* STARFLEET COMMAND — classic LCARS-inspired visual system */
+body[data-universe="starfleet"]{
+  --bg:#05070d;--sidebar:#080b14;--panel:#101522;--panel2:#171d2b;
+  --line:rgba(40,164,255,.34);--gold:#f5b335;--gold2:#f6d18a;
+  --accent:#16b8ee;--input:#090d18;--muted:#aab8cc;--text:#edf5ff;
+  background-color:var(--bg);
+  background-image:radial-gradient(ellipse at 75% 0%,rgba(13,78,145,.17),transparent 42%);
+}
+body[data-universe="starfleet"] .sidebar{background:#05070d;border-right:4px solid #151c38;}
+body[data-universe="starfleet"] .brand-mark{border-radius:9px 22px 9px 22px;border:2px solid #09b8ef;color:#09b8ef;box-shadow:0 0 18px #09b8ef22;}
+body[data-universe="starfleet"] .brand-name,body[data-universe="starfleet"] .brand-sub{color:#8ddcff;}
+body[data-universe="starfleet"] .universe-label,body[data-universe="starfleet"] .nav-label,body[data-universe="starfleet"] .eyebrow{color:#28bdf2;}
+body[data-universe="starfleet"] .universe-icon,body[data-universe="starfleet"] .nav-item>span{color:#29b9f0;}
+body[data-universe="starfleet"] .universe,body[data-universe="starfleet"] .nav-item{border-radius:3px 15px 3px 15px;}
+body[data-universe="starfleet"] .universe.active,body[data-universe="starfleet"] .nav-item.active{background:#111c35;color:#fff;outline:0;box-shadow:inset 5px 0 #f5b335;border-radius:3px 18px 3px 18px;}
+body[data-universe="starfleet"] .topbar{border-bottom:5px solid #17143c;position:relative;}
+body[data-universe="starfleet"] .topbar:after{content:"";position:absolute;left:0;bottom:-5px;width:34%;height:5px;background:#12bce9;border-radius:0 10px 0 0;}
+body[data-universe="starfleet"] .breadcrumb span{color:#f5b335;font-weight:800;}
+body[data-universe="starfleet"] .welcome-row h1,body[data-universe="starfleet"] .page-heading h1{font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#eaf5ff;}
+body[data-universe="starfleet"] .hero-panel{min-height:300px;border:0;border-radius:0 24px 0 24px;padding:30px 34px;background:#05070d;box-shadow:none;position:relative;}
+body[data-universe="starfleet"] .hero-panel:before{content:"";position:absolute;left:0;top:0;width:9px;height:100%;background:linear-gradient(#0876d1 0 18%,#08b8e9 18% 48%,#20117b 48% 68%,#8d00e8 68% 100%);border-radius:0 0 12px 0;}
+body[data-universe="starfleet"] .hero-panel:after{content:"";position:absolute;right:0;top:0;width:34%;height:9px;background:linear-gradient(90deg,#9b00ed 0 62%,#10107d 62% 82%,#11b8e9 82%);border-radius:0 0 0 14px;}
+body[data-universe="starfleet"] .hero-copy{max-width:560px;}
+body[data-universe="starfleet"] .hero-kicker{color:#20baf0;letter-spacing:2.5px;}
+body[data-universe="starfleet"] .hero-copy h2{font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.04em;color:#e9f5ff;font-size:clamp(24px,3vw,34px);}
+body[data-universe="starfleet"] .hero-copy p{color:#aebbd0;}
+body[data-universe="starfleet"] .primary-btn{border:0;border-radius:4px 17px 4px 17px;background:#f5b335;color:#111522;box-shadow:none;text-transform:uppercase;letter-spacing:.06em;}
+body[data-universe="starfleet"] .secondary-btn,body[data-universe="starfleet"] .outline-btn{border:1px solid #18b9ed;border-radius:3px 14px 3px 14px;color:#7cdbff;background:#0b1730;text-transform:uppercase;letter-spacing:.04em;}
+body[data-universe="starfleet"] .stat-card,body[data-universe="starfleet"] .panel,body[data-universe="starfleet"] .campaign-card{border-radius:3px 16px 3px 16px;background:#0d1422;border:1px solid #202c4b;position:relative;overflow:hidden;}
+body[data-universe="starfleet"] .stat-card{border-top:5px solid #138bd9;padding-top:13px;}
+body[data-universe="starfleet"] .stat-card:nth-child(2){border-top-color:#f5b335;}
+body[data-universe="starfleet"] .stat-card:nth-child(3){border-top-color:#b000e8;}
+body[data-universe="starfleet"] .stat-card:nth-child(4){border-top-color:#c83b4b;}
+body[data-universe="starfleet"] .stat-number{color:#f5f8ff;font-family:'DM Sans',sans-serif;font-weight:700;}
+body[data-universe="starfleet"] .stat-icon,body[data-universe="starfleet"] .text-btn,body[data-universe="starfleet"] .small-link{color:#f5b335;}
+body[data-universe="starfleet"] .panel-heading h3,body[data-universe="starfleet"] .section-heading h2{font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.07em;color:#eaf5ff;}
+body[data-universe="starfleet"] .quick-link{border-bottom:1px solid #263354;}
+body[data-universe="starfleet"] .quick-icon{border-radius:3px 12px 3px 12px;background:#10213c;color:#25bdf2;}
+body[data-universe="starfleet"] .prototype-note{border-radius:2px 12px 2px 12px;background:#080d18;border-color:#27314f;}
+body[data-universe="starfleet"] .prototype-note strong{color:#20baf0;}
+body[data-universe="starfleet"] .hero-emblem{display:none;}
+body[data-universe="starfleet"] .lcars-identity{display:flex;align-items:center;gap:22px;position:relative;z-index:1;flex-shrink:0;margin:0 10px 0 22px;}
+body[data-universe="starfleet"] .lcars-identity img{width:auto;height:245px;max-width:145px;object-fit:contain;object-position:center;filter:drop-shadow(0 0 14px #087ac955);}
+body[data-universe="starfleet"] .lcars-identity-caption{display:flex;flex-direction:column;gap:8px;max-width:155px;color:#28bdf2;font-size:9px;font-weight:800;letter-spacing:1.5px;line-height:1.6;}
+body[data-universe="starfleet"] .lcars-identity-caption span:first-child{color:#f5b335;}
+body[data-universe="starfleet"] .campaign-card .card-top{color:#25bdf2;}
+body[data-universe="starfleet"] .campaign-card h3{font-family:'DM Sans',sans-serif;text-transform:uppercase;}
+body[data-universe="starfleet"] .toolbar input,body[data-universe="starfleet"] .library-search,body[data-universe="starfleet"] .tool-card,body[data-universe="starfleet"] .placeholder-panel{border-radius:3px 15px 3px 15px;background:#0c1321;border-color:#263354;}
+body[data-universe="starfleet"] dialog{border-radius:3px 18px 3px 18px;background:#0c1321;border-color:#20baf0;}
+body[data-universe="starfleet"] dialog label{color:#f5b335;}
+body[data-universe="starfleet"] .version{color:#4b83a8;}
+.lcars-identity{display:none;}
+@media(max-width:1050px){body[data-universe="starfleet"] .lcars-identity{gap:8px;margin-right:0;}body[data-universe="starfleet"] .lcars-identity img{height:190px;max-width:112px;}body[data-universe="starfleet"] .lcars-identity-caption{display:none;}}
+@media(max-width:760px){body[data-universe="starfleet"] .lcars-identity{display:none;}body[data-universe="starfleet"] .hero-panel{min-height:230px;}}
+
+
+/* STARFLEET LCARS EXPANSION — v0.3 design refinement */
+body[data-universe="starfleet"]{
+  --lcars-cyan:#16c6f2;
+  --lcars-blue:#087bd2;
+  --lcars-violet:#8b12dc;
+  --lcars-purple:#54108d;
+  --lcars-gold:#ffbd45;
+  --lcars-red:#d94b58;
+  --lcars-ice:#a9e8ff;
+  background-image:
+    radial-gradient(ellipse at 82% 4%,rgba(16,125,210,.15),transparent 38%),
+    linear-gradient(180deg,#05070d 0%,#080b14 100%);
+}
+body[data-universe="starfleet"] .main-content{position:relative}
+body[data-universe="starfleet"] .topbar{
+  height:82px;margin-bottom:30px;border:0;gap:18px;position:relative;
+  background:linear-gradient(90deg,transparent 0 3%,#10132b 3% 36%,transparent 36% 37%,#241044 37% 72%,transparent 72% 73%,#111b46 73% 100%);
+  border-radius:0 0 0 28px;padding:0 18px 0 22px;
+}
+body[data-universe="starfleet"] .topbar:before{
+  content:"";position:absolute;left:0;bottom:0;width:31%;height:8px;
+  background:var(--lcars-cyan);border-radius:0 12px 0 0;
+}
+body[data-universe="starfleet"] .topbar:after{
+  content:"";position:absolute;right:0;bottom:0;width:27%;height:8px;
+  background:var(--lcars-gold);border-radius:12px 0 0 0;
+}
+body[data-universe="starfleet"] .breadcrumb{font-weight:800;color:var(--lcars-ice);letter-spacing:1.5px}
+body[data-universe="starfleet"] .breadcrumb span{color:var(--lcars-gold)}
+body[data-universe="starfleet"] .breadcrumb i{color:var(--lcars-violet)}
+body[data-universe="starfleet"] .offline-pill{color:var(--lcars-cyan);font-weight:800}
+body[data-universe="starfleet"] .sidebar{
+  border-right:8px solid #141536;
+  background:linear-gradient(180deg,#05070d,#080b16 65%,#05070d);
+}
+body[data-universe="starfleet"] .brand{padding-bottom:27px}
+body[data-universe="starfleet"] .brand-mark{background:#071b2c}
+body[data-universe="starfleet"] .universe-switcher{gap:8px}
+body[data-universe="starfleet"] .universe,
+body[data-universe="starfleet"] .nav-item{
+  min-height:40px;padding:9px 12px 9px 15px;
+  border-radius:4px 20px 4px 20px;
+  background:#111743;color:#dceeff;
+  border-left:7px solid var(--lcars-blue);
+  letter-spacing:.02em;
+}
+body[data-universe="starfleet"] .universe:nth-child(2){border-left-color:var(--lcars-cyan)}
+body[data-universe="starfleet"] .universe:nth-child(3){border-left-color:var(--lcars-violet)}
+body[data-universe="starfleet"] .nav-item:nth-child(1){border-left-color:var(--lcars-gold)}
+body[data-universe="starfleet"] .nav-item:nth-child(2){border-left-color:var(--lcars-cyan)}
+body[data-universe="starfleet"] .nav-item:nth-child(3){border-left-color:var(--lcars-blue)}
+body[data-universe="starfleet"] .nav-item:nth-child(4){border-left-color:var(--lcars-violet)}
+body[data-universe="starfleet"] .nav-item:nth-child(5){border-left-color:var(--lcars-red)}
+body[data-universe="starfleet"] .nav-item:nth-child(6){border-left-color:var(--lcars-gold)}
+body[data-universe="starfleet"] .universe.active,
+body[data-universe="starfleet"] .nav-item.active{
+  background:#20264b;color:#fff;outline:0;
+  box-shadow:inset 0 0 0 1px #ffffff18,0 0 18px #087bd222;
+  border-left-width:10px;
+}
+body[data-universe="starfleet"] .nav-label,
+body[data-universe="starfleet"] .universe-label{
+  color:var(--lcars-gold);font-size:9px;letter-spacing:2px;
+}
+body[data-universe="starfleet"] .eyebrow{color:var(--lcars-cyan)}
+body[data-universe="starfleet"] .welcome-row h1,
+body[data-universe="starfleet"] .page-heading h1{
+  font-family:'DM Sans',sans-serif;letter-spacing:.035em;font-weight:800;
+}
+body[data-universe="starfleet"] .page-heading,
+body[data-universe="starfleet"] .welcome-row{position:relative}
+body[data-universe="starfleet"] .page-heading:after,
+body[data-universe="starfleet"] .welcome-row:after{
+  content:"";position:absolute;left:0;bottom:-14px;width:min(520px,55%);height:7px;
+  background:linear-gradient(90deg,var(--lcars-gold) 0 34%,transparent 34% 36%,var(--lcars-violet) 36% 68%,transparent 68% 70%,var(--lcars-cyan) 70%);
+  border-radius:0 12px 0 0;
+}
+body[data-universe="starfleet"] .hero-panel{
+  border:0;border-radius:0 28px 0 28px;
+  background:#05070d;padding:34px 40px;
+  box-shadow:inset 0 0 0 1px #1c2b50;
+}
+body[data-universe="starfleet"] .hero-panel:before{
+  width:13px;background:linear-gradient(180deg,var(--lcars-blue) 0 20%,var(--lcars-cyan) 20% 48%,var(--lcars-violet) 48% 72%,var(--lcars-gold) 72%);
+}
+body[data-universe="starfleet"] .hero-panel:after{
+  width:42%;height:12px;
+  background:linear-gradient(90deg,var(--lcars-violet) 0 58%,var(--lcars-blue) 58% 78%,var(--lcars-cyan) 78%);
+}
+body[data-universe="starfleet"] .hero-copy{max-width:620px}
+body[data-universe="starfleet"] .hero-kicker{color:var(--lcars-gold)}
+body[data-universe="starfleet"] .hero-copy h2{font-size:clamp(24px,3vw,36px)}
+body[data-universe="starfleet"] .lcars-identity{gap:18px}
+body[data-universe="starfleet"] .lcars-identity img{
+  height:260px;max-width:165px;filter:drop-shadow(0 0 18px #087bd266);
+}
+body[data-universe="starfleet"] .lcars-identity-caption{
+  padding:15px 17px;background:linear-gradient(90deg,#111743,#17102b);
+  border-radius:4px 22px 4px 22px;border-left:9px solid var(--lcars-cyan);
+  color:var(--lcars-ice);min-width:170px;
+}
+body[data-universe="starfleet"] .lcars-identity-caption span:first-child{color:var(--lcars-gold)}
+body[data-universe="starfleet"] .stats-grid{gap:10px}
+body[data-universe="starfleet"] .stat-card{
+  border:0;border-radius:4px 22px 4px 22px;
+  background:linear-gradient(135deg,#10172b,#0b1220);
+  border-left:9px solid var(--lcars-cyan);padding:15px 18px;
+}
+body[data-universe="starfleet"] .stat-card:nth-child(2){border-left-color:var(--lcars-gold);border-top-color:transparent}
+body[data-universe="starfleet"] .stat-card:nth-child(3){border-left-color:var(--lcars-violet);border-top-color:transparent}
+body[data-universe="starfleet"] .stat-card:nth-child(4){border-left-color:var(--lcars-red);border-top-color:transparent}
+body[data-universe="starfleet"] .stat-label{color:#b8c9dc;text-transform:uppercase;font-size:9px;letter-spacing:1px}
+body[data-universe="starfleet"] .panel{
+  border:0;border-radius:4px 22px 4px 22px;
+  background:#0b1120;box-shadow:inset 0 0 0 1px #243054;
+  padding:22px;
+}
+body[data-universe="starfleet"] .panel-heading{
+  padding:0 0 13px;margin-bottom:8px;
+  border-bottom:7px solid transparent;
+  border-image:linear-gradient(90deg,var(--lcars-gold) 0 26%,transparent 26% 28%,var(--lcars-violet) 28% 58%,transparent 58% 60%,var(--lcars-cyan) 60%) 1;
+}
+body[data-universe="starfleet"] .quick-link{
+  border:0;margin:8px 0;padding:11px 12px;
+  background:#111a35;border-radius:4px 18px 4px 18px;
+}
+body[data-universe="starfleet"] .quick-link:nth-of-type(2){border-left:7px solid var(--lcars-gold)}
+body[data-universe="starfleet"] .quick-link:nth-of-type(3){border-left:7px solid var(--lcars-cyan)}
+body[data-universe="starfleet"] .quick-link:nth-of-type(4){border-left:7px solid var(--lcars-violet)}
+body[data-universe="starfleet"] .quick-icon{border-radius:4px 13px 4px 13px}
+body[data-universe="starfleet"] .campaign-card{
+  border:0;border-radius:4px 20px 4px 20px;
+  background:#0d1425;box-shadow:inset 0 0 0 1px #263456;
+}
+body[data-universe="starfleet"] .campaign-card .card-top{
+  margin:-19px -19px 0;padding:10px 17px;
+  background:linear-gradient(90deg,var(--lcars-cyan),var(--lcars-blue));
+  color:#06101b;font-weight:900;border-radius:3px 18px 0 0;
+}
+body[data-universe="starfleet"] .campaign-card:nth-child(3n) .card-top{background:var(--lcars-violet);color:white}
+body[data-universe="starfleet"] .campaign-card h3{color:var(--lcars-ice)}
+body[data-universe="starfleet"] .toolbar input,
+body[data-universe="starfleet"] .library-search,
+body[data-universe="starfleet"] .tool-card,
+body[data-universe="starfleet"] .placeholder-panel{
+  border:0;border-radius:4px 24px 4px 24px;
+  background:#0b1120;box-shadow:inset 0 0 0 1px #263456;
+}
+body[data-universe="starfleet"] .tool-card{
+  max-width:100%;padding:0 25px 25px;overflow:hidden;position:relative;
+}
+body[data-universe="starfleet"] .tool-card>div:first-child{
+  margin:0 -25px 20px;padding:17px 25px 15px;
+  background:linear-gradient(90deg,var(--lcars-gold) 0 24%,var(--lcars-violet) 24% 52%,var(--lcars-cyan) 52% 100%);
+  color:#080b14;border-radius:3px 20px 0 0;
+}
+body[data-universe="starfleet"] .tool-card>div:first-child .eyebrow,
+body[data-universe="starfleet"] .tool-card>div:first-child h2,
+body[data-universe="starfleet"] .tool-card>div:first-child p{color:#080b14}
+body[data-universe="starfleet"] .tool-card>div:first-child .eyebrow{font-weight:900}
+body[data-universe="starfleet"] .dice-controls select,
+body[data-universe="starfleet"] .dice-controls input{
+  border:0;border-radius:4px 15px 4px 15px;background:#111a35;
+  box-shadow:inset 0 0 0 1px #34436d;color:#eaf5ff;
+}
+body[data-universe="starfleet"] .primary-btn{
+  background:var(--lcars-gold);color:#10111a;border-radius:4px 18px 4px 18px;
+}
+body[data-universe="starfleet"] .dice-result{
+  background:linear-gradient(90deg,#101a37,#11102b);
+  border-left:9px solid var(--lcars-cyan);border-radius:4px 18px 4px 18px;
+  color:var(--lcars-gold);font-family:'DM Sans',sans-serif;text-transform:uppercase;
+}
+body[data-universe="starfleet"] .prototype-note{
+  border:0;border-radius:4px 18px 4px 18px;
+  background:#10162d;border-left:8px solid var(--lcars-violet);
+}
+body[data-universe="starfleet"] .prototype-note strong{color:var(--lcars-gold)}
+body[data-universe="starfleet"] .library-card{
+  border:0;border-radius:4px 20px 4px 20px;background:#0d1425;
+  box-shadow:inset 0 0 0 1px #263456;border-top:8px solid var(--lcars-cyan);
+}
+body[data-universe="starfleet"] .settings-grid .panel:nth-child(1){border-top:8px solid var(--lcars-gold)}
+body[data-universe="starfleet"] .settings-grid .panel:nth-child(2){border-top:8px solid var(--lcars-violet)}
+body[data-universe="starfleet"] dialog{
+  border:0;border-radius:4px 24px 4px 24px;
+  box-shadow:inset 0 0 0 2px var(--lcars-cyan),0 25px 90px #000c;
+}
+body[data-universe="starfleet"] .dialog-head{padding-bottom:13px;border-bottom:8px solid var(--lcars-violet)}
+body[data-universe="starfleet"] .dialog-head h2{font-family:'DM Sans',sans-serif;text-transform:uppercase}
+body[data-universe="starfleet"] .version{color:#5b80b6}
+@media(max-width:1050px){
+ body[data-universe="starfleet"] .lcars-identity img{height:190px;max-width:125px}
+ body[data-universe="starfleet"] .lcars-identity-caption{display:none}
+}
+@media(max-width:760px){
+ body[data-universe="starfleet"] .topbar{background:#11132b;padding:0 10px}
+ body[data-universe="starfleet"] .hero-panel{padding:25px 24px}
+ body[data-universe="starfleet"] .lcars-identity{display:none}
+ body[data-universe="starfleet"] .page-heading:after,
+ body[data-universe="starfleet"] .welcome-row:after{width:85%}
+}
+
+
+/* GALACTIC ADVENTURES — FORCE DUALITY DESIGN */
+body[data-universe="galaxy"]{
+  --bg:#090b11;--sidebar:#101117;--panel:#171a22;--panel2:#20232d;
+  --line:rgba(207,174,127,.24);--gold:#e58a35;--gold2:#f2d5a6;
+  --accent:#a93a3a;--input:#10131a;--muted:#b9b3ad;
+  background:
+    radial-gradient(ellipse at 78% 5%,rgba(45,75,130,.16),transparent 38%),
+    radial-gradient(ellipse at 12% 78%,rgba(123,35,45,.10),transparent 34%),
+    var(--bg);
+}
+body[data-universe="galaxy"] .hero-panel{
+  min-height:275px;border:1px solid #a67a4c66;border-radius:3px 24px 3px 24px;
+  background:
+    radial-gradient(ellipse at 76% 48%,rgba(61,116,173,.27),transparent 34%),
+    radial-gradient(ellipse at 12% 95%,rgba(160,47,48,.24),transparent 39%),
+    linear-gradient(112deg,#171922,#24202a 52%,#10151d);
+  box-shadow:0 18px 55px #0008,inset 0 0 55px #d18a3510;
+}
+body[data-universe="galaxy"] .hero-panel:before{
+  content:"";position:absolute;inset:0;opacity:.38;pointer-events:none;
+  background-image:radial-gradient(1px 1px at 12% 22%,#fff 98%,transparent),radial-gradient(1px 1px at 28% 72%,#d8e8ff 98%,transparent),radial-gradient(2px 2px at 65% 24%,#fff 98%,transparent),radial-gradient(1px 1px at 82% 78%,#fff 98%,transparent),radial-gradient(1px 1px at 92% 35%,#fff 98%,transparent);
+  background-size:190px 150px,230px 180px,270px 210px,210px 170px,160px 130px;
+}
+body[data-universe="galaxy"] .hero-kicker,
+body[data-universe="galaxy"] .eyebrow{color:#e9a45d}
+body[data-universe="galaxy"] .brand-mark{border-color:#e58a35;color:#f2d5a6;box-shadow:0 0 24px #e58a3530}
+body[data-universe="galaxy"] .universe.active,
+body[data-universe="galaxy"] .nav-item.active{background:linear-gradient(100deg,#a93a3a24,#e58a3510);color:#ffe0bb;outline-color:#b65b4255;box-shadow:inset 3px 0 #e58a35}
+body[data-universe="galaxy"] .primary-btn{background:linear-gradient(135deg,#e9a45d,#b75b35);border-color:#f1bb7d;color:#17131a}
+body[data-universe="galaxy"] .secondary-btn,
+body[data-universe="galaxy"] .outline-btn{border-color:#d28b5688;color:#f3c28c;background:#c16d2914}
+body[data-universe="galaxy"] .stat-card{background:linear-gradient(145deg,#20232d,#151820);border-color:#9c6d4b55}
+body[data-universe="galaxy"] .stat-icon,
+body[data-universe="galaxy"] .text-btn,
+body[data-universe="galaxy"] .small-link{color:#e9a45d}
+body[data-universe="galaxy"] .quick-icon{background:#a93a3a25;color:#e58a65}
+body[data-universe="galaxy"] .panel{background:linear-gradient(145deg,#1b1e27,#14171e);border-color:#9c6d4b55}
+body[data-universe="galaxy"] .campaign-card{background:linear-gradient(145deg,#24232a,#151820);border-color:#9c6d4b66}
+body[data-universe="galaxy"] .campaign-card .card-top{color:#e9a45d}
+body[data-universe="galaxy"] .placeholder-panel{background:radial-gradient(ellipse at 50% 0%,#31415b55,transparent 55%),linear-gradient(145deg,#201c24,#10141c);border-color:#a96d4c77}
+body[data-universe="galaxy"] .library-card{background:linear-gradient(145deg,#22232b,#151820);border-color:#9c6d4b55}
+body[data-universe="galaxy"] .tool-card{background:linear-gradient(145deg,#22232b,#151820);border-color:#9c6d4b66}
+body[data-universe="galaxy"] .dice-result{background:#0c1018;color:#f0bd7d;border-left:3px solid #a93a3a}
+body[data-universe="galaxy"] .force-console{display:block}
+.force-console{display:none;margin:25px 0 8px;padding:24px;border:1px solid #a67a4c66;border-radius:4px 22px 4px 22px;background:linear-gradient(145deg,#151821,#0d1119 68%);box-shadow:0 20px 55px #0005;position:relative;overflow:hidden}
+.force-console:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(1px 1px at 14% 18%,#fff 98%,transparent),radial-gradient(1px 1px at 76% 30%,#fff 98%,transparent),radial-gradient(1px 1px at 48% 82%,#fff 98%,transparent);background-size:170px 130px,220px 170px,260px 190px}
+.force-console>*{position:relative;z-index:1}
+.force-console-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:22px}
+.force-kicker{font-size:9px;letter-spacing:2.2px;color:#e9a45d}
+.force-console-head h2{font:600 clamp(22px,2.5vw,30px) Cinzel,serif;color:#f3e5ce;margin:8px 0 5px}
+.force-console-head p{font-size:12px;color:#b9b3ad;margin:0}
+.era-picker{display:grid;gap:6px;color:#e9a45d;font-size:9px;letter-spacing:1.5px;min-width:180px}
+.era-picker select{background:#111722;border:1px solid #98724f;color:#f2d5a6;border-radius:3px;padding:10px;font:inherit;letter-spacing:.3px}
+.force-duality{display:grid;grid-template-columns:1fr 150px 1fr;gap:14px;align-items:stretch}
+.force-side{padding:19px;border:1px solid;border-radius:4px 18px 4px 18px;min-height:174px;position:relative;overflow:hidden}
+.jedi-side{border-color:#4b91c777;background:linear-gradient(130deg,#152b42,#111923 78%);box-shadow:inset 4px 0 #4b91c7}
+.sith-side{border-color:#a83c46aa;background:linear-gradient(130deg,#29171e,#17151b 78%);box-shadow:inset -4px 0 #a83c46}
+.force-side-top{display:flex;justify-content:space-between;align-items:center}
+.force-sigil{font-size:27px}
+.jedi-side .force-sigil,.jedi-side .force-label{color:#79b9e8}
+.sith-side .force-sigil,.sith-side .force-label{color:#e66b70}
+.force-label{font-size:9px;letter-spacing:2px}
+.force-side h3{font:600 20px Cinzel,serif;color:#f2e7d6;margin:12px 0 5px}
+.force-side p{font-size:11px;color:#bcbac0;margin:0}
+.force-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.force-links span{font-size:9px;padding:6px 8px;border-radius:2px;background:#ffffff0a;color:#c8c8cf;border:1px solid #ffffff18}
+.force-center{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:160px}
+.force-ring{position:absolute;border:1px solid;border-radius:50%;width:112px;height:112px}
+.ring-a{border-color:#579dd788;box-shadow:0 0 24px #3986c622}
+.ring-b{width:86px;height:86px;border-color:#c14b5577;transform:rotate(45deg);border-radius:35%}
+.force-core{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;font-size:29px;color:#f0d3a4;background:linear-gradient(135deg,#28547a,#7d2935);border:1px solid #d5b27d88;box-shadow:0 0 30px #b78a4b33}
+.force-center small{position:absolute;bottom:4px;color:#d6b98d;font-size:8px;letter-spacing:2px}
+.force-balance{margin:22px 3px 18px}
+.balance-caption{display:flex;justify-content:space-between;gap:8px;font-size:8px;letter-spacing:1.3px;color:#b9b3ad}
+.balance-caption span:first-child{color:#79b9e8}.balance-caption span:last-child{color:#e66b70}
+.balance-track{height:8px;display:flex;gap:3px;margin:8px 0;background:#090c12;border-radius:2px;overflow:hidden}
+.balance-light{width:50%;background:linear-gradient(90deg,#2c6ca6,#83c4ec)}
+.balance-dark{width:50%;background:linear-gradient(90deg,#7d2935,#d35b60)}
+.force-balance p{font-size:10px;color:#8f929b;margin:7px 0 0}
+.galaxy-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.galaxy-shortcuts button{display:flex;align-items:center;gap:11px;text-align:left;padding:12px;background:#ffffff06;border:1px solid #ffffff18;color:#eee2d1;border-radius:3px 12px 3px 12px;cursor:pointer}
+.galaxy-shortcuts button>b{font-size:20px;color:#e9a45d}
+.galaxy-shortcuts button span{flex:1}
+.galaxy-shortcuts strong,.galaxy-shortcuts small{display:block}
+.galaxy-shortcuts strong{font-size:10px}.galaxy-shortcuts small{font-size:9px;color:#a8a5a5;margin-top:3px}
+.galaxy-shortcuts i{font-style:normal;color:#e9a45d}
+body[data-universe="galaxy"] .force-console{display:block}
+@media(max-width:850px){
+ .force-console-head{align-items:flex-start;flex-direction:column}
+ .force-duality{grid-template-columns:1fr}
+ .force-center{min-height:105px;order:2}
+ .sith-side{order:3}
+ .galaxy-shortcuts{grid-template-columns:1fr}
+ .balance-caption{font-size:7px}
+}
+
+
+/* 0.5 — DEEP SPACE / LIGHT VS DARK */
+body[data-universe="galaxy"]{
+  --bg:#03050a;--sidebar:#070a10;--panel:#0b101a;--panel2:#111927;
+  --line:rgba(128,153,184,.22);--gold:#d9a45e;--gold2:#f2d6ad;
+  --accent:#bd3b43;--input:#070b12;--muted:#aeb8c8;
+  background-color:#020308;
+  background-image:
+    radial-gradient(1px 1px at 8% 13%,rgba(255,255,255,.85) 98%,transparent),
+    radial-gradient(1px 1px at 23% 72%,rgba(174,208,255,.72) 98%,transparent),
+    radial-gradient(2px 2px at 71% 21%,rgba(255,255,255,.78) 98%,transparent),
+    radial-gradient(1px 1px at 89% 63%,rgba(255,255,255,.7) 98%,transparent),
+    radial-gradient(1px 1px at 49% 44%,rgba(255,255,255,.6) 98%,transparent),
+    radial-gradient(ellipse at 50% 45%,#111827 0%,#050811 42%,#020308 78%);
+  background-size:210px 170px,260px 220px,310px 240px,190px 160px,350px 270px,100% 100%;
+  background-attachment:fixed;
+}
+body[data-universe="galaxy"] .sidebar{
+  background:linear-gradient(180deg,#080c14f5,#05070cf7);
+  border-right:1px solid #31405a66;
+  box-shadow:8px 0 35px #0008;
+}
+body[data-universe="galaxy"] .main-content{background:transparent}
+body[data-universe="galaxy"] .topbar{border-bottom:1px solid #34415a55}
+body[data-universe="galaxy"] .hero-panel{
+  background:
+    radial-gradient(ellipse at 78% 50%,rgba(39,90,150,.23),transparent 34%),
+    radial-gradient(ellipse at 18% 100%,rgba(133,34,47,.24),transparent 42%),
+    linear-gradient(110deg,#080d17,#0b0d17 55%,#080a11);
+  border:1px solid #6f789055;
+  box-shadow:0 18px 60px #000b,inset 0 0 75px #111c32aa;
+}
+body[data-universe="galaxy"] .hero-panel:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.62;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 32% 76%,#a9d9ff 98%,transparent),
+    radial-gradient(2px 2px at 65% 27%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 86% 68%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 53% 51%,#fff 98%,transparent);
+  background-size:170px 130px,230px 180px,270px 210px,210px 170px,310px 240px;
+}
+body[data-universe="galaxy"] .hero-panel:after{
+  content:"";position:absolute;inset:auto -10% -70% 42%;height:220px;
+  background:radial-gradient(ellipse,#263e64aa,transparent 70%);filter:blur(22px)
+}
+body[data-universe="galaxy"] .stat-card,
+body[data-universe="galaxy"] .panel,
+body[data-universe="galaxy"] .tool-card,
+body[data-universe="galaxy"] .library-card{
+  background:linear-gradient(145deg,#111824eF,#080c13f2);
+  border-color:#47536a66;
+  box-shadow:0 10px 30px #0006;
+}
+body[data-universe="galaxy"] .force-console{
+  border:1px solid #59657a88;
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(33,47,72,.28),transparent 48%),
+    linear-gradient(180deg,#05070cf7,#090c14f7);
+  box-shadow:0 24px 75px #000c,inset 0 0 80px #000b;
+}
+.force-console:after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.34;
+  background-image:
+    radial-gradient(1px 1px at 5% 30%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 95% 15%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 70% 85%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 35% 58%,#fff 98%,transparent);
+  background-size:190px 150px,230px 190px,270px 220px,320px 250px;
+}
+.force-console-head{padding-bottom:15px;border-bottom:1px solid #58647b44}
+.force-kicker{color:#d6b17d}
+.force-console-head h2{font-size:clamp(26px,3vw,36px);letter-spacing:.3px;text-shadow:0 0 24px #8da9d322}
+.force-duality{grid-template-columns:minmax(0,1fr) 190px minmax(0,1fr);gap:8px;align-items:stretch}
+.force-side{
+  min-height:218px;padding:22px 21px;display:flex;flex-direction:column;justify-content:flex-start;
+  border-radius:3px;overflow:hidden;isolation:isolate;
+}
+.force-side:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.65;pointer-events:none}
+.jedi-side{
+  border:1px solid #4c9edc88;border-left:4px solid #62b8f0;
+  background:linear-gradient(110deg,#102b47f2,#09111ef5 80%);
+  box-shadow:inset 0 0 42px #2376b51c,0 0 24px #247fc51a;
+}
+.jedi-side:after{background:radial-gradient(ellipse at 0% 50%,#398fd044,transparent 65%)}
+.sith-side{
+  border:1px solid #b44750aa;border-right:4px solid #e04d58;
+  background:linear-gradient(250deg,#35121cf2,#110a12f5 80%);
+  box-shadow:inset 0 0 42px #c127381c,0 0 24px #b522351c;
+}
+.sith-side:after{background:radial-gradient(ellipse at 100% 50%,#c62e3d44,transparent 65%)}
+.jedi-side .force-sigil{color:#8dd4ff;text-shadow:0 0 16px #55baffaa;font-size:34px}
+.sith-side .force-sigil{color:#ff6470;text-shadow:0 0 18px #f22d44aa;font-size:34px}
+.jedi-side .force-label{color:#91d8ff}
+.sith-side .force-label{color:#ff7880}
+.force-side h3{font-size:23px;text-shadow:0 2px 14px #000}
+.force-side p{font-size:12px;color:#c0cddd}
+.jedi-side h3{color:#d7efff}
+.sith-side h3{color:#ffe0e0}
+.force-links{margin-top:auto;padding-top:23px}
+.jedi-side .force-links span{border-color:#4a9edc55;background:#2a80c51a;color:#b9e4ff}
+.sith-side .force-links span{border-color:#c34a5555;background:#b526361a;color:#ffc1c5}
+.force-center{min-height:218px;overflow:visible}
+.force-ring{width:142px;height:142px;border-color:#8596b766}
+.ring-a{box-shadow:0 0 30px #3c88c633}
+.ring-b{width:115px;height:115px;border-color:#c24b5977}
+.force-core{width:61px;height:61px;background:radial-gradient(circle,#1b2433,#070a10 70%);font-size:25px;box-shadow:0 0 32px #aab7d622;border-color:#c2c7d388}
+.force-center small{bottom:5px;letter-spacing:2.4px;color:#d5d9e2}
+.saber{
+  position:absolute;width:5px;height:170px;border-radius:99px;z-index:4;top:15px;
+  transform-origin:center;opacity:.98;
+}
+.saber:before{content:"";position:absolute;inset:-5px -5px;border-radius:99px;filter:blur(8px);opacity:.8}
+.saber-blue{background:linear-gradient(180deg,#dff8ff,#46baff 40%,#e7fbff 70%,#56bfff);transform:rotate(42deg);box-shadow:0 0 9px #5dc8ff,0 0 20px #218fff}
+.saber-blue:before{background:#168dff}
+.saber-red{background:linear-gradient(180deg,#fff0f0,#ff4053 40%,#fff 68%,#f43a4c);transform:rotate(-42deg);box-shadow:0 0 9px #ff4657,0 0 20px #e11f3c}
+.saber-red:before{background:#f0203e}
+.force-center .force-core{z-index:5}
+.force-center .force-ring{z-index:1}
+.force-center small{z-index:6}
+.force-balance{margin:24px 3px 20px;padding:14px 15px;background:linear-gradient(90deg,#12314b55,#0b0e16aa 48%,#3c101c55);border:1px solid #59657a55}
+.balance-caption{font-weight:700;color:#d5dbe6}
+.balance-caption span:first-child{color:#8dd4ff;text-shadow:0 0 12px #278dce55}
+.balance-caption span:last-child{color:#ff8790;text-shadow:0 0 12px #d42c3e55}
+.balance-track{height:11px;background:#02040a;border:1px solid #5b6474;box-shadow:0 0 12px #000}
+.balance-light{background:linear-gradient(90deg,#1676c5,#9ce5ff);box-shadow:0 0 12px #238fe8}
+.balance-dark{background:linear-gradient(90deg,#a5162d,#ff6871);box-shadow:0 0 12px #d5223e}
+.force-balance p{color:#c0c4ce;font-size:11px}
+.galaxy-shortcuts button{background:linear-gradient(120deg,#151a25,#090d15);border-color:#59657a66;border-radius:2px}
+.galaxy-shortcuts button:hover{border-color:#d39b5d;background:#1b1b22}
+.galaxy-shortcuts button:first-child>b{color:#d5ae76}
+.galaxy-shortcuts button:nth-child(2)>b{color:#77caff}
+.galaxy-shortcuts button:nth-child(3)>b{color:#ef6874}
+body[data-universe="galaxy"] .welcome-row .eyebrow{color:#d8ad73}
+body[data-universe="galaxy"] .universe.active{background:linear-gradient(90deg,#183c5c,#35151f);border-color:#9e6b62}
+@media(max-width:850px){
+ .force-duality{grid-template-columns:1fr}
+ .force-center{min-height:160px;order:2}
+ .sith-side{order:3}
+ .saber{height:125px;top:17px}
+ .force-side{min-height:185px}
+}
+
+
+/* 0.6 — User-supplied Jedi / Sith Force-duality insignia */
+.galaxy-brand-emblem,.galaxy-hero-emblem{display:none}
+body[data-universe="galaxy"] .brand-mark{
+  width:52px;height:52px;border:0;border-radius:0;box-shadow:none;
+  background:transparent;overflow:visible;position:relative;
+}
+body[data-universe="galaxy"] .brand-mark-default{display:none}
+body[data-universe="galaxy"] .galaxy-brand-emblem{
+  display:block;width:56px;height:56px;object-fit:contain;
+  filter:drop-shadow(0 0 7px #d92c45aa) drop-shadow(0 0 7px #238bffaa);
+}
+body[data-universe="galaxy"] .hero-emblem{
+  width:250px;height:220px;margin-right:18px;position:relative;
+  display:grid;place-items:center;
+}
+body[data-universe="galaxy"] .hero-emblem .orbit,
+body[data-universe="galaxy"] .hero-emblem .emblem-core{display:none}
+body[data-universe="galaxy"] .galaxy-hero-emblem{
+  display:block;width:260px;height:220px;object-fit:contain;position:relative;z-index:2;
+  filter:drop-shadow(0 0 14px #2b8fff55) drop-shadow(0 0 14px #e12b4055);
+}
+body[data-universe="galaxy"] .hero-emblem .emblem-caption{
+  position:absolute;bottom:-4px;left:0;right:0;text-align:center;z-index:3;
+  color:#d5dce8;text-shadow:0 0 12px #000;letter-spacing:2px;
+}
+@media(max-width:850px){
+ body[data-universe="galaxy"] .hero-emblem{width:180px;height:160px;margin:8px auto 18px}
+ body[data-universe="galaxy"] .galaxy-hero-emblem{width:190px;height:160px}
+ body[data-universe="galaxy"] .brand-mark{width:44px;height:44px}
+ body[data-universe="galaxy"] .galaxy-brand-emblem{width:48px;height:48px}
+}
+
+
+/* 0.7 — Bring the Light / Dark Force conflict into the lower dashboard */
+body[data-universe="galaxy"] .section-heading{
+  position:relative;padding:10px 13px 12px 15px;margin:22px 0 12px;
+  border-left:3px solid #36baff;
+  background:linear-gradient(90deg,rgba(33,139,255,.12),rgba(10,15,27,.06) 48%,rgba(215,34,61,.12));
+  border-radius:0 7px 7px 0;
+}
+body[data-universe="galaxy"] .section-heading:after{
+  content:"LIGHT  //  DARK";position:absolute;right:14px;top:50%;
+  transform:translateY(-50%);font-size:9px;font-weight:800;letter-spacing:2px;
+  color:#aabbd0;opacity:.8;
+}
+body[data-universe="galaxy"] .stats-grid .stat-card{
+  overflow:hidden;border-color:rgba(105,140,180,.28);
+  background:linear-gradient(135deg,rgba(20,73,118,.34),rgba(12,17,29,.92) 54%,rgba(83,20,38,.34));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 8px 24px #0003;
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,#38bfff 0%,#38bfff 48%,#f04458 52%,#f04458 100%);
+  opacity:.95;
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(1){
+  background:linear-gradient(135deg,rgba(20,110,185,.25),rgba(9,18,32,.96) 75%);
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(2){
+  background:linear-gradient(135deg,rgba(23,92,150,.22),rgba(9,18,32,.96) 75%);
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(3){
+  background:linear-gradient(135deg,rgba(18,28,49,.96),rgba(65,20,37,.34));
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(4){
+  background:linear-gradient(135deg,rgba(65,20,37,.34),rgba(15,17,29,.96));
+}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(1) .stat-icon,
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(2) .stat-icon{color:#55c5ff}
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(3) .stat-icon,
+body[data-universe="galaxy"] .stats-grid .stat-card:nth-child(4) .stat-icon{color:#ff5368}
+body[data-universe="galaxy"] .dashboard-columns>.panel{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(115deg,rgba(22,111,183,.14),transparent 47%),
+    linear-gradient(295deg,rgba(174,25,54,.14),transparent 48%),
+    linear-gradient(180deg,#111a29,#0b101b);
+  border-color:rgba(115,145,181,.34);
+  box-shadow:0 12px 32px #0004,inset 0 1px 0 rgba(255,255,255,.035);
+}
+body[data-universe="galaxy"] .dashboard-columns>.panel:first-child:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#42c4ff 0%,#2868a8 48%,#8e233a 52%,#ff4058 100%);
+}
+body[data-universe="galaxy"] .dashboard-columns>.panel:first-child .panel-heading{
+  padding-bottom:11px;border-bottom:1px solid rgba(114,149,188,.2);
+}
+body[data-universe="galaxy"] .dashboard-columns>.panel:first-child .eyebrow{
+  color:#80cfff;
+}
+body[data-universe="galaxy"] .dashboard-columns>.panel:first-child .panel-heading:after{
+  content:"JEDI ARCHIVES  /  SITH HOLOCRONS";
+  display:block;margin-left:auto;padding-left:12px;
+  color:#f16b78;font-size:8px;letter-spacing:1.2px;font-weight:800;
+}
+body[data-universe="galaxy"] .empty-state{
+  position:relative;
+  background:linear-gradient(90deg,rgba(31,129,202,.09),transparent 47%,rgba(190,32,57,.09));
+  border-radius:6px;
+}
+body[data-universe="galaxy"] .empty-symbol{
+  color:#dcecff;
+  text-shadow:-10px 0 18px #249fff,10px 0 18px #ff294b;
+}
+body[data-universe="galaxy"] .empty-state strong{
+  color:#f3e7d2;text-shadow:0 0 12px rgba(91,158,220,.16);
+}
+body[data-universe="galaxy"] .dashboard-columns>.quick-panel{
+  background:
+    linear-gradient(135deg,rgba(21,93,151,.16),transparent 45%),
+    linear-gradient(315deg,rgba(156,25,49,.18),transparent 50%),
+    #0d1421;
+}
+body[data-universe="galaxy"] .quick-panel .eyebrow{color:#f07a83}
+body[data-universe="galaxy"] .quick-link{
+  border-bottom-color:rgba(126,151,185,.2);
+  transition:background .18s ease,transform .18s ease;
+}
+body[data-universe="galaxy"] .quick-link:nth-of-type(1) .quick-icon{
+  color:#59c7ff;background:rgba(39,150,226,.17);box-shadow:0 0 14px #168cdb22;
+}
+body[data-universe="galaxy"] .quick-link:nth-of-type(2) .quick-icon{
+  color:#d6dce8;background:linear-gradient(135deg,#1677b9aa,#9d263eaa);
+}
+body[data-universe="galaxy"] .quick-link:nth-of-type(3) .quick-icon{
+  color:#ff6477;background:rgba(195,39,63,.17);box-shadow:0 0 14px #d51e3b22;
+}
+body[data-universe="galaxy"] .quick-link:hover{
+  background:linear-gradient(90deg,rgba(44,158,230,.10),transparent 48%,rgba(210,38,62,.10));
+}
+body[data-universe="galaxy"] .quick-link:nth-of-type(1) b{color:#58c6ff}
+body[data-universe="galaxy"] .quick-link:nth-of-type(3) b{color:#ff6579}
+body[data-universe="galaxy"] .prototype-note{
+  background:linear-gradient(90deg,rgba(25,105,166,.13),rgba(9,14,24,.9) 49%,rgba(150,27,47,.13));
+  border-color:rgba(115,145,181,.3);position:relative;overflow:hidden;
+}
+body[data-universe="galaxy"] .prototype-note:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#38bfff 0 48%,#f04458 52% 100%);
+}
+body[data-universe="galaxy"] .prototype-note strong{color:#73caff}
+@media(max-width:850px){
+ body[data-universe="galaxy"] .section-heading:after{display:none}
+ body[data-universe="galaxy"] .dashboard-columns>.panel:first-child .panel-heading:after{display:none}
+}
+
+
+/* 0.8 — Refined Force medallion: one intentional insignia, not a detached widget */
+body[data-universe="galaxy"] .force-center{
+  min-height:218px;isolation:isolate;overflow:visible;
+}
+body[data-universe="galaxy"] .force-center:before{
+  content:"";position:absolute;width:142px;height:142px;border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 35%,rgba(48,174,255,.22),transparent 47%),
+    radial-gradient(circle at 70% 65%,rgba(245,48,75,.22),transparent 47%),
+    radial-gradient(circle,#080d17 48%,#0b1422 69%,transparent 70%);
+  border:1px solid rgba(111,148,190,.42);
+  box-shadow:0 0 0 5px rgba(9,17,30,.7),0 0 0 6px rgba(107,140,178,.2),
+    0 0 24px rgba(45,153,231,.13),0 0 24px rgba(226,45,70,.12);
+  z-index:0;
+}
+body[data-universe="galaxy"] .force-center:after{
+  content:"";position:absolute;width:126px;height:126px;border-radius:50%;
+  border:1px solid transparent;
+  background:linear-gradient(#0a101c,#0a101c) padding-box,
+    conic-gradient(from 225deg,#46bdff 0deg,#46bdff 155deg,#61718b 180deg,#f14b61 205deg,#f14b61 335deg,#46bdff 360deg) border-box;
+  opacity:.75;z-index:1;
+}
+body[data-universe="galaxy"] .force-center .force-ring{
+  width:108px;height:108px;border-color:rgba(137,161,190,.45);
+  box-shadow:0 0 18px rgba(57,157,225,.12),inset 0 0 18px rgba(217,56,78,.08);
+  z-index:2;
+}
+body[data-universe="galaxy"] .force-center .ring-b{
+  width:82px;height:82px;border-radius:50%;
+  border-color:rgba(197,76,93,.62);
+  box-shadow:0 0 16px rgba(222,48,70,.18);
+}
+body[data-universe="galaxy"] .force-center .saber{
+  width:4px;height:128px;top:50%;border-radius:99px;
+  transform-origin:center;z-index:3;opacity:.94;
+}
+body[data-universe="galaxy"] .force-center .saber-blue{
+  transform:translateY(-50%) rotate(42deg);
+  box-shadow:0 0 7px #5dc8ff,0 0 17px #218fff,0 0 28px #218fff55;
+}
+body[data-universe="galaxy"] .force-center .saber-red{
+  transform:translateY(-50%) rotate(-42deg);
+  box-shadow:0 0 7px #ff4657,0 0 17px #e11f3c,0 0 28px #e11f3c55;
+}
+body[data-universe="galaxy"] .force-center .force-core{
+  position:relative;z-index:5;width:54px;height:54px;
+  color:#f4e7d0;font-size:25px;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(64,172,238,.22),transparent 54%),
+    radial-gradient(circle at 70% 72%,rgba(224,48,71,.25),transparent 55%),
+    #080e19;
+  border:1px solid rgba(198,181,156,.7);
+  box-shadow:0 0 0 4px rgba(6,11,20,.82),0 0 16px rgba(67,174,240,.3),0 0 16px rgba(228,51,75,.26);
+}
+body[data-universe="galaxy"] .force-center small{
+  z-index:6;bottom:1px;padding:3px 8px;border-radius:20px;
+  color:#c5d1df;font-size:7px;letter-spacing:2.2px;
+  background:rgba(7,13,23,.86);border:1px solid rgba(119,145,177,.24);
+}
+@media(max-width:850px){
+ body[data-universe="galaxy"] .force-center{min-height:160px}
+ body[data-universe="galaxy"] .force-center:before{width:126px;height:126px}
+ body[data-universe="galaxy"] .force-center:after{width:112px;height:112px}
+ body[data-universe="galaxy"] .force-center .saber{height:112px}
+}
+
+
+/* 0.9 — Replace the generic center star with the approved Jedi / Sith emblem.
+   All existing layout, color, and surrounding Force effects remain unchanged. */
+body[data-universe="galaxy"] .force-center .force-core{
+  padding:0;overflow:hidden;background:#050914;
+}
+body[data-universe="galaxy"] .force-center .force-core img{
+  display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;
+}
+
+
+
+/* PROTOTYPE 10 — FANTASY REALMS: epic high-fantasy visual identity.
+   This theme is scoped exclusively to data-universe="fantasy". */
+body[data-universe="fantasy"]{
+  --bg:#0c1512;
+  --sidebar:#101d18;
+  --panel:#17251e;
+  --panel2:#1d3026;
+  --line:rgba(199,171,111,.24);
+  --gold:#c5a15d;
+  --gold2:#ead8a7;
+  --accent:#668b69;
+  --input:#111e18;
+  --muted:#b5b7a7;
+  background:
+    radial-gradient(ellipse at 75% 8%,rgba(78,112,78,.13),transparent 34%),
+    radial-gradient(ellipse at 12% 78%,rgba(146,111,58,.08),transparent 32%),
+    var(--bg);
+}
+body[data-universe="fantasy"] .sidebar{
+  background:linear-gradient(180deg,#13231b 0%,#0e1915 100%);
+  border-right:1px solid rgba(197,161,93,.28);
+  box-shadow:8px 0 35px rgba(0,0,0,.18);
+}
+body[data-universe="fantasy"] .brand{padding-bottom:38px}
+body[data-universe="fantasy"] .brand-mark{
+  width:46px;height:50px;border-radius:13px 13px 21px 21px;
+  border:1px solid #c5a15d;background:linear-gradient(145deg,#263c2d,#111d18);
+  color:#ead8a7;box-shadow:0 0 0 3px rgba(197,161,93,.08),0 5px 18px #0006;
+  clip-path:polygon(50% 0,94% 13%,88% 68%,50% 100%,12% 68%,6% 13%);
+}
+body[data-universe="fantasy"] .brand-mark-default{font-size:22px}
+body[data-universe="fantasy"] .brand-name{color:#d8c18a}
+body[data-universe="fantasy"] .brand-sub{color:#f0e6ce}
+body[data-universe="fantasy"] .universe-label,
+body[data-universe="fantasy"] .nav-label,
+body[data-universe="fantasy"] .eyebrow{color:#c6a96d}
+body[data-universe="fantasy"] .universe-icon,
+body[data-universe="fantasy"] .nav-item>span{color:#c6a96d}
+body[data-universe="fantasy"] .universe.active,
+body[data-universe="fantasy"] .nav-item.active{
+  background:linear-gradient(90deg,rgba(197,161,93,.18),rgba(91,125,91,.10));
+  color:#f0e2bd;outline:1px solid rgba(197,161,93,.24);
+  box-shadow:inset 3px 0 #c5a15d;
+}
+body[data-universe="fantasy"] .universe:hover,
+body[data-universe="fantasy"] .nav-item:hover{background:rgba(197,161,93,.10);color:#f1e6cc}
+body[data-universe="fantasy"] .topbar{border-bottom-color:rgba(197,161,93,.24)}
+body[data-universe="fantasy"] .breadcrumb span{color:#d2b477}
+body[data-universe="fantasy"] .avatar{
+  background:linear-gradient(145deg,#2c4130,#17251e);
+  border-color:#b99a5b;color:#f0dfb4;
+}
+body[data-universe="fantasy"] .welcome-row h1,
+body[data-universe="fantasy"] .page-heading h1{
+  color:#f1e6cf;text-shadow:0 2px 18px rgba(0,0,0,.38);
+}
+body[data-universe="fantasy"] .hero-panel{
+  min-height:300px;padding:38px 44px;
+  border:1px solid rgba(205,174,112,.45);
+  border-radius:5px 22px 5px 22px;
+  background:
+    linear-gradient(90deg,rgba(9,18,14,.95) 0%,rgba(13,27,20,.82) 52%,rgba(17,31,23,.38) 100%),
+    radial-gradient(ellipse at 80% 55%,rgba(177,144,79,.25),transparent 38%),
+    linear-gradient(130deg,#243c2b,#101b16 68%);
+  box-shadow:0 22px 65px rgba(0,0,0,.32),inset 0 0 70px rgba(0,0,0,.18);
+}
+body[data-universe="fantasy"] .hero-panel:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.23;
+  background:
+    linear-gradient(135deg,transparent 0 48%,rgba(218,190,133,.13) 48.2%,transparent 48.5%),
+    repeating-linear-gradient(90deg,transparent 0 54px,rgba(218,190,133,.035) 55px,transparent 56px);
+  mask-image:linear-gradient(90deg,transparent,black 75%);
+}
+body[data-universe="fantasy"] .hero-panel:after{
+  content:"";position:absolute;inset:auto 0 0;height:45%;pointer-events:none;
+  background:linear-gradient(0deg,rgba(5,12,9,.42),transparent);
+}
+body[data-universe="fantasy"] .hero-copy{max-width:590px}
+body[data-universe="fantasy"] .hero-kicker{
+  color:#d6b979;letter-spacing:2.5px;
+}
+body[data-universe="fantasy"] .hero-copy h2{
+  color:#f1e4c8;font-size:clamp(28px,3.3vw,39px);
+  text-shadow:0 3px 22px #0009;
+}
+body[data-universe="fantasy"] .hero-copy p{color:#c4c7b8}
+body[data-universe="fantasy"] .primary-btn{
+  border-color:#e0c17b;background:linear-gradient(135deg,#e1c783,#ae8747);
+  color:#1b241b;box-shadow:0 6px 20px rgba(183,142,70,.18);
+}
+body[data-universe="fantasy"] .outline-btn{
+  border-color:#c4a467;color:#ead7a7;background:rgba(8,17,12,.28);
+}
+body[data-universe="fantasy"] .outline-btn:hover{background:rgba(197,161,93,.16)}
+/* Replace the generic orbit-and-star mark with a restrained heraldic shield. */
+body[data-universe="fantasy"] .hero-emblem{width:230px;height:205px;margin-right:22px}
+body[data-universe="fantasy"] .hero-emblem .orbit{
+  border-color:rgba(210,183,119,.40);border-radius:50% 50% 44% 44%;
+}
+body[data-universe="fantasy"] .hero-emblem .orbit-one{width:150px;height:175px;transform:rotate(0)}
+body[data-universe="fantasy"] .hero-emblem .orbit-two{width:178px;height:196px;transform:rotate(0);border-style:dashed;opacity:.55}
+body[data-universe="fantasy"] .hero-emblem .emblem-core{
+  width:104px;height:118px;border:1px solid #d0b16e;border-radius:18px 18px 42px 42px;
+  clip-path:polygon(50% 0,94% 13%,88% 67%,50% 100%,12% 67%,6% 13%);
+  background:linear-gradient(145deg,#344b35,#142219 72%);
+  color:#e8d39b;font-size:0;box-shadow:0 0 32px rgba(190,157,86,.20),inset 0 0 18px rgba(213,185,119,.12);
+  position:relative;
+}
+body[data-universe="fantasy"] .hero-emblem .emblem-core:before{
+  content:"⚜";font:38px Georgia,serif;color:#e2c47d;text-shadow:0 2px 10px #000;
+}
+body[data-universe="fantasy"] .hero-emblem .emblem-caption{
+  color:#d1b77c;letter-spacing:2.2px;bottom:-2px;
+}
+/* The Fantasy Atlas gives this realm its own visual signature without changing app behavior. */
+body[data-universe="fantasy"] .fantasy-atlas{display:block}
+.fantasy-atlas{display:none;margin:25px 0 7px;padding:25px 26px 17px;position:relative;overflow:hidden;
+  border:1px solid rgba(197,161,93,.34);border-radius:5px 18px 5px 18px;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(111,145,95,.12),transparent 55%),
+    linear-gradient(145deg,#17271e,#111c17 72%);
+  box-shadow:inset 0 0 55px rgba(0,0,0,.17),0 14px 35px rgba(0,0,0,.16);
+}
+.fantasy-atlas:before,.fantasy-atlas:after{
+  content:"";position:absolute;pointer-events:none;border:1px solid rgba(197,161,93,.12);
+}
+.fantasy-atlas:before{inset:8px;border-radius:3px 13px 3px 13px}
+.fantasy-atlas:after{width:210px;height:210px;right:-85px;top:-115px;border-radius:50%;box-shadow:0 0 0 15px rgba(197,161,93,.025),0 0 0 30px rgba(197,161,93,.02)}
+.fantasy-atlas-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;position:relative;z-index:1;margin-bottom:18px}
+.fantasy-atlas-kicker{font-size:9px;letter-spacing:2.2px;font-weight:700;color:#c9aa6b}
+.fantasy-atlas-heading h2{font:600 22px Cinzel,serif;color:#eee1c4;margin:5px 0}
+.fantasy-atlas-heading p{font-size:11px;color:#b7bdad;margin:0;max-width:570px}
+.atlas-compass{width:62px;height:62px;border:1px solid rgba(202,171,105,.65);border-radius:50%;display:grid;place-items:center;position:relative;color:#d5b875;flex-shrink:0}
+.atlas-compass:before,.atlas-compass:after{content:"";position:absolute;inset:6px;border:1px solid rgba(202,171,105,.28);transform:rotate(45deg)}
+.atlas-compass:after{transform:rotate(0);inset:13px}
+.atlas-compass span{font-size:22px;line-height:1}
+.atlas-compass small{position:absolute;bottom:-13px;font-size:6px;letter-spacing:1.5px;color:#bca46f;white-space:nowrap}
+.fantasy-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;position:relative;z-index:1}
+.fantasy-path{min-height:164px;padding:17px 18px 14px;position:relative;overflow:hidden;border:1px solid rgba(197,161,93,.27);border-radius:4px 13px 4px 13px;background:linear-gradient(145deg,rgba(39,58,43,.85),rgba(18,31,23,.92))}
+.fantasy-path:after{content:"";position:absolute;right:-25px;bottom:-52px;width:145px;height:145px;border:1px solid rgba(216,190,132,.13);border-radius:50%;box-shadow:0 0 0 12px rgba(216,190,132,.025),0 0 0 25px rgba(216,190,132,.018)}
+.fantasy-path .path-ornament{font:32px Georgia,serif;color:#d3b575;line-height:1;margin-bottom:9px;text-shadow:0 0 18px rgba(197,161,93,.18)}
+.fantasy-path .path-label{font-size:8px;letter-spacing:1.7px;color:#c4a66b;font-weight:700}
+.fantasy-path h3{font:600 19px Cinzel,serif;color:#eee2c8;margin:5px 0}
+.fantasy-path p{font-size:10px;color:#b8beaf;max-width:300px;margin:0 0 12px;line-height:1.5}
+.fantasy-path .path-rule{font-size:7px;letter-spacing:1.2px;color:#d0b87f;position:relative;z-index:1}
+.fantasy-path.wild-path{background:linear-gradient(145deg,rgba(31,62,46,.88),rgba(15,30,22,.94));border-color:rgba(116,157,112,.34)}
+.fantasy-path.wild-path .path-ornament{color:#9fbd91}
+.fantasy-path.wild-path .path-label,.fantasy-path.wild-path .path-rule{color:#a9c39a}
+.fantasy-path.shadow-path{background:linear-gradient(145deg,rgba(42,39,35,.9),rgba(22,24,21,.96));border-color:rgba(161,126,91,.36)}
+.fantasy-path.shadow-path .path-ornament{color:#c5a17b}
+.fantasy-path.shadow-path .path-label,.fantasy-path.shadow-path .path-rule{color:#c4a783}
+.atlas-footer{position:relative;z-index:1;text-align:center;margin-top:17px;color:#a99468;font-size:7px;letter-spacing:2px}
+.atlas-footer span{padding:0 9px;color:#d0b575}
+/* Give the common workspace panels a warmer, handcrafted finish in Fantasy only. */
+body[data-universe="fantasy"] .stat-card,
+body[data-universe="fantasy"] .panel{
+  border-color:rgba(197,161,93,.22);
+  background:linear-gradient(145deg,rgba(29,47,36,.96),rgba(19,32,25,.98));
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+body[data-universe="fantasy"] .stat-icon,
+body[data-universe="fantasy"] .text-btn,
+body[data-universe="fantasy"] .small-link{color:#d0b16f}
+body[data-universe="fantasy"] .stat-number{color:#eee0bb}
+body[data-universe="fantasy"] .section-heading h2,
+body[data-universe="fantasy"] .panel h3{color:#eadfc7}
+body[data-universe="fantasy"] .quick-icon{
+  background:rgba(197,161,93,.12);color:#d4b775;border:1px solid rgba(197,161,93,.18);
+}
+body[data-universe="fantasy"] .prototype-note{
+  background:rgba(8,16,12,.28);border-color:rgba(197,161,93,.22);
+}
+body[data-universe="fantasy"] .prototype-note strong{color:#e0c98f}
+body[data-universe="fantasy"] .campaign-card{
+  border-color:rgba(197,161,93,.25);
+  background:linear-gradient(145deg,#263b2d,#17251d);
+}
+body[data-universe="fantasy"] .campaign-card .card-top{color:#d5b777}
+body[data-universe="fantasy"] .campaign-card h3{color:#efe2c6}
+body[data-universe="fantasy"] .secondary-btn{
+  background:rgba(197,161,93,.10);border-color:rgba(197,161,93,.42);color:#e8d6a7;
+}
+body[data-universe="fantasy"] .placeholder-panel{
+  border-color:rgba(197,161,93,.35);
+  background:radial-gradient(ellipse at 50% 0%,rgba(100,135,91,.12),transparent 60%),rgba(15,27,20,.45);
+}
+body[data-universe="fantasy"] dialog{
+  background:#142219;border:1px solid rgba(197,161,93,.45);color:#eee2c8;
+}
+body[data-universe="fantasy"] dialog label{color:#d5bd83}
+body[data-universe="fantasy"] .version{color:#8d987f}
+@media(max-width:1050px){
+  body[data-universe="fantasy"] .hero-emblem{margin-right:0;width:175px}
+  body[data-universe="fantasy"] .hero-emblem .orbit-two{width:150px}
+}
+@media(max-width:760px){
+  body[data-universe="fantasy"] .hero-panel{padding:26px 23px;min-height:260px}
+  body[data-universe="fantasy"] .hero-emblem{display:none}
+  .fantasy-atlas{padding:20px 16px 14px}
+  .fantasy-paths{grid-template-columns:1fr}
+  .fantasy-path{min-height:135px}
+  .fantasy-atlas-heading h2{font-size:18px}
+}
+
+
+/* PROTOTYPE 12 — restrained Fantasy Realms refinement.
+   Preserve the original forest-green identity and Prototype 10 structure.
+   All rules are scoped to Fantasy; Starfleet and Galactic remain untouched. */
+body[data-universe="fantasy"] {
+  --bg:#0b1711;
+  --sidebar:#102018;
+  --panel:#192a20;
+  --panel2:#21382a;
+  --line:rgba(198,171,112,.25);
+  --gold:#c9a967;
+  --gold2:#efdda9;
+  --accent:#78936a;
+  --input:#122119;
+  --muted:#b8bcae;
+  background:
+    radial-gradient(ellipse at 72% 8%,rgba(75,112,70,.17),transparent 38%),
+    radial-gradient(ellipse at 12% 82%,rgba(42,78,54,.12),transparent 35%),
+    linear-gradient(180deg,#0a1510,#101e16 58%,#0b1711);
+}
+body[data-universe="fantasy"] .sidebar {
+  background:linear-gradient(180deg,#14271c 0%,#0d1a13 100%);
+  border-right-color:rgba(201,169,103,.28);
+}
+body[data-universe="fantasy"] .hero-panel {
+  background:
+    linear-gradient(90deg,rgba(7,19,12,.94),rgba(10,27,17,.76) 54%,rgba(10,25,16,.30)),
+    radial-gradient(ellipse at 82% 50%,rgba(155,139,78,.20),transparent 40%),
+    linear-gradient(135deg,#294733,#102219 72%);
+  border-color:rgba(201,169,103,.48);
+}
+body[data-universe="fantasy"] .fantasy-atlas {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(110,145,91,.15),transparent 58%),
+    linear-gradient(145deg,#1a3022,#101e16 75%);
+}
+body[data-universe="fantasy"] .fantasy-path {
+  background:linear-gradient(145deg,rgba(40,65,46,.96),rgba(18,34,24,.98));
+  border-color:rgba(201,169,103,.34);
+}
+body[data-universe="fantasy"] .fantasy-path.wild-path {
+  background:linear-gradient(145deg,rgba(43,78,53,.94),rgba(16,35,23,.98));
+  border-color:rgba(139,174,119,.38);
+}
+body[data-universe="fantasy"] .fantasy-path.shadow-path {
+  background:linear-gradient(145deg,rgba(54,48,37,.94),rgba(27,29,22,.98));
+  border-color:rgba(170,137,93,.36);
+}
+body[data-universe="fantasy"] .stat-card,
+body[data-universe="fantasy"] .panel {
+  background:linear-gradient(145deg,rgba(31,53,38,.97),rgba(17,32,23,.99));
+  border-color:rgba(201,169,103,.25);
+}
+body[data-universe="fantasy"] .campaign-card {
+  background:linear-gradient(145deg,#294631,#17291d);
+  border-color:rgba(201,169,103,.43);
+}
+body[data-universe="fantasy"] .quick-icon {
+  background:linear-gradient(145deg,#34563a,#1a3021);
+  color:#e5cf91;
+  border-color:rgba(201,169,103,.30);
+}
+body[data-universe="fantasy"] .placeholder-panel {
+  background:linear-gradient(145deg,#1d3425,#102016);
+  border-color:rgba(201,169,103,.35);
+}
+body[data-universe="fantasy"] .prototype-note {
+  background:#102016;
+  border-color:rgba(201,169,103,.27);
+}
+body[data-universe="fantasy"] .secondary-btn {
+  background:rgba(201,169,103,.09);
+  border-color:rgba(201,169,103,.42);
+  color:#efdda9;
+}
+body[data-universe="fantasy"] dialog {
+  background:#172a1d;
+  border-color:rgba(201,169,103,.48);
+}
+
+/* Give the existing atlas panels a more crafted, less template-like finish. */
+body[data-universe="fantasy"] .fantasy-path {
+  border-radius:5px 14px 5px 14px;
+  box-shadow:0 12px 28px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.025);
+}
+body[data-universe="fantasy"] .fantasy-path .path-ornament {
+  text-shadow:0 2px 14px rgba(201,169,103,.18);
+}
+body[data-universe="fantasy"] .atlas-footer {
+  color:#bda36d;
+}
+
+
+/* PROTOTYPE 13 — Fantasy Realms: The Ancient Chronicle identity.
+   Scoped exclusively to Fantasy Realms. Starfleet and Galactic styles remain unchanged. */
+body[data-universe="fantasy"] .fantasy-welcome { margin-bottom:18px; }
+body[data-universe="fantasy"] .fantasy-welcome h1 { color:#e8d6a5; }
+body[data-universe="fantasy"] .fantasy-chronicle-hero {
+  min-height:310px;
+  padding:34px 42px;
+  border:1px solid rgba(204,174,105,.65);
+  border-radius:5px 18px 5px 18px;
+  background:
+    linear-gradient(90deg,rgba(5,18,10,.96) 0%,rgba(7,23,13,.88) 33%,rgba(7,23,13,.34) 66%,rgba(5,17,10,.15) 100%),
+    linear-gradient(0deg,rgba(5,16,9,.35),transparent 45%),
+    url("assets/fantasy-chronicle-hero.jpg") center 48%/cover no-repeat,
+    #102116;
+  box-shadow:0 18px 45px rgba(0,0,0,.35),inset 0 0 0 4px rgba(190,158,91,.08);
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero:before {
+  content:"";position:absolute;inset:8px;border:1px solid rgba(205,174,105,.25);
+  pointer-events:none;border-radius:2px 13px 2px 13px;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero:after {
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0 65%,rgba(3,13,7,.1));
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy { max-width:490px; }
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-kicker {
+  color:#e0c27b;letter-spacing:3px;font-size:10px;font-weight:800;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy h2 {
+  font-size:clamp(34px,4vw,52px);line-height:1.08;color:#f2dfad;
+  text-shadow:0 3px 16px #000;letter-spacing:.2px;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy p {
+  color:#eee5cf;font-family:Georgia,serif;font-size:15px;line-height:1.65;
+  text-shadow:0 2px 8px #000;max-width:410px;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .outline-btn {
+  background:rgba(8,31,17,.88);border:1px solid #d5b66e;color:#f3dfaa;
+  border-radius:3px 10px 3px 10px;padding:12px 19px;
+}
+body[data-universe="fantasy"] .fantasy-tree-emblem {
+  width:220px;height:220px;margin-right:10px;
+}
+body[data-universe="fantasy"] .fantasy-tree-emblem img {
+  width:160px;height:160px;object-fit:cover;object-position:center;
+  border-radius:50%;border:2px solid rgba(215,184,111,.85);
+  box-shadow:0 0 0 8px rgba(8,25,14,.6),0 0 35px rgba(220,184,94,.3);
+  mix-blend-mode:screen;
+}
+body[data-universe="fantasy"] .fantasy-tree-emblem .emblem-caption {
+  bottom:5px;color:#f0d38b;font-size:8px;letter-spacing:1.7px;white-space:nowrap;
+}
+body[data-universe="fantasy"] .fantasy-five-halls {
+  margin-top:24px;padding:24px 20px 17px;
+  border:1px solid rgba(201,169,103,.42);border-radius:4px 15px 4px 15px;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(89,123,69,.17),transparent 55%),
+    linear-gradient(145deg,#14291b,#0c1b12 72%);
+  box-shadow:inset 0 0 0 5px rgba(201,169,103,.035),0 14px 35px rgba(0,0,0,.2);
+}
+body[data-universe="fantasy"] .fantasy-five-halls .fantasy-atlas-heading { margin:0 0 17px; }
+body[data-universe="fantasy"] .fantasy-five-halls .fantasy-atlas-kicker {
+  color:#d8b76d;letter-spacing:3px;font-size:10px;font-weight:800;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .fantasy-atlas-heading h2 {
+  color:#ead7a4;font:600 25px Cinzel,serif;text-transform:uppercase;letter-spacing:.5px;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .fantasy-atlas-heading p {
+  color:#b9c6ae;font-family:Georgia,serif;font-size:12px;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .fantasy-paths {
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .hall-card {
+  position:relative;min-height:310px;padding:0 13px 15px;overflow:hidden;
+  border:1px solid rgba(199,166,99,.68);border-radius:4px 13px 4px 13px;
+  background:linear-gradient(180deg,#1d3925,#0d1d13 85%);
+  box-shadow:0 9px 20px rgba(0,0,0,.32),inset 0 0 0 3px rgba(196,162,92,.08);
+}
+body[data-universe="fantasy"] .hall-card:before {
+  content:"";position:absolute;inset:5px;border:1px solid rgba(211,180,111,.22);
+  pointer-events:none;z-index:2;border-radius:2px 9px 2px 9px;
+}
+body[data-universe="fantasy"] .hall-card .hall-art {
+  height:132px;margin:0 -13px 15px;background-size:cover;background-position:center;
+  border-bottom:1px solid rgba(207,175,105,.7);box-shadow:inset 0 -20px 24px rgba(4,16,9,.32);
+}
+body[data-universe="fantasy"] .hall-atlas .hall-art{background-image:url("assets/fantasy-hall-1.jpg")}
+body[data-universe="fantasy"] .hall-court .hall-art{background-image:url("assets/fantasy-hall-2.jpg")}
+body[data-universe="fantasy"] .hall-archives .hall-art{background-image:url("assets/fantasy-hall-3.jpg")}
+body[data-universe="fantasy"] .hall-chronicle .hall-art{background-image:url("assets/fantasy-hall-4.jpg")}
+body[data-universe="fantasy"] .hall-shadow .hall-art{background-image:url("assets/fantasy-hall-5.jpg")}
+body[data-universe="fantasy"] .hall-card .path-ornament {
+  position:absolute;top:105px;right:13px;width:38px;height:38px;display:grid;place-items:center;
+  background:#173521;border:1px solid #d0ad62;border-radius:50%;color:#e8ce88;
+  font-size:19px;box-shadow:0 3px 10px #0009;z-index:3;
+}
+body[data-universe="fantasy"] .hall-card .path-label {
+  color:#d9b96f;font-size:8px;letter-spacing:1.3px;font-weight:800;margin-bottom:5px;
+}
+body[data-universe="fantasy"] .hall-card h3 {
+  color:#f0dfb4;font:600 16px Cinzel,serif;line-height:1.25;margin:5px 0 9px;
+}
+body[data-universe="fantasy"] .hall-card p {
+  color:#d0d7c9;font-family:Georgia,serif;font-size:11px;line-height:1.5;min-height:65px;
+}
+body[data-universe="fantasy"] .hall-card .path-rule {
+  display:block;border-top:1px solid rgba(200,169,103,.3);padding-top:9px;margin-top:8px;
+  color:#d5b66e;font-size:7px;letter-spacing:.8px;line-height:1.5;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .atlas-footer {
+  margin-top:17px;padding-top:14px;border-top:1px solid rgba(201,169,103,.28);
+  color:#e0c27b;letter-spacing:2.3px;font-size:9px;text-align:center;
+}
+body[data-universe="fantasy"] .fantasy-five-halls .atlas-footer span {padding:0 12px;color:#e6c778}
+@media(max-width:1200px){
+ body[data-universe="fantasy"] .fantasy-five-halls .fantasy-paths{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+ body[data-universe="fantasy"] .fantasy-chronicle-hero{min-height:280px;padding:25px 22px;background-position:center}
+ body[data-universe="fantasy"] .fantasy-tree-emblem{display:none}
+ body[data-universe="fantasy"] .fantasy-five-halls{padding:17px 12px}
+ body[data-universe="fantasy"] .fantasy-five-halls .fantasy-paths{grid-template-columns:1fr}
+ body[data-universe="fantasy"] .hall-card{min-height:0!important}
+ body[data-universe="fantasy"] .hall-card p{min-height:0}
+}
+
+
+/* Prototype 14 correction: universe-specific hero marks and Chronicles of Puma identity. */
+body[data-universe="fantasy"] .galaxy-original-emblem { display:none !important; }
+body[data-universe="galaxy"] .fantasy-tree-emblem { display:none !important; }
+body[data-universe="galaxy"] .galaxy-original-emblem { display:grid !important; }
+body[data-universe="starfleet"] .fantasy-tree-emblem,
+body[data-universe="starfleet"] .galaxy-original-emblem { display:none !important; }
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy h2 { font-size:clamp(30px,3.2vw,44px); }
+
+
+/* PROTOTYPE 15 — remove the obsolete baked-in Fantasy Realms banner lettering
+   with a live, editable title plaque for The Chronicles of Puma. */
+body[data-universe="fantasy"] .puma-live-title {
+  position:absolute; z-index:4;
+  left:50%; top:50%; transform:translate(-50%,-50%);
+  width:min(48%,620px); min-height:118px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:7px; padding:16px 22px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at center,rgba(7,28,15,.97) 0%,rgba(7,27,15,.93) 66%,rgba(7,25,14,.78) 100%);
+  border:1px solid rgba(211,177,99,.78);
+  outline:1px solid rgba(211,177,99,.24); outline-offset:5px;
+  box-shadow:0 8px 30px rgba(0,0,0,.55),inset 0 0 25px rgba(177,139,65,.08);
+  pointer-events:none;
+}
+body[data-universe="fantasy"] .puma-title-kicker {
+  color:#d9bb72;font-size:8px;font-weight:800;letter-spacing:2.8px;
+}
+body[data-universe="fantasy"] .puma-title-main {
+  color:#f0d99d;font-family:Cinzel,Georgia,serif;
+  font-size:clamp(23px,2.65vw,39px);font-weight:700;line-height:1.12;
+  text-shadow:0 2px 9px #000,0 0 18px rgba(220,177,87,.22);
+  white-space:nowrap;
+}
+body[data-universe="fantasy"] .puma-title-sub {
+  color:#d6b66d;font-size:8px;letter-spacing:2px;font-weight:700;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy h2 { display:none; }
+@media(max-width:760px){
+ body[data-universe="fantasy"] .puma-live-title {
+   left:50%;top:72%;width:78%;min-height:72px;padding:8px 10px;
+ }
+ body[data-universe="fantasy"] .puma-title-main {font-size:20px;white-space:normal}
+ body[data-universe="fantasy"] .puma-title-kicker,body[data-universe="fantasy"] .puma-title-sub {font-size:6px;letter-spacing:1px}
+}
+
+
+/* PROTOTYPE 16 — true banner-art replacement.
+   The old Fantasy Realms title is removed from the source artwork itself.
+   The Puma wordmark, tree sigil, landscape and archive ribbon are now one cohesive image. */
+body[data-universe="fantasy"] .fantasy-chronicle-hero {
+  position:relative;
+  min-height:320px;
+  padding:0;
+  overflow:hidden;
+  background:#0a1b10 url("assets/puma-chronicle-banner.jpg") center center/100% 100% no-repeat !important;
+  border:1px solid rgba(207,174,99,.82);
+  border-radius:5px 15px 5px 15px;
+  box-shadow:0 16px 38px rgba(0,0,0,.38),inset 0 0 0 4px rgba(201,169,103,.08);
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero:before {
+  content:"";position:absolute;inset:6px;border:1px solid rgba(211,181,112,.32);
+  pointer-events:none;border-radius:2px 10px 2px 10px;z-index:2;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero:after { display:none; }
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy {
+  position:absolute;left:30px;bottom:65px;width:205px;height:42px;
+  max-width:none;z-index:4;margin:0;padding:0;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy > * { display:none !important; }
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy .outline-btn {
+  display:block !important;position:absolute;inset:0;width:100%;height:100%;
+  margin:0;padding:0;opacity:.015;cursor:pointer;border:0;background:transparent;
+  color:transparent;box-shadow:none;
+}
+body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy .outline-btn span { color:transparent; }
+body[data-universe="fantasy"] .fantasy-tree-emblem,
+body[data-universe="fantasy"] .puma-live-title { display:none !important; }
+@media(max-width:760px){
+ body[data-universe="fantasy"] .fantasy-chronicle-hero {
+   min-height:220px;background-size:cover !important;background-position:center !important;
+ }
+ body[data-universe="fantasy"] .fantasy-chronicle-hero .hero-copy {
+   left:5%;bottom:18%;width:31%;height:14%;
+ }
+}
