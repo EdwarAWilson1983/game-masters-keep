@@ -25,12 +25,17 @@
       <div class="nav-label">WORKSPACE</div>
       <nav class="main-nav" aria-label="Main navigation">
         <button class="nav-item active" data-view="dashboard"><span>⌂</span> Headquarters</button>
+        <button class="nav-item" data-view="command"><span>✦</span> DM Command Center</button>
         <button class="nav-item" data-view="campaigns"><span>⚑</span> Campaigns</button>
-        <button class="nav-item" data-view="characters"><span>♙</span> Characters & NPCs</button>
+        <button class="nav-item" data-view="characters"><span>♙</span> Characters & NPCs</button><button class="nav-item" data-view="bestiary"><span>♜</span> Bestiary & NPC Dossiers</button>
+        <button class="nav-item" data-view="spellgear"><span>✧</span> Spellbook & Equipment</button>
         <button class="nav-item" data-view="artwork"><span>✦</span> Visual Creation Studio</button>
         <button class="nav-item" data-view="sessions"><span>▤</span> Sessions & Quests</button>
+        <button class="nav-item" data-view="adventures"><span>✧</span> Adventure Builder</button>
+        <button class="nav-item" data-view="world"><span>⌖</span> World & Factions</button>
         <button class="nav-item" data-view="library"><span>⌕</span> Rules Library</button>
         <button class="nav-item" data-view="tools"><span>⚄</span> Game Tools</button>
+        <button class="nav-item" data-view="dmtoolkit"><span>♜</span> DM Toolkit</button>
         <button class="nav-item" data-view="archives"><span>▣</span> Library & Archives</button>
       </nav>
       <div class="sidebar-bottom">
@@ -170,6 +175,28 @@
         <div class="prototype-note"><strong>Prototype note:</strong> This first build is a local, single-device workspace. Campaigns you create are saved in this browser. Accounts, shared cloud storage and multiplayer are later milestones.</div>
       </section>
 
+      <section class="page-view" id="view-command">
+        <div class="welcome-row"><div><div class="eyebrow">GAME MASTER OPERATIONS</div><h1>DM Command Center</h1><p class="intro">A campaign-wide briefing of the people, places, stories and sessions in your realm.</p></div><button class="primary-btn" id="commandNewCampaign">＋ New campaign</button></div>
+        <div class="command-campaign-bar"><label for="commandCampaignSelect">ACTIVE CAMPAIGN</label><select id="commandCampaignSelect"></select><span id="commandCampaignStatus" class="tag">NO CAMPAIGN SELECTED</span></div>
+        <div id="commandNoCampaign" class="placeholder-panel" hidden><div class="placeholder-icon">✦</div><h2>Your command center is waiting</h2><p>Create a campaign or select another universe to begin organizing your world.</p></div>
+        <div id="commandDashboard" hidden>
+          <div class="command-stat-grid">
+            <article class="command-stat"><span>CHARACTERS</span><strong id="cmdCharacters">0</strong><small>Heroes & companions</small></article>
+            <article class="command-stat"><span>SESSIONS</span><strong id="cmdSessions">0</strong><small>Recorded sessions</small></article>
+            <article class="command-stat"><span>ADVENTURES</span><strong id="cmdAdventures">0</strong><small>Story frameworks</small></article>
+            <article class="command-stat"><span>WORLD RECORDS</span><strong id="cmdWorld">0</strong><small>Places & factions</small></article>
+            <article class="command-stat"><span>NPCs & CREATURES</span><strong id="cmdBestiary">0</strong><small>Campaign dossiers</small></article>
+            <article class="command-stat"><span>MAPS</span><strong id="cmdMaps">0</strong><small>Campaign maps</small></article>
+          </div>
+          <div class="command-grid">
+            <section class="command-panel"><div class="command-panel-head"><h2>Campaign briefing</h2><span class="tag">OVERVIEW</span></div><p id="cmdPremise" class="command-premise"></p><div class="command-facts" id="cmdFacts"></div></section>
+            <section class="command-panel"><div class="command-panel-head"><h2>Quick access</h2><span class="tag">TOOLS</span></div><div class="command-shortcuts"><button data-command-go="sessions">Session records</button><button data-command-go="adventures">Adventure builder</button><button data-command-go="world">World & factions</button><button data-command-go="bestiary">Bestiary & NPCs</button><button data-command-go="spellgear">Spellbook & equipment</button><button data-command-go="archives">Library & archives</button></div></section>
+            <section class="command-panel"><div class="command-panel-head"><h2>Recent sessions</h2><button class="text-btn" data-command-go="sessions">Open sessions →</button></div><div id="cmdRecentSessions" class="command-list"></div></section>
+            <section class="command-panel"><div class="command-panel-head"><h2>Adventure threads</h2><button class="text-btn" data-command-go="adventures">Open adventures →</button></div><div id="cmdAdventureThreads" class="command-list"></div></section>
+            <section class="command-panel command-wide"><div class="command-panel-head"><h2>World & faction highlights</h2><button class="text-btn" data-command-go="world">Open atlas →</button></div><div id="cmdWorldHighlights" class="command-list"></div></section>
+          </div>
+        </div>
+      </section>
       <section class="page-view" id="view-campaigns">
         <div class="page-heading"><div><div class="eyebrow">BUILD YOUR WORLDS</div><h1>Campaigns</h1><p>Keep every adventure, setting and story in one place.</p></div><button class="primary-btn" id="newCampaign">＋ New campaign</button></div>
         <div class="campaign-toolbar">
@@ -211,6 +238,49 @@
               <label>Role / class<input id="characterRole" maxlength="80" placeholder="Ranger, captain, Jedi…"></label>
               <label>Race / species<input id="characterSpecies" maxlength="80" placeholder="Elf, human, Vulcan…"></label>
             </div>
+            <section id="fiveESheetEditor" class="sheet-editor-section">
+              <div class="sheet-section-heading"><div><div class="eyebrow">PLAYABLE CHARACTER RECORD</div><h3>5E Character Sheet · 2014 rules</h3><p>For The Chronicles of Puma. Enter the values from your character sheet; derived modifiers are calculated automatically in the card.</p></div><span class="sheet-edition-mark">5E</span></div>
+              <div class="character-fields-two">
+                <label>Character level<input id="sheetLevel" type="number" min="1" max="20" value="1"></label>
+                <label>Background<input id="sheetBackground" maxlength="80" placeholder="Soldier, Sage, Folk Hero…"></label>
+                <label>Alignment<input id="sheetAlignment" maxlength="40" placeholder="Neutral Good"></label>
+                <label>Proficiency bonus <small>(calculated from level)</small><input id="sheetProficiency" type="number" min="2" max="6" value="2" readonly></label>
+              </div>
+              <h4>Ability scores</h4>
+              <div class="ability-score-grid">
+                <label>STR<input id="sheetStr" type="number" min="1" max="30" value="10"></label><label>DEX<input id="sheetDex" type="number" min="1" max="30" value="10"></label><label>CON<input id="sheetCon" type="number" min="1" max="30" value="10"></label><label>INT<input id="sheetInt" type="number" min="1" max="30" value="10"></label><label>WIS<input id="sheetWis" type="number" min="1" max="30" value="10"></label><label>CHA<input id="sheetCha" type="number" min="1" max="30" value="10"></label>
+              </div>
+              <div class="character-fields-two">
+                <label>Current HP<input id="sheetHpCurrent" type="number" min="0" value="10"></label><label>Maximum HP<input id="sheetHpMax" type="number" min="1" value="10"></label>
+                <label>Temporary HP<input id="sheetHpTemp" type="number" min="0" value="0"></label><label>Armor Class<input id="sheetAc" type="number" min="0" value="10"></label>
+                <label>Speed (feet)<input id="sheetSpeed" type="number" min="0" value="30"></label><label>Initiative bonus<input id="sheetInitiative" type="number" value="0"></label>
+                </div><section class="sheet-resource-panel"><div><h4>Live resource tracking</h4><p>These are the session-to-session resources and status counters added in Phase 3.12.</p></div><div class="sheet-resource-grid"><label>Hit Dice<input id="sheetHitDice" maxlength="20" placeholder="1d8"></label><label>Hit Dice remaining<input id="sheetHitDiceRemaining" type="number" min="0" value="1"></label><label>Passive Perception<input id="sheetPassivePerception" type="number" min="0" value="10"></label><label>Death save successes<input id="sheetDeathSuccesses" type="number" min="0" max="3" value="0"></label><label>Death save failures<input id="sheetDeathFailures" type="number" min="0" max="3" value="0"></label><label>Exhaustion level<input id="sheetExhaustion" type="number" min="0" max="6" value="0"></label><label class="inline-check"><input id="sheetInspiration" type="checkbox"> <span>Inspiration available</span></label></div></section>
+              <label>Saving throw proficiencies<textarea id="sheetSaves" rows="2" placeholder="e.g. Strength, Constitution"></textarea></label>
+              <label>Skill proficiencies<textarea id="sheetSkills" rows="2" placeholder="e.g. Athletics, Perception, Survival"></textarea></label>
+              <div class="sheet-equipment-panel">
+                <h4>Equipment & combat loadout</h4>
+                <p class="muted">Choose items from the Rules Library. These selections are saved with this character.</p>
+                <div class="character-fields-two">
+                  <label>Equipped weapon<select id="sheetEquippedWeapon"><option value="">No weapon selected</option></select></label>
+                  <label>Weapon ability<select id="sheetWeaponAbility"><option value="str">Strength</option><option value="dex">Dexterity</option></select></label>
+                  <label>Armor worn<select id="sheetEquippedArmor"><option value="">No armor selected</option></select></label>
+                  <label>Shield<select id="sheetEquippedShield"><option value="">No shield</option></select></label>
+                </div>
+                <label class="inline-check"><input id="sheetWeaponProficient" type="checkbox" checked> Proficient with equipped weapon</label>
+                <div id="sheetEquipmentPreview" class="sheet-derived-preview">Choose equipment to see its combat summary.</div>
+                <label>Additional carried gear<textarea id="sheetCarriedGear" rows="2" placeholder="Rope, torches, rations, potions…"></textarea></label>
+              </div>
+              <label>Attacks & weapons<textarea id="sheetAttacks" rows="3" placeholder="Additional attacks, special properties, or custom rulings"></textarea></label>
+              <label>Features, traits & resources<textarea id="sheetFeatures" rows="3" placeholder="Class features, ancestry traits, limited-use abilities…"></textarea></label>
+              <label>Inventory & treasure<textarea id="sheetInventory" rows="3" placeholder="Equipment, items, coins and carried treasure…"></textarea></label>
+              <label>Spells known / prepared<textarea id="sheetSpells" rows="3" placeholder="Spell names, cantrips, prepared spells…"></textarea></label>
+              <label>Spellcasting ability<select id="sheetSpellAbility"><option value="">Not applicable</option><option value="int">Intelligence</option><option value="wis">Wisdom</option><option value="cha">Charisma</option></select></label>
+              <div id="sheetDerivedPreview" class="sheet-derived-preview">Derived spell statistics will appear when you choose a spellcasting ability.</div>
+              <label>Spell slot tracker<textarea id="sheetSpellSlots" rows="2" placeholder="Example: 1st 4/4; 2nd 2/3; 3rd 1/2 (current / maximum)"></textarea></label>
+              <label>Conditions & active effects<textarea id="sheetConditions" rows="2" placeholder="Example: poisoned, concentrating on Bless, frightened until end of next turn…"></textarea></label>
+              <label>Spellcasting details<textarea id="sheetSpellcasting" rows="2" placeholder="Spellcasting focus, known/prepared spells, special features…"></textarea></label>
+              <label>Character sheet notes<textarea id="sheetNotes" rows="2" placeholder="Conditions, bonds, goals, session notes…"></textarea></label>
+            </section>
             <label>Appearance and distinguishing features<textarea id="characterAppearance" rows="3" maxlength="1800" placeholder="Describe face, build, hair, eyes, clothing, colors, scars and other recognizable details."></textarea></label>
             <label>Personality and motivations<textarea id="characterPersonality" rows="2" maxlength="1200" placeholder="What drives this character?"></textarea></label>
             <label>Biography / backstory<textarea id="characterBiography" rows="3" maxlength="2500" placeholder="History, relationships, secrets and important events…"></textarea></label>
@@ -310,6 +380,7 @@
               <label>Session date<input id="sessionDate" type="date" required></label>
               <label>What happened?<textarea id="sessionSummary" rows="5" maxlength="5000" required placeholder="Describe the events of this session. Include discoveries, encounters, dialogue worth remembering, and the choices the party made."></textarea></label>
               <label>Characters involved<input id="sessionCast" maxlength="500" placeholder="Heroes, allies, rivals, NPCs…"></label>
+              <label>Adventure being played <select id="sessionAdventureSelect"><option value="">Not linked to a saved adventure</option></select></label>
               <label>Important decisions / consequences<textarea id="sessionTurningPoint" rows="3" maxlength="2500" placeholder="What changed? What choices will matter later?"></textarea></label>
               <label>Illustrations for this session <select id="sessionArtworkSelect" multiple size="4" aria-describedby="sessionArtworkHelp"></select><small id="sessionArtworkHelp" class="form-hint">Optional. Select images already in this campaign's Artwork Gallery. Hold Ctrl (Windows) to select multiple images.</small></label>
               <div class="session-form-actions"><button type="button" class="secondary-btn" id="cancelSessionEdit">Cancel</button><button type="submit" class="primary-btn" id="saveSession">Save session record</button></div>
@@ -331,19 +402,214 @@
         </dialog>
       </section>
 
+      <section class="page-view" id="view-adventures">
+        <div class="page-heading"><div><div class="eyebrow">WEAVE THE NEXT TALE</div><h1>Adventure Builder</h1><p>Develop an adventure framework, connect it to your campaign cast and creatures, then carry the plan into your session records and campaign chronicle.</p></div></div>
+        <div class="adventure-intro panel"><div><span class="tag">PHASE 3.16 · ADVENTURE & CHRONICLE BUILDER</span><h2>From a spark to a playable adventure.</h2><p>Build an original premise, define the people and threats involved, and keep locations, complications and rewards together. This is a planning framework, not an automatically written finished story.</p></div><div class="adventure-seal">✧</div></div>
+        <section class="adventure-workspace panel">
+          <div class="adventure-toolbar"><label>CAMPAIGN<select id="adventureCampaignSelect" aria-label="Choose campaign for adventure plans"></select></label><button type="button" class="secondary-btn" id="generateAdventureFramework">✧ Generate an adventure spark</button></div>
+          <div id="adventureNoCampaign" class="empty-state"><strong>No campaigns in this universe yet.</strong><p>Create a campaign before building an adventure.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+          <div id="adventureEditorWrap" hidden>
+            <form id="adventureForm" class="adventure-form">
+              <input type="hidden" id="adventureId">
+              <div class="adventure-form-heading"><div><div class="eyebrow">ADVENTURE FRAMEWORK</div><h3 id="adventureFormHeading">Create an adventure</h3></div><span class="muted">Saved with this campaign</span></div>
+              <label>Adventure title<input id="adventureTitle" required maxlength="120" placeholder="The Bells Beneath Blackwater Keep"></label>
+              <label>Story hook / opening premise<textarea id="adventureHook" rows="4" maxlength="3500" placeholder="What draws the party into this story? What do they first see, hear or learn?"></textarea></label>
+              <div class="adventure-two-col"><label>Patron / quest giver<input id="adventurePatron" maxlength="500" placeholder="Who asks for help — and why?"></label><label>Primary objective<input id="adventureObjective" maxlength="700" placeholder="What must the party accomplish?"></label></div>
+              <div class="adventure-two-col"><label>Key NPCs<select id="adventureNpcLinks" multiple size="4"></select><small class="form-hint">Select NPCs already saved in this campaign. Hold Ctrl to select multiple.</small></label><label>Featured creatures<select id="adventureCreatureLinks" multiple size="4"></select><small class="form-hint">Select custom creatures from this campaign's Bestiary.</small></label></div>
+              <label>Antagonist / opposing force<input id="adventureAntagonist" maxlength="700" placeholder="A rival, faction, creature, disaster or hidden influence"></label>
+              <label>Important locations<textarea id="adventureLocations" rows="3" maxlength="1800" placeholder="Places the party may visit, investigate or explore"></textarea></label>
+              <label>Complications and revelations<textarea id="adventureComplications" rows="4" maxlength="2500" placeholder="What makes the situation more difficult? What might the party discover?"></textarea></label>
+              <label>Rewards and consequences<textarea id="adventureRewards" rows="3" maxlength="1800" placeholder="Treasure, favors, knowledge, allies, costs or lasting changes"></textarea></label>
+              <label>DM preparation notes<textarea id="adventureNotes" rows="3" maxlength="2500" placeholder="Encounters to prepare, clues, pacing, unresolved questions…"></textarea></label>
+              <div class="adventure-form-actions"><button type="button" class="secondary-btn" id="resetAdventureForm">Clear form</button><button type="submit" class="primary-btn" id="saveAdventure">Save adventure</button></div>
+            </form>
+            <div class="adventure-saved-heading"><div><div class="eyebrow">CAMPAIGN STORY ARCHIVE</div><h3>Saved adventures</h3></div><span id="adventureCount" class="muted">0 adventures</span></div>
+            <div id="savedAdventureList" class="saved-adventure-list"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="page-view" id="view-world">
+        <div class="page-heading"><div><div class="eyebrow">BUILD THE LIVING WORLD</div><h1>World & Factions</h1><p>Keep settlements, landmarks, organizations and their relationships connected to each campaign.</p></div></div>
+        <div class="adventure-intro panel"><div><span class="tag">PHASE 3.17 · WORLDBUILDING</span><h2>A world is more than a map.</h2><p>Record the places people inhabit, the groups competing for influence, and the ties that connect them. Entries are campaign-specific and remain in your local browser data.</p></div><div class="adventure-seal">⌖</div></div>
+        <section class="world-workspace panel">
+          <div class="adventure-toolbar"><label>CAMPAIGN<select id="worldCampaignSelect" aria-label="Choose campaign for worldbuilding"></select></label><span class="muted" id="worldCounts">0 places · 0 factions</span></div>
+          <div id="worldNoCampaign" class="empty-state"><strong>No campaigns in this universe yet.</strong><p>Create a campaign before building its world.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+          <div id="worldEditorWrap" hidden>
+            <div class="world-tabs"><button type="button" class="active" data-world-tab="places">Places & Settlements</button><button type="button" data-world-tab="factions">Factions & Organizations</button><button type="button" data-world-tab="maps">Maps & Geography</button><button type="button" data-world-tab="connections">World Connections</button></div>
+            <div class="world-tab-panel active" id="world-places">
+              <form id="placeForm" class="adventure-form"><input type="hidden" id="placeId"><div class="adventure-form-heading"><div><div class="eyebrow">ATLAS ENTRY</div><h3 id="placeFormHeading">Add a place</h3></div><span class="muted">Saved with this campaign</span></div>
+                <label>Place name<input id="placeName" required maxlength="120" placeholder="Greyhaven, the Lantern Coast"></label>
+                <div class="adventure-two-col"><label>Type<select id="placeType"><option>Settlement</option><option>City</option><option>Village</option><option>Region</option><option>Landmark</option><option>Dungeon</option><option>Wilderness</option><option>Stronghold</option><option>Other</option></select></label><label>Ruler / steward<input id="placeRuler" maxlength="180" placeholder="Who holds authority here?"></label></div>
+                <label>Description<textarea id="placeDescription" rows="3" maxlength="1800" placeholder="Appearance, atmosphere, history and significance"></textarea></label>
+                <div class="adventure-two-col"><label>Notable features<textarea id="placeFeatures" rows="2" maxlength="1000" placeholder="Landmarks, services, dangers"></textarea></label><label>Connections<textarea id="placeConnections" rows="2" maxlength="1000" placeholder="Roads, nearby places, routes"></textarea></label></div>
+                <label>DM secrets / notes<textarea id="placeNotes" rows="2" maxlength="1200" placeholder="Hidden truths, unresolved hooks and private notes"></textarea></label>
+                <div class="adventure-form-actions"><button type="button" class="secondary-btn" id="resetPlaceForm">Clear form</button><button type="submit" class="primary-btn">Save place</button></div>
+              </form><div class="adventure-saved-heading"><h3>Campaign atlas</h3><input id="placeSearch" class="world-search" placeholder="Search places…" aria-label="Search places"></div><div id="placeList" class="world-record-list"></div>
+            </div>
+            <div class="world-tab-panel" id="world-factions">
+              <form id="factionForm" class="adventure-form"><input type="hidden" id="factionId"><div class="adventure-form-heading"><div><div class="eyebrow">POWER & INFLUENCE</div><h3 id="factionFormHeading">Add a faction</h3></div><span class="muted">Saved with this campaign</span></div>
+                <label>Faction / organization name<input id="factionName" required maxlength="120" placeholder="The Ashen Compact"></label>
+                <div class="adventure-two-col"><label>Type<select id="factionType"><option>Guild</option><option>Political organization</option><option>Religious order</option><option>Military</option><option>Criminal network</option><option>Secret society</option><option>Merchant company</option><option>Tribal / cultural group</option><option>Other</option></select></label><label>Leader<input id="factionLeader" maxlength="180" placeholder="Known leader or council"></label></div>
+                <label>Public purpose & methods<textarea id="factionPurpose" rows="3" maxlength="1600" placeholder="What does the group claim to want, and how does it operate?"></textarea></label>
+                <div class="adventure-two-col"><label>Resources & influence<textarea id="factionResources" rows="2" maxlength="1000" placeholder="Wealth, territory, allies, capabilities"></textarea></label><label>Allies & rivals<textarea id="factionRelations" rows="2" maxlength="1000" placeholder="Friends, enemies and competing interests"></textarea></label></div>
+                <label>Secrets / DM notes<textarea id="factionNotes" rows="2" maxlength="1200" placeholder="Hidden agenda, internal divisions, future plans"></textarea></label>
+                <div class="adventure-form-actions"><button type="button" class="secondary-btn" id="resetFactionForm">Clear form</button><button type="submit" class="primary-btn">Save faction</button></div>
+              </form><div class="adventure-saved-heading"><h3>Organizations & factions</h3><input id="factionSearch" class="world-search" placeholder="Search factions…" aria-label="Search factions"></div><div id="factionList" class="world-record-list"></div>
+            </div>
+            <div class="world-tab-panel" id="world-connections">
+              <div class="connections-intro"><div><div class="eyebrow">THE LIVING WORLD</div><h3>Relationships & World Connections</h3><p>Connect places, factions, NPCs, creatures and adventures. These links belong to this campaign and can be revised as your story changes.</p></div><span class="connections-mark">⌘</span></div>
+              <form id="worldConnectionForm" class="adventure-form connection-form">
+                <div class="adventure-form-heading"><div><div class="eyebrow">CREATE A RELATIONSHIP</div><h3>Connect two campaign records</h3></div><span class="muted">Saved with this campaign</span></div>
+                <div class="adventure-two-col"><label>First record<select id="connectionFrom" required></select></label><label>Relationship<select id="connectionType"><option>Located in</option><option>Controls</option><option>Headquartered in</option><option>Allied with</option><option>Rivals</option><option>Enemies with</option><option>Protects</option><option>Threatens</option><option>Employs</option><option>Serves</option><option>Hunts</option><option>Guards</option><option>Connected by road</option><option>Trade route</option><option>Secretly influences</option><option>Quest takes place at</option><option>Other</option></select></label></div>
+                <label>Second record<select id="connectionTo" required></select></label>
+                <label>Context / DM notes<textarea id="connectionNotes" rows="2" maxlength="1200" placeholder="Why does this connection matter? Add public or secret context."></textarea></label>
+                <div class="adventure-form-actions"><button type="button" class="secondary-btn" id="resetWorldConnection">Clear form</button><button type="submit" class="primary-btn">＋ Save connection</button></div>
+              </form>
+              <div class="connection-summary" id="connectionSummary"></div>
+              <div class="adventure-saved-heading"><h3>Campaign relationship ledger</h3><input id="connectionSearch" class="world-search" placeholder="Search connections…" aria-label="Search campaign connections"></div>
+              <div id="worldConnectionList" class="world-record-list"></div>
+              <p class="form-hint connection-footnote">Deleting a place, faction, NPC, creature or adventure does not silently delete your other campaign records; links to removed records are flagged here so you can clean them up.</p>
+            </div>
+            <div class="world-tab-panel" id="world-maps">
+              <div class="maproom-intro"><div><div class="eyebrow">CAMPAIGN CARTOGRAPHY</div><h3>Your world, drawn your way.</h3><p>Upload your own regional, city, dungeon or world maps. Place markers and connect them to entries in your campaign atlas. Maps are stored locally with this campaign.</p></div><span class="maproom-compass">✥</span></div>
+              <section class="mapmaker-workshop" aria-labelledby="mapmakerWorkshopTitle">
+                <div class="mapmaker-workshop-heading"><div><div class="eyebrow">EXTERNAL CREATION TOOLS</div><h3 id="mapmakerWorkshopTitle">Mapmaker's Workshop</h3><p>Create your map elsewhere, export an image, then bring it into your campaign atlas below. These are independent third-party services; their free features and terms may change.</p></div><span class="mapmaker-workshop-mark">✧</span></div>
+                <div class="mapmaker-tool-grid">
+                  <article class="mapmaker-tool-card"><div class="mapmaker-tool-type">WORLDS & REGIONS</div><h4>Inkarnate</h4><p>Illustrated fantasy world, regional, city and battle maps. Offers a free plan with limited assets and exports.</p><a href="https://inkarnate.com/" target="_blank" rel="noopener noreferrer">Open Inkarnate ↗</a></article>
+                  <article class="mapmaker-tool-card"><div class="mapmaker-tool-type">WORLD GENERATION</div><h4>Azgaar's Fantasy Map Generator</h4><p>Generate worlds with terrain, states, cultures, borders and settlements. Free and open source.</p><a href="https://azgaar.github.io/Fantasy-Map-Generator/" target="_blank" rel="noopener noreferrer">Open Azgaar ↗</a></article>
+                  <article class="mapmaker-tool-card"><div class="mapmaker-tool-type">DUNGEONS & INTERIORS</div><h4>Dungeon Scrawl</h4><p>Quickly draw dungeon rooms, corridors and encounter layouts. Core tools are available free.</p><a href="https://www.dungeonscrawl.com/" target="_blank" rel="noopener noreferrer">Open Dungeon Scrawl ↗</a></article>
+                  <article class="mapmaker-tool-card"><div class="mapmaker-tool-type">CITIES & SETTLEMENTS</div><h4>Watabou City Generator</h4><p>Generate medieval-style city plans with streets, districts and landmarks.</p><a href="https://watabou.itch.io/medieval-fantasy-city-generator" target="_blank" rel="noopener noreferrer">Open Watabou ↗</a></article>
+                </div>
+                <div class="mapmaker-import-guide"><strong>Bring your finished map into the Keep</strong><ol><li>Open a mapmaking tool above and create your map.</li><li>Export or download it as a PNG, JPG or WebP image.</li><li>Return here, give the map a title and category, and upload the image.</li><li>Click the map to place numbered markers and link them to your campaign atlas entries.</li></ol></div>
+              </section>
+              <form id="campaignMapForm" class="adventure-form map-upload-form"><div class="adventure-form-heading"><div><div class="eyebrow">ADD TO THE ATLAS</div><h3>Upload a campaign map</h3></div><span class="muted">JPG, PNG or WebP · resized for local storage</span></div>
+                <div class="adventure-two-col"><label>Map title<input id="campaignMapTitle" required maxlength="120" placeholder="The Northern Kingdoms"></label><label>Map category<select id="campaignMapType"><option>World map</option><option>Regional map</option><option>City map</option><option>Dungeon map</option><option>Battle map</option><option>Other</option></select></label></div>
+                <label>Choose image<input id="campaignMapFile" type="file" accept="image/png,image/jpeg,image/webp" required></label>
+                <div class="adventure-form-actions"><button class="primary-btn" type="submit">＋ Add map</button></div>
+              </form>
+              <div class="maproom-layout"><section class="maproom-viewer"><div class="maproom-toolbar"><label>SELECT MAP<select id="campaignMapSelect"><option value="">No maps uploaded</option></select></label><button type="button" class="text-btn" id="deleteCampaignMap" disabled>Delete map</button></div><div id="campaignMapStage" class="campaign-map-stage"><div class="placeholder-panel"><h3>Your map room is waiting</h3><p>Upload a map above to begin placing locations.</p></div></div><p class="maproom-hint">Choose a map, then click anywhere on the image to place a marker. You can link it to a saved place or add a freeform note.</p></section><aside class="maproom-markers"><div class="eyebrow">MAP LEGEND</div><h3>Marked locations</h3><div id="campaignMapMarkers" class="map-marker-list"><p class="muted">No map selected.</p></div></aside></div>
+            </div>
+          </div>
+        </section>
+      </section>
       <section class="page-view" id="view-library">
         <div class="page-heading"><div><div class="eyebrow">KNOW YOUR WORLD</div><h1>Rules Library</h1><p>A searchable home for rules references and game knowledge.</p></div></div>
-        <div class="library-search"><span>⌕</span><input id="librarySearch" type="search" placeholder="Search spells, rules, conditions, equipment…" aria-label="Search rules library"></div>
-        <div class="library-results" id="libraryResults"><div class="library-card"><span class="tag">COMING FIRST RELEASE</span><h3>Searchable reference collection</h3><p>We will add legally usable SRD rules and your own campaign references here. The library will be organized by game system.</p></div></div>
-        <p class="fine-print">We will use openly licensed or user-provided material and link to official sources where appropriate. This prototype does not reproduce proprietary rulebooks.</p>
+        <div class="rules-library-intro panel">
+          <div><span class="tag">PHASE 3.6 · BESTIARY EXPANSION</span><h2>Fifth Edition reference desk</h2><p>Browse the 2014 fifth-edition rules for The Chronicles of Puma, with expanded spells, equipment, and creature references.</p></div>
+          <div class="rules-edition-stamp">5E<br><small>2014</small></div>
+        </div>
+        <section class="dm-ruling-assistant panel" aria-labelledby="rulingAssistantTitle">
+          <div class="ruling-assistant-heading"><div><span class="tag">TABLE-SIDE REFERENCE</span><h2 id="rulingAssistantTitle">DM Ruling Assistant</h2><p>Describe a rules question or situation. The assistant searches the current 2014 5E reference index and points you toward relevant topics.</p></div><div class="ruling-mark" aria-hidden="true">⚖</div></div>
+          <form id="rulingAssistantForm" class="ruling-assistant-form"><input id="rulingQuestion" type="search" maxlength="240" placeholder="e.g. Can a character move through an enemy's space?" aria-label="Describe a rules question"><button class="primary-btn" type="submit">Find relevant rules</button></form>
+          <div id="rulingAssistantResults" class="ruling-assistant-results" aria-live="polite"><span class="muted">Try a question about combat, movement, conditions, spellcasting, rests, or ability checks.</span></div>
+          <p class="fine-print">This is a reference finder, not an automated rules judge. Check the cited source and use your table's ruling where a situation is unclear. Summaries are original explanations, not reproduced rulebook text.</p>
+        </section>
+        <div class="rules-library-controls">
+          <div class="library-search"><span>⌕</span><input id="librarySearch" type="search" placeholder="Search rules, spells, equipment, creatures…" aria-label="Search rules library"></div>
+          <label>Game system<select id="libraryEdition"><option value="5e-2014">D&D 5th Edition (2014)</option><option value="2e" disabled>AD&amp;D 2nd Edition — planned</option><option value="3.5" disabled>D&amp;D 3.5 Edition — planned</option></select></label>
+          <label>Category<select id="libraryCategory"><option value="all">All categories</option><option value="Core Rules">Core Rules</option><option value="Combat">Combat</option><option value="Spellcasting">Spellcasting</option><option value="Spells">Spells</option><option value="Conditions">Conditions</option><option value="Adventuring">Adventuring</option><option value="Equipment">Equipment</option><option value="Creatures">Creatures</option></select></label>
+          <label>Spell level<select id="librarySpellLevel"><option value="all">All levels</option><option value="0">Cantrips</option><option value="1">1st level</option><option value="2">2nd level</option><option value="3">3rd level</option><option value="4">4th level</option><option value="5">5th level</option><option value="6">6th level</option><option value="7">7th level</option><option value="8">8th level</option><option value="9">9th level</option></select></label>
+          <label>Creature type<select id="libraryCreatureType"><option value="all">All types</option><option>Beast</option><option>Celestial</option><option>Elemental</option><option>Fey</option><option>Giant</option><option>Humanoid</option><option>Monstrosity</option><option>Ooze</option><option>Undead</option></select></label>
+          <label>Challenge rating<select id="libraryCreatureCR"><option value="all">All CRs</option><option>0</option><option>1/8</option><option>1/4</option><option>1/2</option><option>1</option><option>2</option><option>3</option><option>5</option></select></label>
+          <label>Environment<select id="libraryEnvironment"><option value="all">All environments</option><option value="forest">Forest</option><option value="hills">Hills</option><option value="mountains">Mountains</option><option value="underground">Underground</option><option value="swamp">Swamp</option><option value="desert">Desert</option><option value="urban">Urban</option><option value="coast">Coast</option><option value="grassland">Grassland</option></select></label>
+        </div>
+        <div class="rules-library-status"><span id="libraryCount" aria-live="polite">Loading reference entries…</span><span>For The Chronicles of Puma</span></div>
+        <div class="library-results" id="libraryResults"></div>
+        <p class="fine-print">Content note: These are original quick-reference explanations, not reproductions of the Player’s Handbook or Dungeon Master’s Guide. Source labels identify relevant books or the 2014 Basic Rules. Personal book references and other editions will be handled separately. The public library uses original summaries and appropriately licensed reference material. Spell and creature reference entries are based on the 2014 rules and SRD 5.1 (CC BY 4.0); attribution: Wizards of the Coast, System Reference Document 5.1, Creative Commons Attribution 4.0 International.</p>
       </section>
 
       <section class="page-view" id="view-tools">
         <div class="page-heading"><div><div class="eyebrow">AT THE READY</div><h1>Game Tools</h1><p>Small utilities for the moments when the table needs them.</p></div></div>
-        <div class="tool-card"><div><div class="eyebrow">DICE ROLLER</div><h2>Roll the dice</h2><p>Quick rolls for planning, testing and play.</p></div><div class="dice-controls"><select id="diceType" aria-label="Dice type"><option value="4">d4</option><option value="6">d6</option><option value="8">d8</option><option value="10">d10</option><option value="12">d12</option><option value="20" selected>d20</option><option value="100">d100</option></select><input id="diceCount" type="number" min="1" max="20" value="1" aria-label="Number of dice"><button class="primary-btn" id="rollDice">Roll</button></div><div id="diceResult" class="dice-result" aria-live="polite">Ready when you are.</div></div>
+        <section class="combat-console panel" aria-labelledby="combatConsoleTitle">
+          <div class="combat-console-heading"><div><div class="eyebrow">THE FIELD OF BATTLE</div><h2 id="combatConsoleTitle">Combat Console</h2><p>Build an encounter, roll initiative, and keep every combatant's turn and resources in view.</p></div><div class="combat-round-seal"><span>ROUND</span><strong id="combatRound">1</strong></div></div>
+          <div class="combat-toolbar">
+            <label>Campaign<select id="combatCampaignSelect" aria-label="Combat campaign"></select></label>
+            <label>Encounter<select id="combatEncounterSelect" aria-label="Saved encounter"></select></label>
+            <button class="secondary-btn" id="newCombatEncounter" type="button">＋ New encounter</button>
+            <button class="secondary-btn" id="deleteCombatEncounter" type="button">Delete encounter</button>
+          </div>
+          <div class="combat-main-grid">
+            <form id="combatantForm" class="combatant-form">
+              <h3>Add combatant</h3>
+              <label>Name<input id="combatantName" maxlength="60" required placeholder="Goblin scout"></label>
+              <div class="combatant-form-row"><label>Type<select id="combatantType"><option value="enemy">Enemy</option><option value="ally">Ally</option><option value="player">Player character</option></select></label><label>Initiative bonus<input id="combatantInit" type="number" min="-10" max="20" value="0"></label></div>
+              <div class="combatant-form-row"><label>Hit points<input id="combatantHP" type="number" min="0" max="9999" value="10"></label><label>Armor class<input id="combatantAC" type="number" min="0" max="40" value="12"></label></div>
+              <button class="primary-btn" type="submit">Add to encounter</button>
+              <div class="combat-import-row"><label>Import campaign character<select id="combatCharacterImport"><option value="">Choose a character…</option></select></label><button class="outline-btn" id="importCombatCharacter" type="button">Import</button></div>
+            </form>
+            <div class="combat-board">
+              <div class="combat-board-actions"><div><span class="tag">INITIATIVE ORDER</span><strong id="combatantCount">0 combatants</strong></div><div><button class="secondary-btn" id="rollInitiative" type="button">Roll initiative</button><button class="primary-btn" id="nextCombatTurn" type="button">Next turn →</button></div></div>
+              <div class="combat-current-turn" id="combatCurrentTurn" aria-live="polite">Add combatants to prepare the encounter.</div>
+              <div class="combatant-list" id="combatantList"><div class="combat-empty">Your initiative order will appear here.</div></div>
+              <div class="combat-footnote">2014 D&amp;D 5E initiative uses a d20 plus each combatant's initiative bonus. Ties can be resolved at the table. This tracker does not automate monster or character actions.</div>
+            </div>
+          </div>
+        </section>
+        <div class="dice-chamber">
+          <div class="dice-chamber-head"><div><div class="eyebrow" id="diceRealmKicker">THE KEEP'S DICE CHAMBER</div><h2>Leave it to fate.</h2><p>Choose your dice, set your modifier, and let them fall.</p></div><div class="dice-seal" aria-hidden="true">✦<span>20</span></div></div>
+          <div class="dice-stage"><div class="dice-aura"></div><div class="hero-die" id="heroDie" data-die-skin="gemstone" aria-label="Three-dimensional twenty-sided die"><canvas id="dice3DCanvas" class="dice-3d-canvas" width="640" height="640" role="img" aria-label="A rotating three-dimensional polyhedral die"></canvas><div class="die-result-overlay" id="dieResultOverlay" aria-live="polite"><span>ROLL TOTAL</span><strong>—</strong></div></div></div><div class="dice-stage-caption" id="diceStageCaption">THE FATES ARE WAITING</div>
+          <div class="dice-console">
+            <div class="dice-controls dice-controls-enhanced">
+              <label>Die<select id="diceType" aria-label="Dice type"><option value="4">D4</option><option value="6">D6</option><option value="8">D8</option><option value="10">D10</option><option value="12">D12</option><option value="20" selected>D20</option><option value="100">D100 · Percentile</option></select></label>
+              <label>Die finish<select id="diceSkin" aria-label="Choose die appearance"><option value="gemstone">Cut gemstone</option><option value="forged">Forged metal</option><option value="obsidian">Obsidian</option><option value="ivory">Ancient ivory</option></select></label>
+              <label>Number<input id="diceCount" type="number" min="1" max="20" value="1" aria-label="Number of dice"></label>
+              <label>Modifier<input id="diceModifier" type="number" min="-99" max="99" value="0" aria-label="Roll modifier"></label>
+              <button class="primary-btn dice-roll-btn" id="rollDice">Roll the dice <span>⚄</span></button>
+            </div>
+            <div class="dice-result" id="diceResult" aria-live="polite"><span class="result-label">THE RESULT</span><strong>Ready when you are.</strong><small>Your roll will appear here.</small></div>
+            <div class="dice-breakdown" id="diceBreakdown" aria-live="polite">Individual dice and modifiers will be shown here.</div>
+          </div>
+          <div class="dice-history-panel"><div class="dice-history-head"><div><div class="eyebrow">THE LAST THROWS</div><h3>Roll history</h3></div><button class="text-btn" id="clearDiceHistory" type="button">Clear history</button></div><ol class="dice-history" id="diceHistory"><li class="dice-history-empty">No rolls yet. Your next throw starts the record.</li></ol></div>
+          <p class="dice-local-note">Dice rolls are generated locally in this browser. Roll history is temporary and clears when you refresh the page.</p>
+        </div>
+      </section>
+
+      <section class="page-view" id="view-dmtoolkit">
+        <div class="page-heading"><div><div class="eyebrow">PREPARE · CREATE · ADJUDICATE</div><h1>The Dungeon Master's Toolkit</h1><p>Practical preparation tools for building adventures, populating your world, and judging encounters at the table.</p></div></div>
+        <div class="toolkit-note"><strong>Chronicles of Puma · D&amp;D 5E (2014)</strong><span>Encounter thresholds use the 2014 fifth-edition framework. Generators create original prompts and are not rules adjudicators.</span></div>
+        <div class="dm-tool-grid">
+          <article class="dm-tool-card"><div class="dm-tool-kicker">01 · ADVENTURE DESIGN</div><h2>Adventure Seed</h2><p>Build a starting situation with a problem, a stake, and a complication.</p><button class="primary-btn" id="generateAdventure">Generate adventure seed</button><div class="generated-result" id="adventureResult" aria-live="polite">Your next adventure is waiting to be discovered.</div></article>
+          <article class="dm-tool-card"><div class="dm-tool-kicker">02 · NPC &amp; VILLAIN DESIGN</div><h2>Character of the Realm</h2><p>Generate a non-player character with a role, motive, manner, and hidden complication.</p><button class="primary-btn" id="generateNPC">Generate NPC</button><div class="generated-result" id="npcResult" aria-live="polite">Every memorable place has memorable people.</div></article>
+          <article class="dm-tool-card"><div class="dm-tool-kicker">03 · WORLD &amp; DUNGEON DESIGN</div><h2>Forgotten Place</h2><p>Discover a location, its former purpose, what remains, and what now threatens it.</p><button class="primary-btn" id="generateSite">Generate location</button><div class="generated-result" id="siteResult" aria-live="polite">There are stories buried beneath the map.</div></article>
+          <article class="dm-tool-card encounter-tool"><div class="dm-tool-kicker">04 · ENCOUNTER PREPARATION</div><h2>Encounter Difficulty Calculator</h2><p>Estimate encounter difficulty using party levels, monster challenge ratings, and the 2014 XP thresholds.</p>
+            <div class="encounter-form"><label>Party levels <input id="partyLevels" value="3, 3, 3, 3" placeholder="e.g. 3, 3, 3, 3"><small>Enter one level per character, separated by commas.</small></label><label>Monster challenge rating<select id="monsterCR"><option value="10">CR 0</option><option value="25">CR 1/8</option><option value="50">CR 1/4</option><option value="100">CR 1/2</option><option value="200">CR 1</option><option value="450">CR 2</option><option value="700">CR 3</option><option value="1100">CR 4</option><option value="1800" selected>CR 5</option><option value="2300">CR 6</option><option value="2900">CR 7</option><option value="3900">CR 8</option><option value="5000">CR 9</option><option value="5900">CR 10</option><option value="7200">CR 11</option><option value="8400">CR 12</option><option value="10000">CR 13</option><option value="11500">CR 14</option><option value="13000">CR 15</option><option value="15000">CR 16</option><option value="18000">CR 17</option><option value="20000">CR 18</option><option value="22000">CR 19</option><option value="25000">CR 20</option></select></label><label>Number of monsters <input id="monsterCount" type="number" min="1" max="30" value="2"></label><button class="primary-btn" id="calculateEncounter">Calculate difficulty</button></div><div class="generated-result" id="encounterResult" aria-live="polite">Enter your party and encounter details to see an estimate.</div><p class="fine-print">This is an estimate, not a guarantee of balance. Terrain, monster abilities, magic items, player experience, and party composition can change the encounter significantly.</p>
+          </article>
+        </div>
+        <section class="dm-prep-log panel"><div class="panel-heading"><div><div class="eyebrow">YOUR PREPARATION NOTES</div><h2>Saved Toolkit Results</h2></div><button class="text-btn" id="clearToolkitNotes">Clear notes</button></div><p class="muted">Save generated ideas here for the current browser. These notes are local to this device and are not shared with players.</p><div id="toolkitNotes" class="toolkit-notes-list"><div class="empty-state">Generated ideas you save will appear here.</div></div></section>
       </section>
 
       
+
+<section class="page-view" id="view-bestiary">
+<div class="page-heading"><div><div class="eyebrow">CREATURES · CHARACTERS · ENCOUNTERS</div><h1>Bestiary &amp; NPC Dossiers</h1><p>Build the inhabitants and threats of your world, then bring them together for encounter preparation.</p></div><div class="bestiary-heading-actions"><button class="secondary-btn" id="newNpcRecord">＋ New NPC</button><button class="primary-btn" id="newCreatureRecord">＋ Create creature</button></div></div>
+<div class="toolkit-note"><strong>Chronicles of Puma · D&amp;D 5E (2014)</strong><span>Custom records are stored with their campaign in this browser. Reference creatures are concise SRD 5.1 entries.</span></div>
+<div class="bestiary-campaign-row panel"><label>Campaign<select id="bestiaryCampaignSelect"></select></label><div class="bestiary-counts"><span><b id="bestiaryNpcCount">0</b> NPCs</span><span><b id="bestiaryCreatureCount">0</b> custom creatures</span></div></div>
+<div class="bestiary-tabs"><button class="active" data-bestiary-tab="npcs">NPC Dossiers</button><button data-bestiary-tab="custom">Custom Creatures</button><button data-bestiary-tab="reference">Reference Bestiary</button><button data-bestiary-tab="encounters">Encounter Builder</button></div>
+<section class="bestiary-panel active" id="bestiary-npcs"><div class="bestiary-toolbar"><div><h2>People of the Realm</h2><p>Allies, rivals, villains, patrons and memorable strangers.</p></div><input id="npcSearch" type="search" placeholder="Search NPCs…"></div><div id="npcDossierList" class="bestiary-grid"></div></section>
+<section class="bestiary-panel" id="bestiary-custom"><div class="bestiary-toolbar"><div><h2>Original Creatures</h2><p>Create reusable monsters with combat-ready essentials and special abilities.</p></div><input id="customCreatureSearch" type="search" placeholder="Search custom creatures…"></div><div id="customCreatureList" class="bestiary-grid"></div></section>
+<section class="bestiary-panel" id="bestiary-reference"><div class="bestiary-toolbar"><div><h2>2014 Fifth Edition Reference Creatures</h2><p>Concise SRD reference entries, not editable custom copies.</p></div><input id="referenceCreatureSearch" type="search" placeholder="Search reference creatures…"></div><div id="referenceCreatureList" class="bestiary-grid"></div><p class="fine-print">Based on SRD 5.1 (CC BY 4.0). Attribution: Wizards of the Coast, System Reference Document 5.1, Creative Commons Attribution 4.0 International.</p></section>
+<section class="bestiary-panel" id="bestiary-encounters"><div class="bestiary-toolbar"><div><h2>Encounter Builder</h2><p>Assemble an encounter from custom creatures and SRD reference monsters.</p></div></div><div class="encounter-builder panel"><div class="encounter-builder-controls"><label>Party levels<input id="builderPartyLevels" value="3, 3, 3, 3"></label><label>Add a creature<select id="encounterCreatureSelect"><option value="">Choose a creature…</option></select></label><label>Quantity<input id="encounterCreatureQty" type="number" min="1" max="30" value="1"></label><button class="secondary-btn" id="addEncounterCreature">Add creature</button></div><div id="encounterRoster" class="encounter-roster">No creatures added yet.</div><div class="encounter-builder-footer"><button class="primary-btn" id="evaluateBuiltEncounter">Evaluate encounter</button><button class="text-btn" id="clearBuiltEncounter">Clear encounter</button></div><div id="builtEncounterResult" class="generated-result">Add creatures to build an encounter.</div></div></section>
+<dialog id="bestiaryRecordDialog" class="character-dialog"><form id="bestiaryRecordForm"><div class="dialog-head"><div><div class="eyebrow" id="bestiaryDialogEyebrow">DOSSIER</div><h2 id="bestiaryDialogTitle">Create record</h2></div><button type="button" class="close-btn" id="closeBestiaryDialog">×</button></div><input type="hidden" id="bestiaryRecordId"><input type="hidden" id="bestiaryRecordKind"><label>Name<input id="bestiaryRecordName" required maxlength="90"></label><div class="character-fields-two"><label>Role / creature type<input id="bestiaryRecordType" maxlength="70"></label><label>Disposition / size<input id="bestiaryRecordDisposition" maxlength="70"></label></div>
+<div id="npcRecordFields"><label>Appearance &amp; manner<textarea id="npcAppearance" rows="2"></textarea></label><label>Motivation &amp; goals<textarea id="npcMotivation" rows="2"></textarea></label><label>Secrets, bonds &amp; relationships<textarea id="npcSecrets" rows="3"></textarea></label><label>Campaign notes<textarea id="npcNotes" rows="2"></textarea></label></div>
+<div id="creatureRecordFields"><div class="character-fields-two"><label>Challenge Rating<input id="creatureCR" maxlength="8" placeholder="1/2"></label><label>XP value<input id="creatureXP" type="number" min="0" value="100"></label><label>Armor Class<input id="creatureAC" type="number" min="0" value="12"></label><label>Hit Points<input id="creatureHP" type="number" min="1" value="15"></label><label>Speed<input id="creatureSpeed" maxlength="80" value="30 ft."></label><label>Initiative modifier<input id="creatureInit" type="number" value="0"></label></div><label>Ability scores (STR DEX CON INT WIS CHA)<input id="creatureAbilities" maxlength="100" placeholder="12, 14, 12, 8, 10, 8"></label><label>Traits &amp; special abilities<textarea id="creatureTraits" rows="3"></textarea></label><label>Actions &amp; attacks<textarea id="creatureActions" rows="3"></textarea></label><label>Environment &amp; notes<textarea id="creatureNotes" rows="2"></textarea></label></div>
+<div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelBestiaryDialog">Cancel</button><button class="primary-btn" type="submit">Save record</button></div></form></dialog>
+</section>
+
+
+<section class="page-view" id="view-spellgear">
+ <div class="page-heading"><div><div class="eyebrow">MAGIC · ARMS · ARMOR · TREASURE</div><h1>Spellbook &amp; Equipment</h1><p>Manage character spells, prepared magic, equipment, treasure and resources in one campaign workspace.</p></div><button class="primary-btn" id="newCustomItem">＋ Create custom item</button></div>
+ <div class="toolkit-note"><strong>The Chronicles of Puma · D&amp;D 5E (2014)</strong><span>Reference entries are concise SRD 5.1 summaries. Character selections and custom items are stored locally with their campaign.</span></div>
+ <div class="spellgear-selectors panel"><label>Campaign<select id="spellgearCampaign"></select></label><label>Character<select id="spellgearCharacter"></select></label><div class="spellgear-character-status" id="spellgearCharacterStatus">Choose a campaign and character.</div></div>
+ <div class="spellgear-tabs"><button class="active" data-sg-tab="spellbook">Character Spellbook</button><button data-sg-tab="inventory">Inventory &amp; Equipment</button><button data-sg-tab="spell-library">Spell Library</button><button data-sg-tab="equipment-library">Equipment Library</button><button data-sg-tab="custom-items">Custom Items &amp; Treasure</button></div>
+ <section class="spellgear-panel active" id="sg-spellbook"><div class="spellgear-topline"><div><h2>Known &amp; Prepared Spells</h2><p>Add spells from the reference library, then mark which ones are prepared.</p></div><input id="sgSpellSearch" type="search" placeholder="Search this spellbook…"></div><div class="spell-slot-panel"><div><h3>Spell Slots</h3><p>Track maximum slots and slots expended. These values are manually managed.</p></div><div class="spell-slot-grid" id="spellSlotGrid"></div></div><div id="characterSpellList" class="spellgear-list"></div></section>
+ <section class="spellgear-panel" id="sg-inventory"><div class="spellgear-topline"><div><h2>Carried Inventory</h2><p>Track quantity, equipment status, and carried treasure for this character.</p></div><input id="sgInventorySearch" type="search" placeholder="Search inventory…"></div><div class="inventory-summary" id="inventorySummary"></div><div id="characterInventoryList" class="spellgear-list"></div></section>
+ <section class="spellgear-panel" id="sg-spell-library"><div class="spellgear-topline"><div><h2>2014 5E Spell Reference</h2><p>Concise reference summaries from the existing SRD 5.1 rules library.</p></div><input id="sgLibrarySpellSearch" type="search" placeholder="Search spells…"></div><div id="spellLibraryList" class="spellgear-card-grid"></div><p class="fine-print">SRD 5.1 material is licensed under CC BY 4.0. Attribution: Wizards of the Coast, System Reference Document 5.1, Creative Commons Attribution 4.0 International.</p></section>
+ <section class="spellgear-panel" id="sg-equipment-library"><div class="spellgear-topline"><div><h2>Equipment Reference</h2><p>Weapons, armor, shields and adventuring gear available in the reference index.</p></div><input id="sgLibraryEquipmentSearch" type="search" placeholder="Search equipment…"></div><div class="spellgear-filter-row"><select id="sgEquipmentType"><option value="all">All equipment</option><option value="weapon">Weapons</option><option value="armor">Armor</option><option value="shield">Shields</option><option value="gear">Adventuring gear</option></select></div><div id="equipmentLibraryList" class="spellgear-card-grid"></div><p class="fine-print">SRD 5.1 material is licensed under CC BY 4.0. Attribution: Wizards of the Coast, System Reference Document 5.1, Creative Commons Attribution 4.0 International.</p></section>
+ <section class="spellgear-panel" id="sg-custom-items"><div class="spellgear-topline"><div><h2>Custom Items &amp; Treasure</h2><p>Create original magic items, rewards, consumables and campaign-specific equipment.</p></div></div><div id="customItemList" class="spellgear-card-grid"></div></section>
+ <dialog id="customItemDialog" class="character-dialog"><form id="customItemForm"><div class="dialog-head"><div><div class="eyebrow">YOUR CAMPAIGN TREASURE</div><h2>Create custom item</h2></div><button type="button" class="close-btn" id="closeCustomItem">×</button></div><label>Item name<input id="customItemName" required maxlength="90"></label><div class="character-fields-two"><label>Category<select id="customItemCategory"><option>Magic item</option><option>Weapon</option><option>Armor</option><option>Consumable</option><option>Treasure</option><option>Adventuring gear</option></select></label><label>Rarity<input id="customItemRarity" placeholder="Common, rare, unique…" maxlength="40"></label></div><label>Description &amp; properties<textarea id="customItemDescription" rows="4"></textarea></label><label>Attunement / usage notes<input id="customItemUsage" maxlength="180"></label><div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelCustomItem">Cancel</button><button type="submit" class="primary-btn">Save custom item</button></div></form></dialog>
+</section>
+
       <section class="page-view" id="view-archives">
         <div class="page-heading">
           <div><div class="eyebrow">YOUR PERMANENT COLLECTION</div><h1>Library &amp; Archives</h1>
@@ -412,6 +678,18 @@
       <label>Campaign premise<textarea id="campaignPremise" rows="4" maxlength="1200" placeholder="A few words about the adventure, its setting or central mystery…"></textarea></label>
       <div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelCampaign">Cancel</button><button type="submit" class="primary-btn" id="saveCampaign">Create campaign</button></div>
     </form>
+  </dialog>
+  <dialog id="characterSheetDialog" class="character-sheet-dialog" aria-labelledby="characterSheetTitle">
+    <div class="character-sheet-view">
+      <div class="rule-modal-topline"><span class="tag">PLAYER CHARACTER · 5E 2014</span><button type="button" class="rule-modal-close" id="closeCharacterSheet" aria-label="Close character sheet">×</button></div>
+      <div id="characterSheetContent"></div>
+    </div>
+  </dialog>
+  <dialog id="ruleQuickViewDialog" class="rule-quick-view-dialog" aria-labelledby="ruleQuickViewTitle">
+    <div class="rule-quick-view-panel">
+      <div class="rule-modal-topline"><span class="tag">REFERENCE QUICK VIEW</span><button type="button" class="rule-modal-close" id="closeRuleQuickView" aria-label="Close reference">×</button></div>
+      <div id="ruleQuickViewContent"></div>
+    </div>
   </dialog>
   <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>

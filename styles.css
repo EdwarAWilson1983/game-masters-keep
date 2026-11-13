@@ -1592,3 +1592,415 @@ body[data-universe="galaxy"] .archive-mark-icon{color:#ed8b43;filter:drop-shadow
 .artwork-card-body p{margin:6px 0;color:var(--muted);font-size:11px;line-height:1.4}
 @media(max-width:900px){.artwork-filter-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.artwork-filter-bar{grid-template-columns:1fr}}
+
+
+/* Phase 3.0 — Rules Library foundation */
+.rules-library-intro{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:18px;padding:22px 25px;background:linear-gradient(120deg,var(--panel2),var(--panel));}
+.rules-library-intro h2{font:600 20px Cinzel,serif;margin:7px 0 5px;color:var(--text)}
+.rules-library-intro p{margin:0;color:var(--muted);font-size:12px;max-width:690px;line-height:1.55}
+.rules-edition-stamp{width:72px;height:72px;flex:0 0 72px;border:1px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold2);font:600 22px Cinzel;background:#d5b36b10}
+.rules-edition-stamp small{font:600 9px Inter,sans-serif;letter-spacing:1.5px}
+.rules-library-controls{display:grid;grid-template-columns:minmax(220px,1fr) repeat(3,minmax(135px,170px));gap:12px;align-items:end}
+.rules-library-controls .library-search{margin:0;min-width:0}
+.rules-library-controls label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:10px;letter-spacing:.6px}
+.rules-library-controls select{width:100%;background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:12px;font-size:11px}
+.rules-library-status{display:flex;justify-content:space-between;gap:12px;margin:15px 2px;color:var(--muted);font-size:10px}
+.rules-library-status span:first-child{color:var(--gold2);font-weight:700}
+.library-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.library-card.rules-entry{padding:19px;min-width:0}
+.rules-entry-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.rules-edition-label{font-size:9px;color:var(--muted);letter-spacing:.6px}
+.library-card.rules-entry h3{margin:12px 0 8px}
+.library-card.rules-entry>p{line-height:1.6;margin:0}
+.rules-table-use{margin-top:14px;padding:11px 12px;border-left:2px solid var(--gold);background:#d5b36b0b}
+.rules-table-use strong{font-size:10px;color:var(--gold2);letter-spacing:.5px}
+.rules-table-use p{margin:5px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+.rules-source{margin-top:13px;padding-top:10px;border-top:1px solid var(--line);font-size:9px;color:#9ba5b2}
+@media(max-width:1000px){.rules-library-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.rules-library-controls .library-search{grid-column:1/-1}}
+@media(max-width:600px){.rules-library-intro{align-items:flex-start}.rules-edition-stamp{width:58px;height:58px;flex-basis:58px;font-size:18px}.rules-library-controls{grid-template-columns:1fr}.rules-library-controls .library-search{grid-column:auto}.library-results{grid-template-columns:1fr}.rules-library-status{flex-direction:column;gap:4px}}
+
+/* Phase 3.1 Rules Library spell reference facts */
+.spell-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:13px 0;padding:12px;background:#0c172522;border:1px solid var(--line);border-radius:6px}
+.spell-facts span{display:flex;flex-direction:column;gap:3px;color:var(--text);font-size:10px;line-height:1.45;overflow-wrap:anywhere}
+.spell-facts b{font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:var(--gold)}
+
+
+/* Phase 3.2 — translucent Rules Library quick-view overlay */
+.library-card.rules-entry{display:flex;flex-direction:column}
+.rules-card-actions{display:flex;justify-content:flex-end;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.rule-quick-view{padding:8px 12px;font-size:10px;letter-spacing:.35px}
+.rule-quick-view span{padding-left:7px;font-size:14px}
+.rule-quick-view-dialog{width:min(760px,calc(100% - 32px));max-width:760px;max-height:min(86vh,900px);padding:0;border:1px solid #d5b36b88;border-radius:15px;background:transparent;color:var(--text);overflow:visible;box-shadow:0 28px 100px #000b}
+.rule-quick-view-dialog::backdrop{background:rgba(3,9,7,.72);backdrop-filter:blur(7px)}
+.rule-quick-view-panel{max-height:min(86vh,900px);overflow:auto;padding:clamp(22px,4vw,38px);border-radius:15px;background:linear-gradient(145deg,rgba(29,59,43,.96),rgba(12,29,21,.94));backdrop-filter:blur(18px);box-shadow:inset 0 1px rgba(255,255,255,.08),0 15px 50px #0006}
+.rule-modal-topline{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px}
+.rule-modal-close{width:35px;height:35px;border:1px solid #d5b36b66;border-radius:50%;background:#07150f55;color:var(--text);font-size:23px;line-height:1;cursor:pointer}
+.rule-modal-close:hover{background:#d5b36b22;color:var(--gold2)}
+.rule-modal-kicker{color:var(--gold);font-size:10px;letter-spacing:1.2px;text-transform:uppercase}
+.rule-quick-view-panel h2{font:600 clamp(25px,4vw,36px) Cinzel,serif;color:#f3e6c8;margin:9px 0 12px}
+.rule-modal-summary{color:var(--text);font-size:14px;line-height:1.75;margin:0 0 18px}
+.rule-modal-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:18px 0;padding:15px;border:1px solid var(--line);border-radius:9px;background:#07150f55}
+.rule-modal-facts div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.rule-modal-facts span{color:var(--gold);font-size:9px;letter-spacing:.7px;text-transform:uppercase}
+.rule-modal-facts strong{font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.rule-modal-section{margin-top:20px;padding:17px 18px;border-left:2px solid var(--gold);background:#d5b36b10}
+.rule-modal-section h3{font:600 15px Cinzel,serif;color:var(--gold2);margin:0 0 8px}
+.rule-modal-section p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.rule-modal-source{margin-top:18px;padding-top:13px;border-top:1px solid var(--line);font-size:10px;color:#a9b2bc}
+@media(max-width:520px){.rule-quick-view-dialog{width:calc(100% - 18px);max-height:90vh}.rule-quick-view-panel{max-height:90vh;padding:20px}.rule-modal-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Phase 3.2.1 — improve Quick View reading comfort */
+.rule-modal-kicker{font-size:11px}
+.rule-quick-view-panel h2{font-size:clamp(28px,4.2vw,38px)}
+.rule-modal-summary{font-size:16px;line-height:1.8}
+.rule-modal-facts span{font-size:10px}
+.rule-modal-facts strong{font-size:14px;line-height:1.6}
+.rule-modal-section h3{font-size:16px}
+.rule-modal-section p{font-size:14px;line-height:1.8}
+.rule-modal-source{font-size:11px;line-height:1.6}
+
+/* PHASE 3.7 — Playable 2014 5E character sheet */
+.sheet-editor-section{margin:12px 0;padding:18px;border:1px solid var(--accent);border-radius:9px;background:linear-gradient(145deg,var(--panel),var(--surface));display:flex;flex-direction:column;gap:13px}
+.sheet-section-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.sheet-section-heading h3{font-family:var(--display);font-size:21px;margin:5px 0}
+.sheet-section-heading p{font-size:11px;color:var(--muted);line-height:1.5;margin:0;max-width:640px}
+.sheet-edition-mark{width:48px;height:48px;flex:0 0 48px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-family:var(--display);font-size:19px}
+.sheet-editor-section h4{font-family:var(--display);font-size:16px;margin:5px 0 0}
+.ability-score-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.ability-score-grid label{padding:9px 7px;border:1px solid var(--line);border-radius:7px;background:var(--surface);text-align:center;align-items:center}
+.ability-score-grid input{max-width:68px;text-align:center;font-weight:700}
+.character-sheet-dialog{width:min(1000px,calc(100% - 24px));max-height:92vh;overflow:auto;padding:0;border:1px solid var(--accent);border-radius:13px;background:var(--surface);color:var(--text)}
+.character-sheet-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.character-sheet-view{padding:24px}
+.sheet-view-heading{display:flex;align-items:center;gap:18px;margin:8px 0 20px}
+.sheet-view-heading img{width:104px;height:124px;object-fit:cover;border-radius:8px;border:1px solid var(--accent)}
+.sheet-view-heading h2{font-family:var(--display);font-size:clamp(26px,4vw,38px);margin:5px 0}
+.sheet-view-heading p{color:var(--muted);margin:0}
+.sheet-combat-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:15px 0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px}
+.sheet-combat-strip>div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.sheet-combat-strip small,.sheet-ability small{font-size:9px;letter-spacing:1px;color:var(--accent)}
+.sheet-combat-strip strong{font-family:var(--display);font-size:22px}
+.sheet-combat-strip span{font-size:11px;color:var(--muted)}
+.sheet-subhead{font-family:var(--display);margin:18px 0 9px}
+.sheet-ability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+.sheet-ability{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.sheet-ability strong{font-family:var(--display);font-size:25px}
+.sheet-ability span{font-size:13px;color:var(--accent);font-weight:700}
+.sheet-secondary-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.sheet-secondary-stats span{display:flex;flex-direction:column;gap:4px;padding:10px;border:1px solid var(--line);border-radius:7px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.sheet-secondary-stats b{font-size:9px;letter-spacing:1px;color:var(--accent);text-transform:uppercase}
+.sheet-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.sheet-detail-block{padding:13px;border:1px solid var(--line);border-radius:8px;background:var(--panel);min-width:0}
+.sheet-detail-block h3{font-family:var(--display);font-size:17px;margin:0 0 8px}
+.sheet-detail-block p{font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.sheet-view-actions{display:flex;justify-content:flex-end;margin-top:16px}
+@media(max-width:700px){.ability-score-grid,.sheet-ability-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sheet-combat-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.sheet-detail-grid,.sheet-secondary-stats{grid-template-columns:1fr}.sheet-view-heading{align-items:flex-start}.sheet-view-heading img{width:78px;height:96px}.character-sheet-view{padding:16px}}
+.sheet-editor-section[hidden]{display:none!important}
+.sheet-derived-preview{margin:8px 0 14px;padding:12px 14px;border:1px solid var(--accent);border-radius:8px;background:var(--panel);font-size:14px;line-height:1.5;color:var(--text)}
+#sheetProficiency[readonly]{opacity:.85;cursor:not-allowed}
+
+/* Phase 3.9 — live character resources and derived checks */
+.hp-live-controls{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.hp-live-controls button{border:1px solid var(--line);border-radius:6px;padding:5px 7px;background:var(--panel);color:var(--text);font-size:11px;cursor:pointer}.sheet-check-lists{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.sheet-check-lists section{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--panel)}.sheet-check-lists h3{font-family:var(--display);margin:0 0 9px}.sheet-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}.sheet-check-grid span{display:flex;justify-content:space-between;gap:5px;padding:5px 7px;border-radius:5px;font-size:12px;background:rgba(120,120,120,.07)}.sheet-check-grid span.trained{outline:1px solid var(--accent);font-weight:700}.sheet-check-grid b{color:var(--accent)}@media(max-width:700px){.sheet-check-lists{grid-template-columns:1fr}}
+
+/* Phase 3.10 equipment and combat integration */
+.sheet-equipment-panel{border:1px solid var(--accent);border-radius:9px;padding:14px;background:rgba(120,120,120,.045);display:flex;flex-direction:column;gap:10px}.sheet-equipment-panel h4{margin:0}.sheet-equipment-panel p{margin:0;font-size:13px}.sheet-equipment-panel .inline-check{display:flex;align-items:center;gap:8px;font-size:13px}.sheet-equipment-panel .inline-check input{width:auto}.sheet-equipment-panel select{width:100%}#sheetEquipmentPreview{line-height:1.55}
+
+/* Phase 3.11 — Dungeon Master's Toolkit */
+.toolkit-note{display:flex;gap:16px;align-items:flex-start;padding:15px 18px;margin:0 0 18px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:7px;background:#d5b36b0b}.toolkit-note strong{white-space:nowrap;color:var(--gold2);font:600 12px Cinzel}.toolkit-note span{color:var(--muted);font-size:11px}.dm-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.dm-tool-card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:9px;padding:22px;min-width:0}.dm-tool-kicker{font-size:9px;letter-spacing:1.6px;color:var(--gold);font-weight:700}.dm-tool-card h2{font:600 20px Cinzel;margin:6px 0}.dm-tool-card>p{color:var(--muted);font-size:11px;min-height:34px}.generated-result{white-space:pre-line;background:#0a1522;border:1px solid #d5b36b22;border-radius:6px;padding:14px;margin-top:15px;min-height:110px;color:#e6dcc6;font-size:12px;line-height:1.7}.encounter-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}.encounter-form label{display:block;color:var(--gold2);font-size:10px}.encounter-form input,.encounter-form select{display:block;width:100%;margin-top:5px;background:var(--input);border:1px solid var(--line);border-radius:5px;padding:9px;color:var(--text)}.encounter-form small{display:block;color:var(--muted);font-size:9px;margin-top:4px}.encounter-form button{grid-column:1/-1;justify-self:start}.encounter-tool .generated-result{min-height:125px}.dm-prep-log{margin-top:17px}.dm-prep-log h2{font:600 19px Cinzel;margin:4px 0}.toolkit-notes-list{display:grid;gap:9px;margin-top:13px}.toolkit-note-item{display:flex;justify-content:space-between;gap:18px;padding:13px 14px;border:1px solid var(--line);border-radius:6px;background:#ffffff04}.toolkit-note-item h3{font:600 14px Cinzel;margin:4px 0}.toolkit-note-item p{white-space:pre-line;color:var(--muted);font-size:11px;margin:0;line-height:1.6}.toolkit-note-item .text-btn{flex-shrink:0;align-self:flex-start}.dm-tool-card>.primary-btn{margin-top:8px}
+@media(max-width:950px){.dm-tool-grid{grid-template-columns:1fr}.toolkit-note{display:block}.toolkit-note span{display:block;margin-top:5px}}
+@media(max-width:560px){.encounter-form{grid-template-columns:1fr}.toolkit-note-item{display:block}.toolkit-note-item .text-btn{margin-top:8px}}
+
+/* PHASE 3.12.1 — make live resource fields clear and checkbox usable */
+.sheet-resource-panel{border:1px solid var(--accent);border-radius:9px;padding:14px;background:rgba(120,120,120,.07);display:flex;flex-direction:column;gap:12px}
+.sheet-resource-panel h4{font-family:var(--display);font-size:16px;margin:0 0 3px}
+.sheet-resource-panel p{font-size:11px;color:var(--muted);margin:0}
+.sheet-resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sheet-resource-grid label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--gold2)}
+.sheet-resource-grid input:not([type=checkbox]){width:100%;min-width:0;background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:10px 11px}
+.sheet-resource-grid .inline-check{display:flex;flex-direction:row;align-items:center;gap:9px;align-self:end;min-height:39px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.sheet-resource-grid .inline-check input[type=checkbox]{appearance:auto;-webkit-appearance:checkbox;width:17px!important;height:17px;min-width:17px;margin:0;padding:0;accent-color:var(--accent);flex:0 0 17px}
+.sheet-resource-grid .inline-check span{color:var(--text);font-size:12px}
+@media(max-width:720px){.sheet-resource-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.sheet-resource-grid{grid-template-columns:1fr}}
+
+/* Phase 3.13 — Bestiary & NPC Dossiers */
+.bestiary-heading-actions{display:flex;gap:9px;flex-wrap:wrap}.bestiary-campaign-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}.bestiary-campaign-row label{display:flex;align-items:center;gap:12px;color:var(--gold2);font-size:11px}.bestiary-campaign-row select{min-width:230px;background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:10px}.bestiary-counts{display:flex;gap:20px;color:var(--muted);font-size:11px}.bestiary-counts b{color:var(--gold2);font:600 18px Cinzel;margin-right:4px}.bestiary-tabs{display:flex;gap:7px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin:17px 0}.bestiary-tabs button{background:transparent;border:1px solid transparent;border-bottom:2px solid transparent;color:var(--muted);padding:12px 15px;font-size:11px}.bestiary-tabs button.active{color:var(--gold2);border-color:var(--line);border-bottom-color:var(--gold);background:#d5b36b0a}.bestiary-panel{display:none}.bestiary-panel.active{display:block}.bestiary-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:20px 0}.bestiary-toolbar h2{font:600 20px Cinzel;margin:0}.bestiary-toolbar p{color:var(--muted);font-size:11px;margin:5px 0}.bestiary-toolbar input{background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:10px 12px;min-width:230px}.bestiary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.bestiary-card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:8px;padding:19px;min-width:0}.bestiary-card-kicker{font-size:9px;letter-spacing:1.4px;color:var(--gold)}.bestiary-card h3{font:600 18px Cinzel;margin:7px 0}.bestiary-meta,.bestiary-card p{font-size:11px;color:var(--muted);line-height:1.6}.bestiary-card p{white-space:pre-wrap}.bestiary-card details{font-size:11px;color:var(--gold2)}.bestiary-card details p{color:var(--muted)}.bestiary-card-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}.bestiary-card-actions .secondary-btn{padding:8px 11px;font-size:10px}.creature-statline{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin:12px 0}.creature-statline b{color:var(--gold2);font-size:13px}.encounter-builder{padding:19px}.encounter-builder-controls{display:grid;grid-template-columns:1.2fr 1.5fr .6fr auto;gap:10px;align-items:end}.encounter-builder-controls label{font-size:10px;color:var(--gold2)}.encounter-builder-controls input,.encounter-builder-controls select{display:block;width:100%;box-sizing:border-box;margin-top:5px;background:var(--input);border:1px solid var(--line);border-radius:5px;padding:10px;color:var(--text)}.encounter-roster{margin:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}.encounter-roster-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #ffffff0a;font-size:11px}.encounter-roster-row:last-child{border-bottom:0}.encounter-roster-row span{flex:1}.encounter-roster-row small{color:var(--muted);margin-left:8px}.encounter-roster-row>b{color:var(--gold2)}.encounter-builder-footer{display:flex;align-items:center;gap:14px}.bestiary-panel .placeholder-panel{min-height:210px}.bestiary-panel .placeholder-panel h2{font-size:18px}.character-dialog [hidden]{display:none!important}
+@media(max-width:800px){.bestiary-grid{grid-template-columns:1fr}.bestiary-toolbar{align-items:stretch;flex-direction:column}.bestiary-toolbar input{min-width:0}.encounter-builder-controls{grid-template-columns:1fr 1fr}.bestiary-campaign-row{align-items:stretch;flex-direction:column}.bestiary-campaign-row label{align-items:stretch;flex-direction:column}.bestiary-campaign-row select{min-width:0}.bestiary-heading-actions{margin-top:12px}}
+
+/* Phase 3.14 — Spellbook & Equipment */
+.spellgear-selectors{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:14px;align-items:end;padding:15px;margin-bottom:16px}.spellgear-selectors label{font-size:10px;color:var(--gold2)}.spellgear-selectors select{display:block;width:100%;margin-top:5px;background:var(--input);border:1px solid var(--line);border-radius:6px;padding:10px;color:var(--text)}.spellgear-character-status{font-size:11px;color:var(--muted);padding:10px 0}.spellgear-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin:17px 0}.spellgear-tabs button{background:transparent;border:1px solid transparent;border-bottom:2px solid transparent;color:var(--muted);padding:11px 13px;font-size:10px}.spellgear-tabs button.active{color:var(--gold2);border-color:var(--line);border-bottom-color:var(--gold);background:#d5b36b0a}.spellgear-panel{display:none}.spellgear-panel.active{display:block}.spellgear-topline{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:20px 0}.spellgear-topline h2{font:600 20px Cinzel;margin:0}.spellgear-topline p{font-size:11px;color:var(--muted);margin:5px 0}.spellgear-topline input{min-width:230px;background:var(--input);border:1px solid var(--line);border-radius:6px;padding:10px;color:var(--text)}.spell-slot-panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:15px;margin-bottom:15px}.spell-slot-panel h3{font:600 15px Cinzel;margin:0}.spell-slot-panel p{font-size:10px;color:var(--muted);margin:5px 0 12px}.spell-slot-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:7px}.spell-slot-cell{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:9px;min-width:0}.spell-slot-cell>b{display:block;color:var(--gold2);font:600 10px Cinzel;margin-bottom:8px}.spell-slot-cell label{display:block;font-size:9px;color:var(--muted);margin:5px 0}.spell-slot-cell input{width:100%;box-sizing:border-box;background:var(--input);border:1px solid var(--line);border-radius:4px;padding:5px;color:var(--text);margin-top:3px}.spell-slot-cell small{display:block;color:var(--gold);font-size:9px;margin-top:6px}.spellgear-list{display:grid;gap:9px}.spellgear-row{display:flex;align-items:center;gap:15px;background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:14px}.spellgear-row-main{flex:1;min-width:0}.spellgear-row h3,.spellgear-card h3{font:600 16px Cinzel;margin:5px 0}.spellgear-row p,.spellgear-card p{font-size:11px;color:var(--muted);line-height:1.55;margin:6px 0}.spellgear-row small{font-size:9px;color:var(--muted)}.spellgear-kicker{font-size:9px;letter-spacing:1.2px;color:var(--gold)}.prepared-toggle{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--gold2);white-space:nowrap}.prepared-toggle input{accent-color:var(--gold)}.inventory-qty{font-size:10px;color:var(--muted)}.inventory-qty input{display:block;width:55px;background:var(--input);border:1px solid var(--line);border-radius:4px;color:var(--text);padding:6px;margin-top:4px}.inventory-summary{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin:12px 0}.inventory-summary b{color:var(--gold2);font:600 16px Cinzel;margin-right:4px}.spellgear-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.spellgear-card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}.spellgear-facts{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0}.spellgear-facts span{font-size:9px;color:var(--muted);background:#ffffff08;border:1px solid #ffffff12;border-radius:4px;padding:4px 6px}.spellgear-card details{font-size:10px;color:var(--gold2);margin:10px 0}.spellgear-card-actions{display:flex;gap:10px;align-items:center;margin-top:12px}.spellgear-filter-row{margin:-5px 0 12px}.spellgear-filter-row select{background:var(--input);border:1px solid var(--line);border-radius:5px;padding:8px;color:var(--text)}.spellgear-empty{grid-column:1/-1;min-height:130px}.spellgear-panel.sg-needs-character{opacity:.7}
+@media(max-width:850px){.spell-slot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.spellgear-selectors{grid-template-columns:1fr}.spellgear-character-status{padding:0}.spellgear-row{align-items:flex-start;flex-wrap:wrap}.spellgear-row-main{flex-basis:100%}.spellgear-card-grid{grid-template-columns:1fr}.spellgear-topline{align-items:stretch;flex-direction:column}.spellgear-topline input{min-width:0}}
+
+
+/* Phase 3.15 — DM Ruling Assistant and expanded table references */
+.dm-ruling-assistant{margin:0 0 18px;padding:22px 24px;background:linear-gradient(125deg,#172b25,var(--panel));border-color:#cfa74a44}
+.ruling-assistant-heading{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.ruling-assistant-heading h2{font:600 20px Cinzel,serif;margin:5px 0;color:var(--text)}
+.ruling-assistant-heading p{margin:0;color:var(--muted);font-size:11px;max-width:720px}
+.ruling-mark{width:52px;height:52px;flex:0 0 52px;border:1px solid #cfa74a77;border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:26px;background:#cfa74a12}
+.ruling-assistant-form{display:flex;gap:9px;margin-top:16px}
+.ruling-assistant-form input{flex:1;min-width:0;background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:12px 14px}
+.ruling-assistant-results{margin-top:13px}
+.ruling-match-label{font-size:9px;letter-spacing:1px;color:var(--gold2);font-weight:700;margin-bottom:8px}
+.ruling-match-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.ruling-match{border:1px solid var(--line);border-radius:7px;background:#0b172022;padding:13px;min-width:0}
+.ruling-match h3{font:600 14px Cinzel,serif;margin:6px 0}
+.ruling-match p,.ruling-no-match p{font-size:10px;line-height:1.5;color:var(--muted);margin:0 0 8px}
+.ruling-match small{display:block;color:#9ba5b2;font-size:9px;margin-bottom:7px}
+.ruling-match .text-btn{padding:0;text-align:left;font-size:10px}
+.ruling-no-match{padding:12px;border:1px dashed var(--line);border-radius:6px}
+.ruling-no-match strong{font-size:11px;color:var(--gold2)}
+@media(max-width:700px){.ruling-match-grid{grid-template-columns:1fr}.ruling-assistant-form{flex-direction:column}.ruling-assistant-heading{align-items:flex-start}}
+
+/* Phase 3.16 — Adventure Builder */
+.adventure-intro{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:16px;background:radial-gradient(ellipse at 85% 40%,#d5b36b18,transparent 42%),var(--panel)}
+.adventure-intro h2{font:600 23px Cinzel,serif;margin:8px 0;color:#f1e4c5}
+.adventure-intro p{max-width:720px;color:var(--muted);font-size:12px;margin:0;line-height:1.65}
+.adventure-seal{width:82px;height:82px;flex:0 0 82px;border:1px solid #d5b36b88;border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:42px;box-shadow:inset 0 0 22px #d5b36b15,0 0 25px #d5b36b12}
+.adventure-workspace{padding:22px}
+.adventure-toolbar{display:flex;justify-content:space-between;align-items:end;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.adventure-toolbar label{display:flex;flex-direction:column;gap:7px;min-width:min(420px,100%);font-size:10px;letter-spacing:1px;color:var(--gold2)}
+.adventure-toolbar select{background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:11px 13px}
+.adventure-form{display:grid;grid-template-columns:1fr 1fr;gap:13px 16px;padding:8px 0 25px}
+.adventure-form-heading,.adventure-form>label:nth-of-type(2),.adventure-form>label:nth-of-type(5),.adventure-form>label:nth-of-type(6),.adventure-form>label:nth-of-type(7),.adventure-form>label:nth-of-type(8),.adventure-form>label:nth-of-type(9),.adventure-form-actions{grid-column:1/-1}
+.adventure-form-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.adventure-form-heading h3,.adventure-saved-heading h3{font:600 18px Cinzel,serif;margin:5px 0;color:#f0e5ce}
+.adventure-form label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--gold2)}
+.adventure-form input,.adventure-form textarea,.adventure-form select{width:100%;background:var(--input);border:1px solid var(--line);border-radius:6px;color:var(--text);padding:11px 12px;resize:vertical}
+.adventure-form select[multiple]{min-height:106px}
+.adventure-two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-column:1/-1}
+.adventure-two-col label{min-width:0}
+.adventure-form .form-hint{font-size:10px;line-height:1.45;color:var(--muted)}
+.adventure-form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:3px}
+.adventure-saved-heading{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px;margin-top:2px}
+.saved-adventure-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:15px}
+.saved-adventure-card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:17px;min-width:0}
+.saved-adventure-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.saved-adventure-top .secondary-btn{padding:7px 10px;font-size:10px}
+.saved-adventure-card h3{font:600 17px Cinzel,serif;color:#f2e5c8;margin:14px 0 7px}
+.saved-adventure-card>p{font-size:11px;line-height:1.6;color:var(--muted)}
+.saved-adventure-facts{display:grid;gap:8px;margin-top:12px}
+.saved-adventure-facts span{font-size:11px;color:var(--muted);line-height:1.5}
+.saved-adventure-facts b{display:block;color:var(--gold2);font-size:9px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px}
+.saved-adventure-card details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px;font-size:11px;color:var(--gold2)}
+.saved-adventure-card details p{white-space:pre-wrap;color:var(--muted);line-height:1.6}
+@media(max-width:760px){.adventure-intro{align-items:flex-start}.adventure-seal{display:none}.adventure-toolbar{align-items:stretch;flex-direction:column}.adventure-toolbar label{min-width:0}.adventure-form,.adventure-two-col,.saved-adventure-list{grid-template-columns:1fr}.adventure-form>*{grid-column:1/-1}.adventure-form-heading{align-items:flex-start;flex-direction:column;gap:5px}.saved-adventure-top{align-items:flex-start;flex-direction:column}}
+
+
+/* Phase 3.17 — World & Factions */
+.world-workspace{padding:clamp(16px,3vw,28px);margin-top:20px}.world-tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);margin:12px 0 20px;flex-wrap:wrap}.world-tabs button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:10px 14px;border-radius:8px 8px 0 0;font:600 11px inherit;cursor:pointer}.world-tabs button.active{background:rgba(207,167,74,.12);color:var(--gold2);border-color:var(--gold)}.world-tab-panel{display:none}.world-tab-panel.active{display:block}.world-search{max-width:230px;background:var(--panel2);border:1px solid var(--line);border-radius:7px;color:var(--text);padding:9px 11px;font:inherit;font-size:11px}.world-record-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:14px}.world-record-card{background:rgba(0,0,0,.14);border:1px solid var(--line);border-radius:10px;padding:16px}.world-record-card h3{font:600 17px Cinzel,serif;color:#f2e5c8;margin:13px 0 8px}.world-record-card p{font-size:11px;line-height:1.65;color:var(--muted);white-space:pre-wrap}.world-record-card p b{color:var(--gold2)}.world-record-card details{margin-top:10px;border-top:1px solid var(--line);padding-top:9px;color:var(--gold2);font-size:11px}.world-record-card details p{white-space:pre-wrap}.world-workspace .adventure-saved-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px}@media(max-width:760px){.world-record-list{grid-template-columns:1fr}.world-workspace .adventure-saved-heading{align-items:flex-start;flex-direction:column}.world-search{max-width:none;width:100%}}
+
+
+/* Phase 3.17.1 — keep the sidebar navigation independently scrollable */
+.sidebar{
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+}
+.main-nav{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  align-content:start;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,169,103,.72) rgba(255,255,255,.06);
+  padding-right:4px;
+}
+.main-nav::-webkit-scrollbar{width:8px}
+.main-nav::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.055);
+  border-radius:8px;
+}
+.main-nav::-webkit-scrollbar-thumb{
+  background:rgba(201,169,103,.68);
+  border:2px solid transparent;
+  background-clip:padding-box;
+  border-radius:8px;
+}
+.main-nav::-webkit-scrollbar-thumb:hover{
+  background:rgba(222,190,125,.95);
+  border:2px solid transparent;
+  background-clip:padding-box;
+}
+
+
+/* Phase 3.18 — illustrated campaign map room */
+.maproom-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 4px 22px}.maproom-intro h3{font-family:var(--display-font,Georgia,serif);font-size:1.45rem;color:var(--gold,#d5b36c);margin:5px 0}.maproom-intro p,.maproom-hint{color:var(--muted,#b9c1b5);font-size:.88rem;line-height:1.55;max-width:760px}.maproom-compass{font-size:3rem;color:var(--gold,#d5b36c);border:1px solid rgba(207,167,74,.4);border-radius:50%;width:66px;height:66px;display:grid;place-items:center;flex:none}.map-upload-form{margin:8px 0 22px}.maproom-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px}.maproom-viewer,.maproom-markers{background:rgba(0,0,0,.14);border:1px solid rgba(207,167,74,.22);border-radius:12px;padding:14px;min-width:0}.maproom-toolbar{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.maproom-toolbar label{flex:1;max-width:480px}.campaign-map-stage{min-height:250px;display:grid;place-items:center;background:rgba(0,0,0,.22);border:1px dashed rgba(207,167,74,.3);border-radius:9px;overflow:hidden}.campaign-map-image-wrap{position:relative;display:inline-block;max-width:100%;line-height:0;cursor:crosshair}.campaign-map-image{display:block;max-width:100%;max-height:680px;width:auto;height:auto;object-fit:contain}.campaign-map-pin{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;border:2px solid #f5e4b5;background:#173c2a;color:#fff;box-shadow:0 2px 9px #000b;cursor:pointer;display:grid;place-items:center;padding:0;line-height:1}.campaign-map-pin span{font-size:12px;font-weight:800}.campaign-map-pin:hover{background:#b58b38;transform:translate(-50%,-50%) scale(1.13)}.maproom-hint{margin:10px 2px 0}.maproom-markers h3{font-family:var(--display-font,Georgia,serif);color:var(--gold,#d5b36c);margin:5px 0 14px}.map-marker-list{display:grid;gap:8px}.map-marker-entry{display:flex;align-items:center;gap:9px;padding:8px;border-bottom:1px solid rgba(207,167,74,.14)}.map-marker-entry>div{min-width:0;flex:1}.map-marker-entry strong,.map-marker-entry small{display:block;overflow-wrap:anywhere}.map-marker-entry small{font-size:.75rem;color:var(--muted,#b9c1b5);margin-top:3px}.map-marker-number{width:23px;height:23px;border-radius:50%;background:#173c2a;border:1px solid var(--gold,#d5b36c);display:grid;place-items:center;font-size:.75rem;flex:none}.map-marker-entry .text-btn{padding:2px 7px;font-size:1.1rem}.maproom-toolbar select{min-width:180px}@media(max-width:850px){.maproom-layout{grid-template-columns:1fr}.maproom-markers{order:2}.maproom-toolbar{align-items:stretch;flex-direction:column}.campaign-map-image{max-height:520px}}
+
+
+/* Phase 3.18.1 — Mapmaker's Workshop */
+.mapmaker-workshop{margin:4px 0 22px;padding:18px;background:linear-gradient(135deg,rgba(18,49,34,.82),rgba(8,25,19,.72));border:1px solid rgba(207,167,74,.34);border-radius:12px}
+.mapmaker-workshop-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.mapmaker-workshop-heading h3{font-family:var(--display-font,Georgia,serif);font-size:1.4rem;color:var(--gold,#d5b36c);margin:4px 0}
+.mapmaker-workshop-heading p{color:var(--muted,#b9c1b5);font-size:.86rem;line-height:1.5;max-width:780px;margin:0}
+.mapmaker-workshop-mark{width:48px;height:48px;border:1px solid rgba(207,167,74,.45);border-radius:50%;display:grid;place-items:center;color:var(--gold,#d5b36c);font-size:1.8rem;flex:none}
+.mapmaker-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mapmaker-tool-card{padding:14px;background:rgba(0,0,0,.19);border:1px solid rgba(207,167,74,.2);border-radius:9px;min-width:0}
+.mapmaker-tool-type{font-size:.65rem;letter-spacing:.13em;color:var(--gold,#d5b36c);font-weight:800}
+.mapmaker-tool-card h4{font-family:var(--display-font,Georgia,serif);font-size:1.08rem;color:#f0dfb4;margin:6px 0}
+.mapmaker-tool-card p{font-size:.83rem;line-height:1.5;color:var(--muted,#b9c1b5);min-height:3.8em;margin:0 0 10px}
+.mapmaker-tool-card a{display:inline-block;color:#e4c47c;font-weight:750;font-size:.82rem;text-decoration:none;border-bottom:1px solid rgba(228,196,124,.5);padding-bottom:2px}
+.mapmaker-tool-card a:hover{color:#fff0c9;border-color:#fff0c9}
+.mapmaker-import-guide{margin-top:12px;padding:13px 15px;background:rgba(0,0,0,.16);border-left:3px solid var(--gold,#d5b36c);border-radius:4px;color:var(--muted,#b9c1b5);font-size:.84rem;line-height:1.55}
+.mapmaker-import-guide strong{color:#ead7a9}.mapmaker-import-guide ol{margin:7px 0 0;padding-left:20px}
+@media(max-width:650px){.mapmaker-tool-grid{grid-template-columns:1fr}.mapmaker-tool-card p{min-height:0}.mapmaker-workshop{padding:13px}}
+
+
+/* Phase 3.19 — relationship ledger */
+.connections-intro{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 3px 18px}.connections-intro h3{font:600 1.45rem Cinzel,Georgia,serif;color:var(--gold2);margin:5px 0}.connections-intro p{max-width:760px;color:var(--muted);font-size:11px;line-height:1.6}.connections-mark{width:54px;height:54px;border:1px solid rgba(207,167,74,.45);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:27px;flex:none}.connection-form{margin-bottom:20px}.connection-form select:disabled{opacity:.65}.connection-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}.connection-stat{padding:13px;background:rgba(0,0,0,.16);border:1px solid var(--line);border-radius:8px}.connection-stat strong,.connection-stat span{display:block}.connection-stat strong{font:600 22px Cinzel,Georgia,serif;color:var(--gold2)}.connection-stat span{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}.connection-card h3{font-size:14px;margin:12px 0}.connection-relation{display:inline-block;padding:5px 10px;border-radius:20px;background:rgba(207,167,74,.13);border:1px solid rgba(207,167,74,.3);color:var(--gold2);font-size:10px;font-weight:700;letter-spacing:.06em}.connection-stale{border-color:rgba(205,110,80,.6)}.connection-stale .tag{color:#e3a18c}.connection-footnote{margin-top:14px;color:var(--muted)}
+@media(max-width:650px){.connection-summary{grid-template-columns:1fr}.connections-mark{display:none}}
+
+/* Phase 3.20 — DM Command Center */
+.command-campaign-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;margin:18px 0 22px;background:var(--panel,rgba(255,255,255,.04));border:1px solid var(--line,rgba(255,255,255,.12));border-radius:14px}
+.command-campaign-bar label,.command-stat span{font-size:.7rem;letter-spacing:.12em;font-weight:800;opacity:.72}
+.command-campaign-bar select{min-width:220px;max-width:100%;padding:9px 12px;border-radius:8px}
+.command-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.command-stat,.command-panel{border:1px solid var(--line,rgba(255,255,255,.12));border-radius:14px;background:var(--panel,rgba(255,255,255,.035));padding:18px}
+.command-stat{display:flex;flex-direction:column;gap:7px}
+.command-stat strong{font-size:2rem;line-height:1.1}
+.command-stat small{opacity:.68}
+.command-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.command-wide{grid-column:1/-1}
+.command-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.command-panel-head h2{font-size:1.08rem;margin:0}
+.command-premise{line-height:1.65;opacity:.85}
+.command-facts{display:flex;gap:8px;flex-wrap:wrap}
+.command-facts span{padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.055);font-size:.82rem}
+.command-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.command-shortcuts button{padding:11px 12px;text-align:left;border:1px solid var(--line,rgba(255,255,255,.12));border-radius:9px;background:rgba(255,255,255,.035);color:inherit;cursor:pointer}
+.command-shortcuts button:hover{border-color:var(--accent,#c9a967)}
+.command-list{display:grid;gap:9px}
+.command-list-item{padding:10px 12px;border-radius:9px;background:rgba(255,255,255,.04)}
+.command-list-item strong{display:block;margin-bottom:3px}
+.command-list-item small{opacity:.68}
+.command-empty{opacity:.65;font-size:.9rem;padding:8px 0}
+@media(max-width:850px){.command-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.command-grid{grid-template-columns:1fr}.command-wide{grid-column:auto}}
+@media(max-width:480px){.command-stat-grid{grid-template-columns:1fr 1fr}.command-shortcuts{grid-template-columns:1fr}}
+
+/* PHASE 3.21 · THE DICE CHAMBER */
+.dice-chamber{max-width:1120px;position:relative;overflow:hidden;padding:clamp(18px,3vw,34px);border:1px solid #d5b36b55;border-radius:13px;background:radial-gradient(ellipse at 50% 35%,#b58b3820,transparent 38%),linear-gradient(145deg,#172c20,#0d1b14 72%);box-shadow:0 24px 65px #0005}
+.dice-chamber:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(1px 1px at 12% 18%,#f7e8bd 98%,transparent),radial-gradient(1px 1px at 83% 12%,#f7e8bd 98%,transparent),radial-gradient(1px 1px at 72% 78%,#f7e8bd 98%,transparent),radial-gradient(1px 1px at 24% 84%,#f7e8bd 98%,transparent);background-size:180px 150px,230px 190px,210px 170px,260px 210px}
+.dice-chamber>*{position:relative;z-index:1}.dice-chamber-head{display:flex;justify-content:space-between;align-items:center;gap:20px}.dice-chamber-head h2{font:600 clamp(25px,3vw,36px) Cinzel,serif;color:#f4e7c8;margin:7px 0}.dice-chamber-head p{color:#b9c4b7;font-size:12px;margin:0}.dice-seal{width:58px;height:58px;flex:none;border:1px solid #d5b36b88;border-radius:50%;display:grid;place-items:center;color:#e4c77f;font:22px Cinzel;box-shadow:0 0 28px #d5b36b24;position:relative}.dice-seal span{position:absolute;font:700 9px 'DM Sans';bottom:9px}
+.dice-stage{height:245px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.dice-aura{position:absolute;width:230px;height:150px;border-radius:50%;background:radial-gradient(ellipse,#d5b36b26,transparent 68%);filter:blur(8px);animation:diceAura 4s ease-in-out infinite}.hero-die{width:112px;height:112px;display:grid;place-items:center;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);background:linear-gradient(145deg,#f0d99e 0%,#b68b43 43%,#68451f 100%);filter:drop-shadow(0 15px 22px #0009);transform:rotate(0deg);transition:filter .3s}.hero-die:before{content:"";position:absolute;inset:7px;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);background:linear-gradient(145deg,#203c29,#0c1b13 70%);border:1px solid #f5dfa4}.hero-die span{position:relative;color:#f3dda4;font:700 34px Cinzel;text-shadow:0 2px 9px #000;z-index:1}.dice-stage-caption{position:absolute;bottom:14px;font-size:9px;letter-spacing:2px;color:#d8c18b;text-align:center}.hero-die.rolling{animation:dieTumble .76s cubic-bezier(.2,.75,.25,1)}.hero-die.critical{filter:drop-shadow(0 0 18px #f4d47b) drop-shadow(0 0 35px #d5a53e)}.hero-die.fumble{filter:drop-shadow(0 0 18px #b64b3f)}
+@keyframes dieTumble{0%{transform:translateY(-24px) rotate(0) scale(.82)}25%{transform:translateY(10px) rotate(110deg) scale(1.12)}50%{transform:translateY(-12px) rotate(235deg) scale(.94)}75%{transform:translateY(4px) rotate(330deg) scale(1.04)}100%{transform:translateY(0) rotate(360deg) scale(1)}}@keyframes diceAura{0%,100%{transform:scale(.86);opacity:.55}50%{transform:scale(1.15);opacity:1}}
+.dice-console{padding:18px;border:1px solid #d5b36b35;border-radius:9px;background:#07130edb}.dice-controls-enhanced{display:grid;grid-template-columns:minmax(110px,1fr) minmax(90px,.65fr) minmax(100px,.75fr) auto;align-items:end;gap:12px;margin:0}.dice-controls-enhanced label{display:grid;gap:6px;color:#d9c48e;font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}.dice-controls-enhanced select,.dice-controls-enhanced input{width:100%;min-width:0;min-height:43px;background:#101d15;border:1px solid #b89a5a66;border-radius:6px;color:#f2e8d1;padding:9px 11px}.dice-roll-btn{min-height:43px;white-space:nowrap}.dice-roll-btn span{font-size:17px;margin-left:8px}.dice-roll-btn:disabled{opacity:.65;cursor:wait}.dice-result{display:flex;align-items:center;gap:18px;min-height:82px;margin-top:16px;padding:15px 18px;background:linear-gradient(90deg,#101d15,#0a160f);border:1px solid #d5b36b35;border-left:4px solid #d5b36b;border-radius:7px;color:#f0d99e}.dice-result .result-label{font-size:9px;letter-spacing:1.5px;color:#c5ad76;min-width:82px}.dice-result strong{font:700 36px Cinzel;color:#f7e6b9}.dice-result small{font:11px 'DM Sans';color:#aeb9aa}.dice-result strong.critical-result{color:#ffe58d;text-shadow:0 0 18px #e9b74c99}.dice-result strong.fumble-result{color:#e68c7f}.dice-breakdown{min-height:27px;padding:12px 2px 0;color:#b9c4b7;font-size:10px;line-height:1.7}.dice-history-panel{margin-top:19px;padding:16px 18px;border:1px solid #d5b36b2c;border-radius:8px;background:#07130e88}.dice-history-head{display:flex;justify-content:space-between;align-items:center}.dice-history-head h3{font:600 17px Cinzel;color:#eee2c5;margin:4px 0}.dice-history{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}.dice-history li{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:12px;padding:9px 10px;border-bottom:1px solid #d5b36b18;color:#c7cbbb;font-size:11px}.dice-history li:last-child{border:0}.history-die{color:#e1c47e;font-weight:700;letter-spacing:.7px}.history-detail{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#9eaa9d}.dice-history li strong{font:600 16px Cinzel;color:#f1d99e}.dice-history .dice-history-empty{display:block;color:#9eaa9d;border:0;padding:9px 2px}.dice-local-note{font-size:9px;color:#829184;margin:12px 2px 0}
+body[data-universe="starfleet"] .dice-chamber{border:0;border-radius:4px 26px 4px 26px;background:radial-gradient(ellipse at 50% 40%,#283b6822,transparent 45%),linear-gradient(145deg,#101a30,#090f1e);box-shadow:inset 0 0 0 1px #42537b,0 24px 65px #0006}
+body[data-universe="starfleet"] .dice-chamber-head h2,body[data-universe="starfleet"] .dice-history-head h3{font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:1px;color:#dcecff}
+body[data-universe="starfleet"] .dice-seal{border-radius:4px 18px 4px 18px;border-color:#61c6df;color:#ffc66d}
+body[data-universe="starfleet"] .hero-die{background:linear-gradient(145deg,#ffcf72,#7c68b9 48%,#50b9d1)}body[data-universe="starfleet"] .hero-die:before{background:linear-gradient(145deg,#172e55,#0b1327)}
+body[data-universe="starfleet"] .dice-console,body[data-universe="starfleet"] .dice-history-panel{background:#0a1224;border-color:#34466c;border-radius:4px 18px 4px 18px}
+body[data-universe="starfleet"] .dice-controls-enhanced label{color:#79d5e8}body[data-universe="starfleet"] .dice-controls-enhanced select,body[data-universe="starfleet"] .dice-controls-enhanced input{background:#111c36;border:1px solid #465681;border-radius:4px 12px 4px 12px;color:#eaf4ff}
+body[data-universe="starfleet"] .dice-result{background:#111b36;border-color:#465681;border-left:8px solid #61c6df;border-radius:4px 16px 4px 16px;color:#ffd27c}body[data-universe="starfleet"] .dice-result strong,body[data-universe="starfleet"] .dice-history li strong{color:#ffd27c}
+body[data-universe="galaxy"] .dice-chamber{border-color:#a95a4c88;background:radial-gradient(ellipse at 50% 36%,#234f7a33,transparent 38%),linear-gradient(145deg,#171c28,#0b0e16 76%)}
+body[data-universe="galaxy"] .dice-chamber-head h2,body[data-universe="galaxy"] .dice-history-head h3{color:#f1e2d1}body[data-universe="galaxy"] .dice-seal{border-color:#d18c61;color:#9dcdf1;box-shadow:0 0 28px #347cb633}
+body[data-universe="galaxy"] .hero-die{background:linear-gradient(145deg,#a9d9f5,#467cba 44%,#9b373d)}body[data-universe="galaxy"] .hero-die:before{background:linear-gradient(145deg,#172b43,#11121c)}
+body[data-universe="galaxy"] .dice-console,body[data-universe="galaxy"] .dice-history-panel{background:#0c111b;border-color:#8d514b66}body[data-universe="galaxy"] .dice-controls-enhanced label{color:#e9a45d}body[data-universe="galaxy"] .dice-controls-enhanced select,body[data-universe="galaxy"] .dice-controls-enhanced input{background:#151a25;border-color:#9d574c88;color:#f2e6d7}
+body[data-universe="galaxy"] .dice-result{background:#111722;border-color:#8d514b66;border-left-color:#a93a3a;color:#f0bd7d}body[data-universe="galaxy"] .dice-result strong,body[data-universe="galaxy"] .dice-history li strong{color:#f0bd7d}
+@media(max-width:650px){.dice-controls-enhanced{grid-template-columns:1fr 1fr}.dice-roll-btn{grid-column:1/-1}.dice-result{flex-wrap:wrap;gap:7px 14px}.dice-result .result-label{min-width:100%}.dice-history li{grid-template-columns:70px 1fr auto;gap:7px}.dice-stage{height:215px}}
+@media(prefers-reduced-motion:reduce){.hero-die.rolling,.dice-aura{animation:none!important}.hero-die{transition:none}}
+
+
+/* PHASE 3.21.1 · FACETED POLYHEDRAL DIE ART */
+.hero-die{width:174px;height:174px;display:grid;place-items:center;clip-path:none;background:none;filter:drop-shadow(0 17px 18px #000b) drop-shadow(0 0 16px #d5b36b33);transform-style:preserve-3d;}
+.hero-die:before{display:none}
+.polyhedral-die-art{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 3px 2px #0008)}
+.die-outline{fill:url(#dieMetal);stroke:#f8e8bd;stroke-width:2.2;stroke-linejoin:round}
+.die-facet{stroke:#f2d99d;stroke-width:1.5;stroke-linejoin:round}
+.facet-a{fill:#b98b45}.facet-b{fill:#e2c27d}.facet-c{fill:#9d7138}.facet-d{fill:#76502b}.facet-e{fill:#a77a3e}.facet-f{fill:#d2ad68}
+.die-center{fill:url(#dieFace);stroke:#f6dfa7;stroke-width:2.4;stroke-linejoin:round}
+.die-edge{fill:none;stroke:#fff0c5;stroke-width:2.2;stroke-linejoin:round;opacity:.9}.die-edge.inner{stroke:#3d2918;stroke-width:2;opacity:.75}
+.die-numerals{fill:#392516;font:700 12px Cinzel,serif;text-anchor:middle;paint-order:stroke;stroke:#f2d99d;stroke-width:.35px}
+.die-face-number{fill:#f8e6b4;font:700  thirtypx Cinzel,serif;font-size:31px;paint-order:stroke;stroke:#1b120b;stroke-width:1px;filter:drop-shadow(0 2px 2px #000)}
+.die-glint{fill:none;stroke:#fff7d9;stroke-width:3;stroke-linecap:round;opacity:.48}
+.hero-die.rolling{animation:dieTumble .76s cubic-bezier(.2,.75,.25,1)}
+.hero-die.critical{filter:drop-shadow(0 0 16px #ffe28a) drop-shadow(0 0 34px #d5a53e)}
+.hero-die.fumble{filter:drop-shadow(0 0 17px #d64c42)}
+body[data-universe="starfleet"] .die-outline{fill:url(#dieMetal);stroke:#b8efff}.starfleet-die .die-center{fill:#101c39}
+body[data-universe="starfleet"] .die-center{fill:#10213d;stroke:#77d9ed}body[data-universe="starfleet"] .die-facet{stroke:#b8dff0}body[data-universe="starfleet"] .facet-a{fill:#d3a94f}body[data-universe="starfleet"] .facet-b{fill:#6e79ad}body[data-universe="starfleet"] .facet-c{fill:#4ba9c4}body[data-universe="starfleet"] .facet-d{fill:#283c68}body[data-universe="starfleet"] .facet-e{fill:#a67d45}body[data-universe="starfleet"] .facet-f{fill:#546c9b}body[data-universe="starfleet"] .die-numerals{fill:#0c1730;stroke:#bdefff}body[data-universe="starfleet"] .die-face-number{fill:#ffdc91}
+body[data-universe="galaxy"] .die-center{fill:#111a2b;stroke:#c4dff7}body[data-universe="galaxy"] .die-facet{stroke:#e3d0bd}body[data-universe="galaxy"] .facet-a{fill:#77b9e4}body[data-universe="galaxy"] .facet-b{fill:#b6d9ed}body[data-universe="galaxy"] .facet-c{fill:#9d4248}body[data-universe="galaxy"] .facet-d{fill:#5c202b}body[data-universe="galaxy"] .facet-e{fill:#315d91}body[data-universe="galaxy"] .facet-f{fill:#d08b62}body[data-universe="galaxy"] .die-numerals{fill:#18263a;stroke:#e4edf5}body[data-universe="galaxy"] .die-face-number{fill:#f5d7a4}
+@media(max-width:650px){.hero-die{width:150px;height:150px}}
+
+/* PHASE 3.21.2 · MATERIAL SELECTABLE D20 */
+.dice-controls-enhanced{grid-template-columns:repeat(5,minmax(0,1fr));}
+.dice-controls-enhanced label{min-width:0}
+.dice-controls-enhanced select,.dice-controls-enhanced input{width:100%;min-width:0}
+.hero-die{width:190px;height:190px;perspective:700px;transform:rotateX(8deg) rotateY(-9deg);transition:filter .25s,transform .25s}
+.polyhedral-die-art{overflow:visible;filter:drop-shadow(0 16px 12px #0009) drop-shadow(0 3px 2px #000b)}
+.die-outline{stroke-width:3.2;stroke-linejoin:round}
+.die-facet{stroke-width:2.1;stroke-linejoin:round}
+.die-center{stroke-width:3.1}
+.die-edge{stroke-width:3.2;opacity:1}
+.die-edge.inner{stroke-width:2.2;opacity:.88}
+.die-numerals{font-size:13px;letter-spacing:.4px}
+/* Each finish changes the die's material, bevel and face contrast while retaining realm colors. */
+.hero-die[data-die-skin="gemstone"] .polyhedral-die-art{filter:drop-shadow(0 15px 13px #000a) drop-shadow(0 0 13px #8bd6a533)}
+.hero-die[data-die-skin="gemstone"] .die-facet{filter:saturate(1.22)}
+.hero-die[data-die-skin="gemstone"] .die-glint{opacity:.78;stroke-width:4}
+.hero-die[data-die-skin="forged"] .die-outline{stroke:#f6e4b8;stroke-width:4}
+.hero-die[data-die-skin="forged"] .die-facet{filter:saturate(.72) contrast(1.22)}
+.hero-die[data-die-skin="forged"] .die-edge{stroke:#f7e4b7;stroke-width:4}
+.hero-die[data-die-skin="forged"] .die-numerals{font-weight:900;stroke-width:.8px}
+.hero-die[data-die-skin="obsidian"] .die-outline{fill:#151923;stroke:#a9b4c9;stroke-width:3.5}
+.hero-die[data-die-skin="obsidian"] .die-facet{fill:#202838;stroke:#65748d}
+.hero-die[data-die-skin="obsidian"] .facet-a{fill:#47536b}.hero-die[data-die-skin="obsidian"] .facet-b{fill:#293449}.hero-die[data-die-skin="obsidian"] .facet-c{fill:#121a29}.hero-die[data-die-skin="obsidian"] .facet-d{fill:#354158}.hero-die[data-die-skin="obsidian"] .facet-e{fill:#1b2435}.hero-die[data-die-skin="obsidian"] .facet-f{fill:#536078}
+.hero-die[data-die-skin="obsidian"] .die-center{fill:#080d17;stroke:#a6b4ca}.hero-die[data-die-skin="obsidian"] .die-numerals{fill:#e5edf8;stroke:#182338}.hero-die[data-die-skin="obsidian"] .die-face-number{fill:#f5f8ff}.hero-die[data-die-skin="obsidian"] .die-glint{stroke:#e4efff;opacity:.9}
+.hero-die[data-die-skin="ivory"] .die-outline{fill:#d8c9a6;stroke:#fff1cc;stroke-width:3.5}
+.hero-die[data-die-skin="ivory"] .die-facet{stroke:#fff0c8}.hero-die[data-die-skin="ivory"] .facet-a{fill:#eee0bd}.hero-die[data-die-skin="ivory"] .facet-b{fill:#cbb88e}.hero-die[data-die-skin="ivory"] .facet-c{fill:#a99570}.hero-die[data-die-skin="ivory"] .facet-d{fill:#bba77e}.hero-die[data-die-skin="ivory"] .facet-e{fill:#e1d1ac}.hero-die[data-die-skin="ivory"] .facet-f{fill:#f2e5c8}
+.hero-die[data-die-skin="ivory"] .die-center{fill:#f0e2c2;stroke:#8e7955}.hero-die[data-die-skin="ivory"] .die-numerals{fill:#59452e;stroke:#f4e6c8}.hero-die[data-die-skin="ivory"] .die-face-number{fill:#49351f;stroke:#f4e6c8}.hero-die[data-die-skin="ivory"] .die-glint{stroke:#fff9e8;opacity:.55}
+body[data-universe="starfleet"] .hero-die[data-die-skin="obsidian"] .die-center{fill:#070e20;stroke:#83dff5}
+body[data-universe="galaxy"] .hero-die[data-die-skin="obsidian"] .die-center{fill:#090d19;stroke:#b9dafa}
+@media(max-width:850px){.dice-controls-enhanced{grid-template-columns:repeat(2,minmax(0,1fr))}.dice-roll-btn{grid-column:1/-1}}
+@media(max-width:650px){.hero-die{width:164px;height:164px}}
+
+/* PHASE 3.21.3 · TRUE CANVAS 3D D20 */
+.hero-die{width:270px;height:270px;display:grid;place-items:center;perspective:1000px;filter:drop-shadow(0 22px 24px #000b) drop-shadow(0 0 24px #c9a45b44);}
+.dice-3d-canvas{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 8px 8px #0008);}
+.hero-die.critical{filter:drop-shadow(0 0 22px #ffe28a) drop-shadow(0 0 44px #d5a53e)}
+.hero-die.fumble{filter:drop-shadow(0 0 22px #d64c42)}
+@media(max-width:650px){.hero-die{width:220px;height:220px}}
+@media(prefers-reduced-motion:reduce){.hero-die{transition:none}}
+
+/* PHASE 3.21.4 · studio-lit material rendering and legible result on the die */
+.dice-stage{height:300px}
+.hero-die{position:relative;width:290px;height:290px;isolation:isolate;filter:drop-shadow(0 28px 25px #000d) drop-shadow(0 7px 8px #0009)}
+.dice-3d-canvas{position:relative;z-index:1}
+.die-result-overlay{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%) scale(.72);width:112px;height:112px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:radial-gradient(circle at 35% 25%,#26372fef,#07100feF 72%);border:2px solid #e2c477;box-shadow:0 0 0 5px #090e0dbb,0 8px 22px #000d,inset 0 1px 9px #fff3;color:#f6e8c4;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1)}
+.die-result-overlay.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.die-result-overlay span{font:700 8px 'DM Sans',sans-serif;letter-spacing:1.5px;color:#d9c48e}
+.die-result-overlay strong{font:700 43px Cinzel,Georgia,serif;line-height:1;color:#fff0c5;text-shadow:0 2px 8px #000,0 0 13px #d6b66b66}
+.hero-die.critical .die-result-overlay{border-color:#ffe58d;box-shadow:0 0 0 5px #090e0dbb,0 0 32px #ffe58d99,inset 0 1px 9px #fff5}
+.hero-die.fumble .die-result-overlay{border-color:#e68c7f}
+@media(max-width:650px){.dice-stage{height:270px}.hero-die{width:250px;height:250px}.die-result-overlay{width:96px;height:96px}.die-result-overlay strong{font-size:37px}}
+@media(prefers-reduced-motion:reduce){.die-result-overlay{transition:none}}
+
+/* PHASE 3.21.9 · transparent die presentation for Starfleet and Galactic Adventures.
+   The older realm-specific hero-die gradients had higher selector specificity than
+   the later transparent 3D canvas treatment, leaving a colored rectangle behind rolls. */
+body[data-universe="starfleet"] .hero-die,
+body[data-universe="galaxy"] .hero-die {
+  background: transparent !important;
+  background-image: none !important;
+  clip-path: none !important;
+}
+body[data-universe="starfleet"] .hero-die::before,
+body[data-universe="galaxy"] .hero-die::before {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+}
+body[data-universe="starfleet"] .dice-3d-canvas,
+body[data-universe="galaxy"] .dice-3d-canvas {
+  background: transparent !important;
+}
+
+/* Phase 3.22 — Combat Console */
+.combat-console{max-width:1120px;margin:0 0 24px;padding:clamp(18px,3vw,28px);border:1px solid var(--line,#d5b36b55);border-radius:12px;background:linear-gradient(145deg,#14251d,#0b1712);color:var(--text,#eee6d3)}
+.combat-console-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.combat-console-heading h2{font:600 clamp(24px,3vw,32px) Cinzel,serif;margin:6px 0;color:#f1e4c5}.combat-console-heading p{margin:0;color:#aeb9aa;font-size:12px}.combat-round-seal{width:66px;height:66px;border:1px solid #d5b36b88;border-radius:50%;display:grid;align-content:center;justify-items:center;flex:none;color:#d9bd7b}.combat-round-seal span{font-size:8px;letter-spacing:1.5px}.combat-round-seal strong{font:700 25px Cinzel}.combat-toolbar{display:grid;grid-template-columns:1.2fr 1.2fr auto auto;gap:10px;align-items:end;padding:12px;background:#07130e88;border:1px solid #d5b36b2c;border-radius:8px;margin-bottom:14px}.combat-toolbar label,.combatant-form label,.combat-import-row label{display:grid;gap:5px;color:#d9c48e;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}.combat-toolbar select,.combatant-form input,.combatant-form select,.combat-import-row select{width:100%;min-width:0;min-height:39px;padding:8px 10px;border:1px solid #b89a5a66;border-radius:6px;background:#101d15;color:#f2e8d1;font:12px 'DM Sans',sans-serif}.combat-main-grid{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.8fr);gap:14px}.combatant-form{padding:15px;border:1px solid #d5b36b35;border-radius:8px;background:#07130e88;display:grid;gap:11px;align-content:start}.combatant-form h3{font:600 17px Cinzel;margin:0;color:#f0dfba}.combatant-form-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.combatant-form .primary-btn{width:100%}.combat-import-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;padding-top:10px;border-top:1px solid #d5b36b25}.combat-import-row .outline-btn{min-height:39px}.combat-board{min-width:0;padding:15px;border:1px solid #d5b36b35;border-radius:8px;background:#07130e88}.combat-board-actions{display:flex;justify-content:space-between;align-items:center;gap:12px}.combat-board-actions>div:first-child{display:grid;gap:4px}.combat-board-actions strong{font:600 14px Cinzel;color:#e9d7ad}.combat-board-actions>div:last-child{display:flex;gap:7px;flex-wrap:wrap}.combat-current-turn{margin:13px 0;padding:10px 12px;border-left:3px solid #d5b36b;background:#15251b;color:#e9d6a8;font:600 12px 'DM Sans',sans-serif}.combatant-list{display:grid;gap:7px}.combatant-row{display:grid;grid-template-columns:42px minmax(110px,1.3fr) 68px 100px 76px minmax(90px,1fr) auto;gap:9px;align-items:center;padding:10px;border:1px solid #d5b36b25;border-radius:7px;background:#111e17}.combatant-row.is-active{border-color:#e3c578;box-shadow:0 0 0 1px #d5b36b35,inset 3px 0 #d5b36b}.combatant-row.is-defeated{opacity:.48}.combat-init{font:700 20px Cinzel;color:#f0d99e;text-align:center}.combat-name{display:grid;gap:3px;min-width:0}.combat-name strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#f1e7d0;font-size:12px}.combat-name small,.combat-stat small{font-size:8px;letter-spacing:1px;color:#9ba997;text-transform:uppercase}.combat-stat{display:grid;gap:3px;text-align:center;color:#e8dfc8;font-size:12px}.combat-hp-controls{display:flex;align-items:center;justify-content:center;gap:4px}.combat-hp-controls button,.combat-row-actions button{border:1px solid #b89a5a55;border-radius:5px;background:#17271d;color:#e7d7b1;min-width:24px;height:26px;cursor:pointer}.combat-hp-controls button:hover,.combat-row-actions button:hover{background:#314632}.combat-conditions{font-size:10px;color:#c9b982;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.combat-row-actions{display:flex;gap:4px}.combat-empty{padding:24px 12px;text-align:center;color:#9ba997;font-size:12px;border:1px dashed #d5b36b35;border-radius:7px}.combat-footnote{margin-top:12px;color:#899889;font-size:9px;line-height:1.6}.combatant-row .hp-track{height:4px;background:#354438;border-radius:8px;overflow:hidden;margin-top:3px}.combatant-row .hp-track span{display:block;height:100%;background:#8cb58a}.combatant-row.is-defeated .hp-track span{background:#a75e55}
+body[data-universe="starfleet"] .combat-console{border-radius:4px 22px 4px 22px;background:linear-gradient(145deg,#101c34,#090f1e);border-color:#42537b}body[data-universe="starfleet"] .combat-console-heading h2{font-family:'DM Sans',sans-serif;text-transform:uppercase;color:#dcecff}body[data-universe="starfleet"] .combat-toolbar,body[data-universe="starfleet"] .combatant-form,body[data-universe="starfleet"] .combat-board{background:#0a1224;border-color:#34466c}body[data-universe="starfleet"] .combatant-form input,body[data-universe="starfleet"] .combatant-form select,body[data-universe="starfleet"] .combat-toolbar select,body[data-universe="starfleet"] .combat-import-row select{background:#101b32;border-color:#4a6694;color:#e1edff}body[data-universe="starfleet"] .combat-current-turn{background:#13233b;border-color:#55cbe5;color:#d7f5ff}
+body[data-universe="galaxy"] .combat-console{background:linear-gradient(145deg,#171c28,#0b0e16 76%);border-color:#8d514b88}body[data-universe="galaxy"] .combat-console-heading h2{color:#f1e2d1}body[data-universe="galaxy"] .combat-toolbar,body[data-universe="galaxy"] .combatant-form,body[data-universe="galaxy"] .combat-board{background:#0c111b;border-color:#8d514b66}body[data-universe="galaxy"] .combatant-form input,body[data-universe="galaxy"] .combatant-form select,body[data-universe="galaxy"] .combat-toolbar select,body[data-universe="galaxy"] .combat-import-row select{background:#151a25;border-color:#9d574c88;color:#f2e6d7}body[data-universe="galaxy"] .combat-current-turn{background:#211a24;border-color:#c36a61;color:#f3d8c8}
+@media(max-width:900px){.combat-toolbar{grid-template-columns:1fr 1fr}.combat-main-grid{grid-template-columns:1fr}.combatant-row{grid-template-columns:36px minmax(90px,1fr) 55px 85px 58px minmax(65px,.8fr) auto;gap:5px;padding:8px}.combatant-row .combat-conditions{display:none}}@media(max-width:600px){.combat-toolbar{grid-template-columns:1fr}.combat-console-heading{align-items:flex-start}.combat-board-actions{align-items:flex-start;flex-direction:column}.combatant-row{grid-template-columns:32px minmax(80px,1fr) 52px 72px auto}.combatant-row .combat-stat:nth-of-type(2),.combatant-row .combat-conditions{display:none}.combat-row-actions button{min-width:22px}}
