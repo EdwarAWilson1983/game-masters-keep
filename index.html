@@ -13,7 +13,7 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand">
-        <div class="brand-mark"><span class="brand-mark-default">✦</span><img class="galaxy-brand-emblem" src="assets/force-duality-icon.png" alt=""></div>
+        <div class="brand-mark universe-brand-mark"><img id="universeBrandEmblem" src="assets/puma-visual-studio-emblem.png" alt="The Chronicles of Puma emblem"></div>
         <div><div class="brand-name">GAME MASTER'S</div><div class="brand-sub">KEEP</div></div>
       </div>
       <div class="universe-label">YOUR REALMS</div>
@@ -27,9 +27,11 @@
         <button class="nav-item active" data-view="dashboard"><span>⌂</span> Headquarters</button>
         <button class="nav-item" data-view="campaigns"><span>⚑</span> Campaigns</button>
         <button class="nav-item" data-view="characters"><span>♙</span> Characters & NPCs</button>
+        <button class="nav-item" data-view="artwork"><span>✦</span> Visual Creation Studio</button>
         <button class="nav-item" data-view="sessions"><span>▤</span> Sessions & Quests</button>
         <button class="nav-item" data-view="library"><span>⌕</span> Rules Library</button>
         <button class="nav-item" data-view="tools"><span>⚄</span> Game Tools</button>
+        <button class="nav-item" data-view="archives"><span>▣</span> Library & Archives</button>
       </nav>
       <div class="sidebar-bottom">
         <div class="local-status"><span class="status-dot"></span><div><strong>Local workspace</strong><small>Your demo data stays in this browser</small></div></div>
@@ -157,7 +159,7 @@
         <div class="section-heading"><div><div class="eyebrow" id="statsEyebrow">YOUR WORKSPACE</div><h2 id="statsTitle">At a glance</h2></div><button class="text-btn" data-go="campaigns">All campaigns →</button></div>
         <div class="stats-grid">
           <article class="stat-card"><div class="stat-icon">⚑</div><div class="stat-number" id="campaignCount">0</div><div class="stat-label" id="campaignStatLabel">Campaigns</div></article>
-          <article class="stat-card"><div class="stat-icon">♙</div><div class="stat-number" id="characterCount">0</div><div class="stat-label" id="characterStatLabel">Characters & NPCs</div></article>
+          <article class="stat-card"><div class="stat-icon">♙</div><div class="stat-number" id="characterStatCount">0</div><div class="stat-label" id="characterStatLabel">Characters & NPCs</div></article>
           <article class="stat-card"><div class="stat-icon">▤</div><div class="stat-number" id="sessionCount">0</div><div class="stat-label" id="sessionStatLabel">Session notes</div></article>
           <article class="stat-card"><div class="stat-icon">✎</div><div class="stat-number" id="questCount">0</div><div class="stat-label" id="questStatLabel">Open quests</div></article>
         </div>
@@ -170,18 +172,163 @@
 
       <section class="page-view" id="view-campaigns">
         <div class="page-heading"><div><div class="eyebrow">BUILD YOUR WORLDS</div><h1>Campaigns</h1><p>Keep every adventure, setting and story in one place.</p></div><button class="primary-btn" id="newCampaign">＋ New campaign</button></div>
-        <div class="toolbar"><input id="campaignSearch" type="search" placeholder="Search your campaigns…" aria-label="Search campaigns"><span id="campaignTotal" class="muted">0 campaigns</span></div>
+        <div class="campaign-toolbar">
+          <input id="campaignSearch" type="search" placeholder="Search campaigns…" aria-label="Search campaigns">
+          <select id="campaignUniverseFilter" aria-label="Filter by universe">
+            <option value="fantasy">The Chronicles of Puma</option>\n            <option value="starfleet">Starfleet Command</option>\n            <option value="galaxy">Galactic Adventures</option>
+            <option value="fantasy">The Chronicles of Puma</option>\n            <option value="starfleet">Starfleet Command</option>\n            <option value="galaxy">Galactic Adventures</option>
+            <option value="starfleet">Starfleet Command</option>
+            <option value="galaxy">Galactic Adventures</option>
+          </select>
+          <select id="campaignStatusFilter" aria-label="Filter by status">
+            <option value="all">All statuses</option>
+            <option value="active">Active</option>
+            <option value="paused">Paused</option>
+            <option value="completed">Completed</option>
+          </select>
+          <select id="campaignSort" aria-label="Sort campaigns">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+          <span id="campaignTotal" class="muted">0 campaigns</span>
+        </div>
         <div id="campaignGrid" class="campaign-grid"></div>
       </section>
 
       <section class="page-view" id="view-characters">
-        <div class="page-heading"><div><div class="eyebrow">THE PEOPLE IN YOUR STORIES</div><h1>Characters & NPCs</h1><p>A home for heroes, allies, rivals and memorable strangers.</p></div><button class="primary-btn" id="newCharacter">＋ Add character</button></div>
-        <div class="placeholder-panel"><div class="placeholder-icon">♙</div><h2>Your character vault</h2><p>Character records will connect to campaigns in a later build. For now, create campaigns and use their notes to sketch out your cast.</p><button class="secondary-btn" data-go="campaigns">Go to campaigns</button></div>
+        <div class="page-heading"><div><div class="eyebrow">THE PEOPLE IN YOUR STORIES</div><h1>Character Dossiers</h1><p>Build your cast once. Carry their stories and visual identities throughout every session and illustrated chronicle.</p></div><button class="primary-btn" id="newCharacter">＋ Add character</button></div>
+        <div class="character-intro panel"><div><div class="eyebrow">THE CHARACTER VAULT</div><h2>Every legend has a face.</h2><p>Keep biographies, appearances, equipment and reference portraits together. These records will become the foundation for consistent artwork in your campaign chronicles.</p></div><div class="character-seal universe-feature-seal"><img id="characterUniverseEmblem" src="assets/puma-visual-studio-emblem.png" alt="The Chronicles of Puma emblem"><small>IDENTITY · HISTORY · LEGACY</small></div></div>
+        <div class="character-toolbar panel"><label>CAMPAIGN<select id="characterCampaignSelect" aria-label="Choose campaign for character dossiers"></select></label><span id="characterCount" class="muted">0 characters</span></div>
+        <div id="characterNoCampaign" class="placeholder-panel"><div class="placeholder-icon">♙</div><h2>Your character vault awaits</h2><p>Create a campaign before adding its heroes, allies, rivals and memorable strangers.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+        <div id="characterList" class="character-grid"></div>
+        <dialog id="characterDialog" class="character-dialog">
+          <form id="characterForm">
+            <div class="dialog-head"><div><div class="eyebrow">CHARACTER DOSSIER</div><h2 id="characterDialogTitle">Create a character</h2></div><button type="button" class="close-btn" id="closeCharacter" aria-label="Close">×</button></div>
+            <input type="hidden" id="characterId">
+            <label>Character name<input id="characterName" required maxlength="80" placeholder="Aelira Thornwood"></label>
+            <div class="character-fields-two">
+              <label>Role / class<input id="characterRole" maxlength="80" placeholder="Ranger, captain, Jedi…"></label>
+              <label>Race / species<input id="characterSpecies" maxlength="80" placeholder="Elf, human, Vulcan…"></label>
+            </div>
+            <label>Appearance and distinguishing features<textarea id="characterAppearance" rows="3" maxlength="1800" placeholder="Describe face, build, hair, eyes, clothing, colors, scars and other recognizable details."></textarea></label>
+            <label>Personality and motivations<textarea id="characterPersonality" rows="2" maxlength="1200" placeholder="What drives this character?"></textarea></label>
+            <label>Biography / backstory<textarea id="characterBiography" rows="3" maxlength="2500" placeholder="History, relationships, secrets and important events…"></textarea></label>
+            <label>Equipment and signature items<input id="characterEquipment" maxlength="800" placeholder="Weapons, armor, tools, artifacts…"></label>
+            <div class="visual-create-row"><div><strong>Need a portrait?</strong><small>Build a prompt from this dossier, then open an image creator. When finished, return here and upload the portrait below.</small></div><button type="button" class="secondary-btn" id="openVisualStudio">✦ Create artwork prompt</button></div>
+            <div class="dossier-creator-links" aria-label="Open an external image creator">
+              <a class="dossier-creator-link dossier-creator-featured" href="https://perchance.org/ai-character-generator" target="_blank" rel="noopener noreferrer">Perchance <span>↗</span></a>
+              <a class="dossier-creator-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT Images <span>↗</span></a>
+              <a class="dossier-creator-link" href="https://char-gen.com/character?size=1%3A1" target="_blank" rel="noopener noreferrer">CharGen <span>↗</span></a>
+              <a class="dossier-creator-link" href="https://dndplaybook.com/character-creator" target="_blank" rel="noopener noreferrer">D&amp;D Playbook <span>↗</span></a>
+              <a class="dossier-creator-link" href="https://creator.nightcafe.studio/trend/dnd-character-art-creator" target="_blank" rel="noopener noreferrer">NightCafe <span>↗</span></a>
+            </div>
+            <label>Official portrait / visual reference<input id="characterPortrait" type="file" accept="image/png,image/jpeg,image/webp"></label>
+            <div id="portraitPreview" class="portrait-preview" hidden></div>
+            <p class="form-hint">Portraits are stored in this browser with the campaign. Use a reasonably sized image (under 1.5 MB) to avoid filling local browser storage. You can replace or remove the portrait later.</p>
+            <div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelCharacter">Cancel</button><button type="submit" class="primary-btn" id="saveCharacter">Save character dossier</button></div>
+          </form>
+        </dialog>
+        <dialog id="visualStudioDialog" class="character-dialog visual-studio-dialog">
+          <div class="dialog-head"><div><div class="eyebrow">FREE VISUAL CREATION STUDIO</div><h2>Prepare your artwork</h2></div><button type="button" class="close-btn" id="closeVisualStudio" aria-label="Close">×</button></div>
+          <p class="form-hint">Build a detailed prompt from this character's dossier. Copy it into an image generator you already use, then upload the finished image as the character's official portrait.</p>
+          <label>Art direction
+            <select id="visualArtStyle">
+              <option value="Painterly high-fantasy book illustration, rich natural colors, intricate detail, atmospheric lighting">Painterly fantasy illustration</option>
+              <option value="Photorealistic cinematic character concept art, realistic materials, dramatic natural lighting">Cinematic realism</option>
+              <option value="Traditional oil painting, classical composition, visible brushwork, museum-quality finish">Classical oil painting</option>
+              <option value="Elegant ink and watercolor illustration on textured parchment, refined linework">Ink and watercolor</option>
+              <option value="Detailed graphic-novel illustration, confident linework, dramatic shadows, rich color">Graphic novel</option>
+              <option value="Grounded science-fiction character concept art, detailed uniform and believable materials">Science-fiction concept art</option>
+            </select>
+          </label>
+          <label>Additional direction (optional)<textarea id="visualExtraDirection" rows="2" placeholder="Pose, expression, setting, camera angle, mood…"></textarea></label>
+          <div class="visual-prompt-label"><span class="eyebrow">YOUR GENERATED PROMPT</span><button type="button" class="secondary-btn" id="refreshVisualPrompt">Refresh prompt</button></div>
+          <textarea id="visualPromptOutput" rows="10" spellcheck="true"></textarea>
+          <div class="dialog-actions"><button type="button" class="secondary-btn" id="copyVisualPrompt">Copy prompt</button><button type="button" class="primary-btn" id="visualPromptDone">Done</button></div>
+          <p class="form-hint">No image-generation service is connected. This tool is free and prepares prompts for an image generator you choose. Generated images can be uploaded in the character dossier.</p>
+        </dialog>
+      </section>
+
+      <section class="page-view" id="view-artwork">
+        <div class="page-heading"><div><div class="eyebrow">THE ARTIST'S WORKSHOP</div><h1>Visual Creation Studio</h1><p>Create artwork with the tools you choose, then bring it home to your campaign.</p></div></div>
+        <div class="artwork-intro panel"><div><div class="eyebrow">IMAGINE · CREATE · PRESERVE</div><h2>Every world deserves to be seen.</h2><p>Open an image creator in a new tab, make your artwork, download it, then upload it here. Your campaign gallery keeps the finished images together with your local campaign records.</p></div><div class="character-seal artwork-seal"><img id="artworkUniverseEmblem" src="assets/puma-visual-studio-emblem.png" alt="The Chronicles of Puma emblem"><small>ART · MEMORY · LEGACY</small></div></div>
+        <section class="art-provider-section">
+          <div class="section-heading"><div><div class="eyebrow">CHOOSE YOUR WORKSHOP</div><h2>External image creators</h2><p>These services open separately. Generate and download your image, then return here to add it to your campaign.</p></div></div>
+          <div class="provider-grid">
+            <article class="provider-card provider-featured"><div class="provider-mark">P</div><div class="eyebrow">FREE COMMUNITY GENERATOR</div><h3>Perchance</h3><p>Quick character portraits and imaginative fantasy artwork.</p><a class="primary-btn provider-link" href="https://perchance.org/ai-character-generator" target="_blank" rel="noopener noreferrer">Open Perchance ↗</a></article>
+            <article class="provider-card"><div class="provider-mark">✦</div><div class="eyebrow">CHATGPT</div><h3>ChatGPT Images</h3><p>Create and refine original images through conversation.</p><a class="secondary-btn provider-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a></article>
+            <article class="provider-card"><div class="provider-mark">C</div><div class="eyebrow">CHARACTER REFERENCES</div><h3>CharGen</h3><p>Explore character-focused generation and visual references.</p><a class="secondary-btn provider-link" href="https://char-gen.com/character?size=1%3A1" target="_blank" rel="noopener noreferrer">Open CharGen ↗</a></article>
+            <article class="provider-card"><div class="provider-mark">D</div><div class="eyebrow">TABLETOP CHARACTERS</div><h3>D&amp;D Playbook</h3><p>Character-oriented artwork and tabletop creation tools.</p><a class="secondary-btn provider-link" href="https://dndplaybook.com/character-creator" target="_blank" rel="noopener noreferrer">Open D&amp;D Playbook ↗</a></article>
+            <article class="provider-card"><div class="provider-mark">N</div><div class="eyebrow">ARTISTIC VARIETY</div><h3>NightCafe</h3><p>Experiment with different models and illustration styles.</p><a class="secondary-btn provider-link" href="https://creator.nightcafe.studio/trend/dnd-character-art-creator" target="_blank" rel="noopener noreferrer">Open NightCafe ↗</a></article>
+            <article class="provider-card"><div class="provider-mark">✧</div><div class="eyebrow">STORY & ADVENTURE IDEAS</div><h3>Perchance Story Tools</h3><p>Explore AI RPG and story-generation experiments.</p><a class="secondary-btn provider-link" href="https://perchance.org/ai-rpg" target="_blank" rel="noopener noreferrer">AI RPG ↗</a> <a class="text-btn" href="https://perchance.org/ai-story-generator" target="_blank" rel="noopener noreferrer">Story Generator ↗</a></article>
+          </div>
+          <p class="fine-print">External services have their own accounts, terms, availability and usage limits. Game Master's Keep does not send your campaign data to them automatically.</p>
+        </section>
+        <section class="artwork-library panel">
+          <div class="artwork-library-head"><div><div class="eyebrow">YOUR CAMPAIGN COLLECTION</div><h2>Artwork gallery</h2><p>Keep approved portraits, maps and illustrations with the campaign they belong to.</p></div><label class="campaign-art-select">CAMPAIGN<select id="artworkCampaignSelect" aria-label="Choose artwork campaign"></select></label></div>
+          <div id="artworkNoCampaign" class="empty-state"><strong>Your gallery is waiting.</strong><p>Create a campaign before adding artwork.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+          <form id="artworkUploadForm" class="artwork-upload-form" hidden>
+            <div class="artwork-upload-fields">
+              <label>Artwork title<input id="artworkTitle" required maxlength="90" placeholder="The northern watchtower"></label>
+              <label>Artwork type<select id="artworkType"><option value="Character portrait">Character portrait</option><option value="Map">Map</option><option value="Location">Location / landscape</option><option value="Scene">Scene / encounter</option><option value="Chapter illustration">Chapter illustration</option><option value="Other">Other artwork</option></select></label>
+              <label>Associate with character (optional)<select id="artworkCharacter"><option value="">No character association</option></select></label>
+              <label>Associate with session (optional)<select id="artworkSession"><option value="">No session association</option></select></label>
+              <label>Chapter / scene note (optional)<input id="artworkChapter" maxlength="100" placeholder="Chapter 3 · The Ashen Vale"></label>
+            </div>
+            <label class="artwork-file-label">Choose image file<input id="artworkFile" type="file" accept="image/png,image/jpeg,image/webp" required><small>JPG, PNG or WebP · up to 700 KB per image in this local prototype.</small></label>
+            <div class="artwork-upload-actions"><span class="form-hint">Images are stored in this browser and included in JSON campaign backups.</span><button class="primary-btn" type="submit">＋ Add to campaign gallery</button></div>
+          </form>
+          <div class="artwork-filter-bar">
+            <label>SEARCH<input id="artworkSearch" type="search" placeholder="Find artwork by title or notes…"></label>
+            <label>TYPE<select id="artworkTypeFilter"><option value="">All artwork types</option><option>Character portrait</option><option>Map</option><option>Location</option><option>Scene</option><option>Chapter illustration</option><option>Other</option></select></label>
+            <label>CHARACTER<select id="artworkCharacterFilter"><option value="">All characters</option></select></label>
+            <label>SESSION<select id="artworkSessionFilter"><option value="">All sessions</option></select></label>
+          </div>
+          <div class="artwork-gallery-toolbar"><span id="artworkCount" class="muted">0 images</span><span class="form-hint">Artwork is stored locally in this browser and included in campaign JSON backups.</span></div>
+          <div id="artworkGallery" class="artwork-gallery"></div>
+        </section>
       </section>
 
       <section class="page-view" id="view-sessions">
-        <div class="page-heading"><div><div class="eyebrow">PREPARE THE NEXT CHAPTER</div><h1>Sessions & Quests</h1><p>Capture the details that make a campaign feel alive.</p></div></div>
-        <div class="placeholder-panel"><div class="placeholder-icon">▤</div><h2>Your campaign journal</h2><p>Session planning, quest tracking and searchable notes are on the first-release roadmap. Start by creating a campaign and recording its premise.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+        <div class="page-heading"><div><div class="eyebrow">PREPARE THE NEXT CHAPTER</div><h1>Sessions & Quests</h1><p>Record the events of each session. Every entry becomes part of your campaign's lasting chronicle.</p></div></div>
+        <div class="chronicle-intro panel">
+          <div><div class="eyebrow">THE CHRONICLE ROOM</div><h2>Every adventure deserves to be remembered.</h2><p>Keep a record as you play, then assemble your campaign into a print-ready story when the adventure is complete.</p></div>
+          <div class="chronicle-seal universe-feature-seal chronicle-universe-seal"><img id="chronicleUniverseEmblem" src="assets/puma-visual-studio-emblem.png" alt="The Chronicles of Puma emblem"><small>RECORD · REMEMBER · RELATE</small></div>
+        </div>
+        <div class="session-workspace panel">
+          <div class="session-toolbar">
+            <label>CAMPAIGN<select id="sessionCampaignSelect" aria-label="Choose campaign for session records"></select></label>
+            <button class="secondary-btn" id="openChronicle">Create campaign chronicle</button>
+          </div>
+          <div id="sessionNoCampaign" class="empty-state"><strong>No campaigns yet.</strong><p>Create a campaign before adding session records.</p><button class="secondary-btn" data-go="campaigns">Open campaigns</button></div>
+          <div id="sessionEditor" hidden>
+            <h3 id="sessionFormTitle">Record a session</h3>
+            <form id="sessionForm" class="session-form">
+              <input type="hidden" id="sessionId">
+              <label>Session title<input id="sessionTitle" required maxlength="100" placeholder="The Road Through the Ashen Vale"></label>
+              <label>Session date<input id="sessionDate" type="date" required></label>
+              <label>What happened?<textarea id="sessionSummary" rows="5" maxlength="5000" required placeholder="Describe the events of this session. Include discoveries, encounters, dialogue worth remembering, and the choices the party made."></textarea></label>
+              <label>Characters involved<input id="sessionCast" maxlength="500" placeholder="Heroes, allies, rivals, NPCs…"></label>
+              <label>Important decisions / consequences<textarea id="sessionTurningPoint" rows="3" maxlength="2500" placeholder="What changed? What choices will matter later?"></textarea></label>
+              <label>Illustrations for this session <select id="sessionArtworkSelect" multiple size="4" aria-describedby="sessionArtworkHelp"></select><small id="sessionArtworkHelp" class="form-hint">Optional. Select images already in this campaign's Artwork Gallery. Hold Ctrl (Windows) to select multiple images.</small></label>
+              <div class="session-form-actions"><button type="button" class="secondary-btn" id="cancelSessionEdit">Cancel</button><button type="submit" class="primary-btn" id="saveSession">Save session record</button></div>
+            </form>
+            <div class="session-records-heading"><div><div class="eyebrow">THE ADVENTURE SO FAR</div><h3>Session records</h3></div><span id="sessionRecordCount" class="muted">0 entries</span></div>
+            <div id="sessionRecords" class="session-record-list"></div>
+          </div>
+        </div>
+        <dialog id="chronicleDialog" class="chronicle-dialog">
+          <form id="chronicleForm">
+            <div class="dialog-head"><div><div class="eyebrow">THE CHRONICLE ROOM</div><h2>Prepare your campaign story</h2></div><button type="button" class="close-btn" id="closeChronicle" aria-label="Close">×</button></div>
+            <p>Choose a presentation style, review the assembled narrative, and print it or save it as a PDF. Your original session records remain unchanged.</p>
+            <label>Presentation style<select id="chronicleStyle"><option value="epic">Epic narrative</option><option value="historical">Historical chronicle</option><option value="journal">Adventurer's journal</option></select></label>
+            <label>Title<input id="chronicleTitle" maxlength="120"></label>
+            <label>Dedication / opening note<textarea id="chronicleDedication" rows="2" maxlength="1000" placeholder="Optional dedication, party name or opening note…"></textarea></label>
+            <label>Review and edit the assembled story<textarea id="chronicleText" rows="16"></textarea></label>
+            <div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelChronicle">Close</button><button type="button" class="primary-btn" id="printChronicle">Print / Save PDF</button></div>
+          </form>
+        </dialog>
       </section>
 
       <section class="page-view" id="view-library">
@@ -196,7 +343,59 @@
         <div class="tool-card"><div><div class="eyebrow">DICE ROLLER</div><h2>Roll the dice</h2><p>Quick rolls for planning, testing and play.</p></div><div class="dice-controls"><select id="diceType" aria-label="Dice type"><option value="4">d4</option><option value="6">d6</option><option value="8">d8</option><option value="10">d10</option><option value="12">d12</option><option value="20" selected>d20</option><option value="100">d100</option></select><input id="diceCount" type="number" min="1" max="20" value="1" aria-label="Number of dice"><button class="primary-btn" id="rollDice">Roll</button></div><div id="diceResult" class="dice-result" aria-live="polite">Ready when you are.</div></div>
       </section>
 
-      <section class="page-view" id="view-settings">
+      
+      <section class="page-view" id="view-archives">
+        <div class="page-heading">
+          <div><div class="eyebrow">YOUR PERMANENT COLLECTION</div><h1>Library &amp; Archives</h1>
+          <p>Keep maps, portraits, character sheets, chronicles and other campaign files organized by universe.</p></div>
+        </div>
+        <div class="archive-intro-panel">
+          <div><span class="eyebrow">LOCAL-FIRST · GITHUB-HOSTED FILES</span>
+          <h2>Your worlds. Your records. One library.</h2>
+          <p>Upload files to the matching folder in your GitHub repository, then register their paths here. Game Master's Keep will open the hosted files whenever you need them.</p></div>
+          <div class="archive-mark" id="archiveMark" aria-label="Universe archive emblem"><img class="archive-mark-emblem" id="archiveMarkEmblem" src="assets/puma-visual-studio-emblem.png" alt="The Chronicles of Puma emblem"><small>KEEP · CATALOG · REVISIT</small></div>
+        </div>
+        <div class="archive-layout">
+          <div class="archive-main-panel">
+            <div class="archive-toolbar">
+              <input id="archiveSearch" type="search" placeholder="Search this archive…" aria-label="Search archive">
+              <select id="archiveCategoryFilter" aria-label="Filter archive category">
+                <option value="all">All categories</option><option>Characters</option><option>Images</option><option>Character Sheets</option><option>Maps</option><option>Chronicles</option><option>Session Notes</option><option>Other</option>
+              </select>
+            </div>
+            <div class="archive-summary"><span id="archiveCount">0 files</span><span id="archiveRealmLabel">THE CHRONICLES OF PUMA</span></div>
+            <div id="archiveItems" class="archive-items">
+              <div class="placeholder-panel"><div class="placeholder-icon">▣</div><h2>Your archive is ready</h2><p>Add your first hosted file using the form.</p></div>
+            </div>
+          </div>
+          <aside class="archive-side-panel">
+            <div class="eyebrow">ADD TO THE ARCHIVE</div><h2>Register a hosted file</h2>
+            <p>First upload the file to GitHub. Then enter its path below.</p>
+            <form id="archiveForm" class="archive-form">
+              <label>File title<input id="archiveTitle" required maxlength="100" placeholder="e.g. Aria's character portrait"></label>
+              <label>Category<select id="archiveCategory"><option>Characters</option><option>Images</option><option>Character Sheets</option><option>Maps</option><option>Chronicles</option><option>Session Notes</option><option>Other</option></select></label>
+              <label>GitHub file path<input id="archivePath" required placeholder="Puma/Images/aria-portrait.png"></label>
+              <label>Short description<textarea id="archiveDescription" rows="3" placeholder="Optional notes about this file…"></textarea></label>
+              <button class="primary-btn" type="submit">Add to this archive</button>
+            </form>
+            <div class="archive-folder-guide">
+              <div class="eyebrow">SUGGESTED FOLDERS</div>
+              <code id="archiveFolderExample">Puma/Characters/</code>
+              <code id="archiveFolderExample2">Puma/Images/</code>
+              <code id="archiveFolderExample3">Puma/Character-Sheets/</code>
+              <code id="archiveFolderExample4">Puma/Maps/</code>
+              <p>Folder names are suggestions. The path you enter must match the actual location and capitalization in GitHub.</p>
+            </div>
+            <div class="archive-backup-actions">
+              <button class="secondary-btn" id="exportArchiveCatalog" type="button">Export archive catalog</button>
+              <label class="archive-import-label">Import archive catalog<input id="importArchiveCatalog" type="file" accept="application/json,.json"></label>
+            </div>
+          </aside>
+        </div>
+        <p class="fine-print">Files are hosted by your GitHub Pages site. This catalog is saved locally in this browser; export it periodically as a backup. Do not upload private or sensitive material to a public repository.</p>
+      </section>
+
+<section class="page-view" id="view-settings">
         <div class="page-heading"><div><div class="eyebrow">YOUR DATA, YOUR KEEP</div><h1>Settings & Backup</h1><p>Manage your local prototype data and keep a portable copy.</p></div></div>
         <div class="settings-grid"><div class="panel"><h3>Data backup</h3><p>Export your campaign data as a JSON file. You can import it again in this browser or another copy of the app.</p><button class="primary-btn" id="exportData">↓ Export backup</button><label class="secondary-btn file-label">↑ Import backup<input type="file" id="importData" accept="application/json"></label></div><div class="panel"><h3>Workspace status</h3><p><strong>Storage:</strong> This browser's local storage</p><p><strong>Network:</strong> No account or server connection in this prototype</p><p><strong>Recurring cost:</strong> $0</p><p class="fine-print">Clearing browser data may erase campaigns that have not been exported. Keep regular backups.</p></div></div>
       </section>
@@ -204,12 +403,14 @@
   </div>
 
   <dialog id="campaignDialog">
-    <form method="dialog" id="campaignForm">
-      <div class="dialog-head"><div><div class="eyebrow">A NEW ADVENTURE</div><h2>Create a campaign</h2></div><button class="close-btn" value="cancel" aria-label="Close">×</button></div>
+    <form id="campaignForm">
+      <input type="hidden" id="campaignId">
+      <div class="dialog-head"><div><div class="eyebrow" id="campaignDialogEyebrow">A NEW ADVENTURE</div><h2 id="campaignDialogTitle">Create a campaign</h2></div><button type="button" class="close-btn" id="closeCampaignDialog" aria-label="Close">×</button></div>
       <label>Campaign name<input id="campaignName" required maxlength="70" placeholder="The Lost Crown of…" /></label>
-      <label>Game universe<select id="campaignUniverse"><option value="fantasy">The Chronicles of Puma</option><option value="starfleet">Star Trek</option><option value="galaxy">Star Wars</option></select></label>
-      <label>Campaign premise<textarea id="campaignPremise" rows="4" placeholder="A few words about the adventure, its setting or central mystery…"></textarea></label>
-      <div class="dialog-actions"><button class="secondary-btn" value="cancel">Cancel</button><button class="primary-btn" id="saveCampaign" value="default">Create campaign</button></div>
+      <label>Game universe<select id="campaignUniverse"><option value="fantasy">The Chronicles of Puma</option><option value="starfleet">Starfleet Command</option><option value="galaxy">Galactic Adventures</option></select></label>
+      <label>Campaign status<select id="campaignStatus"><option value="active">Active</option><option value="paused">Paused</option><option value="completed">Completed</option></select></label>
+      <label>Campaign premise<textarea id="campaignPremise" rows="4" maxlength="1200" placeholder="A few words about the adventure, its setting or central mystery…"></textarea></label>
+      <div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelCampaign">Cancel</button><button type="submit" class="primary-btn" id="saveCampaign">Create campaign</button></div>
     </form>
   </dialog>
   <div class="toast" id="toast" role="status"></div>
