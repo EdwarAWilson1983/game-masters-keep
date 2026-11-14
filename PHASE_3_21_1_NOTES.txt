@@ -1,0 +1,7 @@
+PHASE 3.21.1 — DICE CHAMBER VISUAL REFINEMENT
+
+This refinement replaces the generic flat six-sided badge with a custom faceted polyhedral die illustration. The die now has a sculpted silhouette, individually shaded triangular faces, inset center face, engraved-style numerals, metallic edge highlights, and universe-specific face colors for The Chronicles of Puma, Starfleet Command, and Galactic Adventures.
+
+The existing roll animation, result reveal, critical/fumble effects, dice controls, modifiers, breakdown, and history remain in place. No external images, libraries, services, or subscriptions are required.
+
+Testing performed: JavaScript syntax check and ZIP integrity check. Full interactive browser testing remains for the user.

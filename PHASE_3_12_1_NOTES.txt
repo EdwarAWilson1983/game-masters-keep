@@ -1,0 +1,20 @@
+GAME MASTER'S KEEP — PHASE 3.12.1
+Character Sheet Visibility & Control Fix
+
+This is a corrective build based on user testing of Phase 3.12.
+
+Corrections:
+- Grouped the Phase 3.12 resource fields into a clearly labeled Live Resource Tracking panel.
+- Fixed the Inspiration checkbox sizing/appearance so it renders as a normal checkbox instead of stretching across the form.
+- Kept the existing Phase 3.12 data model, save/load behavior, live character-card controls, and all Phase 3.11 features.
+
+Visible resource fields:
+- Hit Dice
+- Hit Dice remaining
+- Passive Perception
+- Death save successes
+- Death save failures
+- Exhaustion level
+- Inspiration available
+
+This remains a local-browser application. It has received static syntax, markup, duplicate-ID, and ZIP-integrity checks, but not full interactive browser QA. Please verify the corrected editor appearance and resource saving in your browser.

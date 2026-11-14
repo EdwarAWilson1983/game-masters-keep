@@ -1,0 +1,23 @@
+GAME MASTER'S KEEP — PHASE 3.23
+INTEGRATION & COMBAT CONSOLE REFINEMENT
+
+Built on Phase 3.22 (Combat Console) and preserves the Phase 3.21.9 Dice Chamber baseline.
+
+INTEGRATION REVIEW
+- Reviewed the existing Combat Console data flow, campaign scoping, initiative ordering, turn progression, and encounter deletion.
+- Corrected encounter deletion so it removes the encounter from the active campaign's actual encounter array, or from the local-universe array when no campaign is selected. This prevents campaign encounters from being accidentally left behind or the unrelated local encounter list from being modified.
+- Made the active combat turn persist by combatant ID as well as the legacy turn index. This keeps the current turn stable when initiative order is re-sorted or the page is re-rendered.
+- Updated turn advancement to locate the active combatant by ID, skip defeated combatants, and advance the round when initiative order wraps.
+- Reset the active-turn reference when its combatant is removed; rendering safely falls back to a valid remaining combatant.
+- Kept existing campaign JSON backup behavior and local-only storage model.
+
+SCOPE / LIMITATIONS
+- No new rules automation was introduced. Initiative remains d20 + entered bonus; tie resolution remains with the DM.
+- No cloud sync, accounts, multiplayer, or paid services.
+- This is an integration/refinement pass, not a claim that every app workflow has been exhaustively browser-tested.
+
+VALIDATION
+- JavaScript syntax check passed with Node.js.
+- HTML parser and duplicate-ID checks run for this build.
+- ZIP integrity check run for this build.
+- Interactive browser testing remains requested from the user.

@@ -1,0 +1,24 @@
+GAME MASTER'S KEEP — PHASE 3.10
+Equipment & Combat Integration
+
+Built from the Phase 3.9 local prototype.
+
+New features (The Chronicles of Puma / D&D 5E 2014 character sheets):
+- Select an equipped weapon from the existing Equipment reference collection.
+- Choose Strength or Dexterity as the weapon attack ability (use Dexterity for finesse weapons when appropriate).
+- Toggle weapon proficiency; the displayed attack bonus uses the selected ability modifier and the character's level-based proficiency bonus.
+- Select armor and an optional shield from the Equipment reference collection.
+- Calculate Armor Class for supported standard armor profiles using the armor's listed base AC and Dexterity modifier rules; add +2 for a shield.
+- Preserve manual AC when no armor is selected.
+- Add additional carried gear.
+- Save loadout selections with the character and show the equipped weapon, attack bonus, damage profile, armor, shield, and calculated AC in Character Sheet Quick View.
+
+Important limitations:
+- This is a first equipment integration, not a complete inventory/economy engine.
+- Weapon ability is selected manually; finesse does not automatically choose the higher ability.
+- Weapon attack bonus assumes the proficiency checkbox accurately reflects the character's proficiency.
+- Armor proficiency, Strength requirements, Stealth disadvantage, weapon properties, ammunition, weight totals, currency, attunement, magic bonuses, class features, fighting styles, and temporary AC effects are not automatically adjudicated.
+- Custom AC remains manually editable when no armor is selected. Selecting armor calculates AC from the library profile and replaces the saved AC value.
+- Verify character-specific exceptions and table rulings before play.
+
+Phase 2 / GitHub deployment was not changed. Continue local testing and retain Phase 3.9 as a rollback copy.

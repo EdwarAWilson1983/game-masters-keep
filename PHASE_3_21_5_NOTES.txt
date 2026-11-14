@@ -1,0 +1,11 @@
+PHASE 3.21.5 — DICE MATERIAL REALISM REFINEMENT
+
+Refined the local D20 canvas renderer to reduce the illustrated/cartoon appearance:
+- Added a soft contact shadow beneath the die.
+- Added darker outer edge depth and inset face bevels.
+- Reworked per-face directional material shading for gemstone, forged metal, obsidian, and ivory.
+- Added restrained deterministic material grain and softer studio reflections.
+- Removed the bright, heavy face outlines and oversized glossy highlights.
+- Changed face numerals to a stamped/engraved visual treatment.
+
+Preserves the existing dice controls, roll animation, result overlay, history, universe themes, and local-only operation. No CDN, server, or subscription dependency added.

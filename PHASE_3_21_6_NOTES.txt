@@ -1,0 +1,7 @@
+PHASE 3.21.6 — PRODUCT-STYLE DICE MATERIAL REFINEMENT
+
+This refinement responds to the supplied real-die reference photograph. The D20 renderer now uses softened/rounded triangular face corners, deeper bevel and edge treatment, layered resin-like marbling, broad softbox reflections, glossy highlights, and a softer product-photography contact shadow. The existing roll animation, die-finish selector, universe palettes, result overlay, result panel, modifier handling, and roll history are retained.
+
+The die remains a locally rendered 2D-canvas projection of a rotating 3D icosahedron; it is not a physically simulated or photorealistic ray-traced renderer. The visual treatment is intended to move closer to the supplied manufactured-resin die reference without adding a paid service or network dependency.
+
+Validation performed: JavaScript syntax check, HTML parse, ZIP integrity check. No full interactive browser test was performed.

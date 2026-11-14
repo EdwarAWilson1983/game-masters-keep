@@ -1,0 +1,28 @@
+GAME MASTER'S KEEP — PHASE 3.22
+COMBAT CONSOLE
+
+Built on Phase 3.21.9 (transparent sci-fi dice baseline).
+
+NEW: COMBAT CONSOLE IN GAME TOOLS
+- Added campaign-aware encounter selector and encounter creation/deletion.
+- Add player characters, allies, and enemies with initiative bonus, hit points, and armor class.
+- Import player characters from the selected campaign; current/max HP, AC, and initiative bonus are read from the character dossier when available.
+- Roll d20 initiative for all combatants and display descending initiative order.
+- Advance turns and rounds; defeated combatants (0 HP) are skipped by Next Turn.
+- Track hit points with quick +/- controls or direct HP editing.
+- Record conditions and effects as free-text notes per combatant.
+- Remove combatants from an encounter.
+- Campaign encounters are stored inside campaign data and therefore travel with the existing campaign JSON backup/export. No-campaign encounters are stored locally in this browser.
+- Visual styling adapts to Chronicles of Puma, Starfleet Command, and Galactic Adventures.
+
+SCOPE / LIMITATIONS
+- Initiative uses a simple d20 + entered bonus workflow. This is intentionally a lightweight tracker, not a rules engine.
+- It does not automate attacks, damage rolls, saving throws, spell effects, monster actions, or character sheet synchronization after combat begins.
+- Tie resolution remains at the DM's discretion.
+- Data remains local to this browser. No accounts, cloud sync, multiplayer, or subscription services are introduced.
+
+VALIDATION
+- JavaScript syntax check passed with Node.js.
+- HTML parser check passed; no duplicate element IDs found.
+- ZIP integrity check passed.
+- Full interactive browser testing was not available in this build environment; user testing is requested.

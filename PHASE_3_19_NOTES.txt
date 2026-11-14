@@ -1,0 +1,7 @@
+PHASE 3.19 — CAMPAIGN RELATIONSHIPS & WORLD CONNECTIONS
+
+Adds a campaign-specific relationship ledger under World & Factions. Records can be linked across places, factions, NPCs, custom creatures and adventures. Relationships include location, control, alliance, rivalry, threat, protection, service, routes and quest-location links, with optional DM notes.
+
+Connections are stored in each campaign record as worldConnections and therefore follow the existing local campaign storage and JSON backup/export workflow. Missing endpoints are flagged for cleanup rather than silently deleting the relationship.
+
+This is an explicit relationship ledger, not an automatic graph visualizer or travel-route calculator. It does not change the separate universe rules or add any paid service.

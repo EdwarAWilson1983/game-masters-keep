@@ -1,0 +1,26 @@
+GAME MASTER'S KEEP — PHASE 3.7
+Playable Character Sheet Foundation (D&D 5E 2014)
+
+Built from the Phase 3.6 Bestiary Expansion baseline.
+
+NEW
+- Adds an edition-specific 2014 D&D 5E character sheet section to Fantasy / The Chronicles of Puma character dossiers.
+- Captures level, background, alignment, proficiency bonus, six ability scores, HP, temporary HP, AC, speed, initiative, Hit Dice, passive Perception, saving throw and skill proficiencies, attacks, features, inventory, spells, spellcasting notes, and character notes.
+- Adds a View Character Sheet action to Fantasy character cards.
+- Presents a readable character-sheet quick view with calculated ability modifiers.
+- Allows returning from the sheet view to edit the dossier and sheet.
+- Preserves existing character fields, portrait data, and other saved character properties when editing.
+- Does not display the D&D 5E sheet editor or button for Starfleet Command or Galactic Adventures.
+
+SCOPE / LIMITATIONS
+- This is the first playable-sheet foundation, not yet a complete automated character builder.
+- Ability modifiers are calculated from scores. Other derived values such as AC, initiative, skill bonuses, spell save DC, attacks, and spell slots are currently entered/maintained by the user.
+- Live session resource tracking, automated equipment calculations, clickable rule links, class/ancestry feature builders, and player accounts/synchronization are future work.
+- Character data remains in browser local storage. Export regular JSON backups.
+- No rulebook PDFs or copyrighted book text are included.
+
+TESTING
+- JavaScript syntax checked with Node.js.
+- HTML IDs checked for duplicates and direct static references.
+- ZIP integrity checked after packaging.
+- Full interactive browser QA was unavailable in the build environment; user local testing is required.

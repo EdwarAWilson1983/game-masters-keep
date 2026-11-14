@@ -1,0 +1,6 @@
+GAME MASTER'S KEEP — PHASE 3.6
+Bestiary Expansion
+
+Built from the locally tested Phase 3.5 equipment reference expansion. Adds 36 concise creature records based on SRD 5.1 (CC BY 4.0). Each creature includes type, challenge rating, AC, HP, speed, ability scores, senses/defenses, environment, trait/action notes, searchable keywords, and a Quick View profile. Adds filters for creature type, CR, and environment. Existing spells, equipment, rules entries, search, and Quick View are retained.
+
+These entries are a starter bestiary, not an exhaustive monster compendium. Check individual creature rules against the selected rules text before play. No sourcebook PDFs are bundled. Local testing recommended; GitHub and Phase 2 remain untouched.

@@ -1,0 +1,13 @@
+PHASE 3.21.7 — DICE CLEANUP & MULTI-DIE DISPLAY
+
+Changes:
+- Removed the looping/filament-like marbling strokes that produced the unwanted tentacle artifacts.
+- Replaced them with restrained, soft, disconnected material inclusions for gemstone and obsidian finishes.
+- Added a multi-die display: the Dice Chamber now visually composes the selected number of dice (up to 20) when the quantity is changed and during the roll animation.
+- Preserved the large roll-result overlay, existing roll calculations, modifiers, breakdown, history, finishes, and universe themes.
+
+Validation:
+- JavaScript syntax checked with Node.js.
+- HTML parsed successfully.
+- ZIP integrity checked after packaging.
+- Full interactive browser testing was not performed.

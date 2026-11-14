@@ -1,0 +1,12 @@
+GAME MASTER'S KEEP — PHASE 3.21.4
+Dice Chamber: Material realism and visible roll result
+
+Changes:
+- Refined the 3D D20 canvas rendering with studio-style directional lighting, richer face gradients, recessed inner bevels, restrained specular reflections, darker edge depth, and engraved-style numerals.
+- Reduced the bright cartoon-like facet treatment in favor of more natural material shading across the four existing finishes.
+- Added a prominent result medallion directly over the die. It reveals the final roll total after the tumble, while the existing result panel below continues to show the same total and breakdown.
+- Natural 20 and natural 1 retain their special highlighting.
+- Preserved the existing dice controls, calculations, history, and universe themes.
+
+Implementation note:
+The D20 remains a locally rendered geometric canvas model; this is a material and presentation refinement, not a photorealistic ray-traced 3D renderer. No external libraries, CDN dependencies, server, or subscription were added.

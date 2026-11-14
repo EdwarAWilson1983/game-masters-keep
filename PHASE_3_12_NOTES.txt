@@ -1,0 +1,20 @@
+GAME MASTER'S KEEP — PHASE 3.12
+Character Sheet Completion · D&D 5E (2014)
+
+This phase builds on Phase 3.11 and preserves its Dungeon Master's Toolkit and earlier campaign features.
+
+Character sheet additions:
+- Added editable hit-dice remaining, death-save successes and failures, exhaustion level, and inspiration state.
+- Added live character-sheet controls for HP adjustment, temporary HP, death-save tracking, hit-dice remaining, and inspiration toggle.
+- Added a compact display of death saves, exhaustion, inspiration, and hit dice to the character sheet.
+- Values are saved in the campaign's existing local browser data and remain part of the existing JSON backup/export workflow.
+- Death-save counters are constrained to 0–3 and exhaustion to 0–6.
+
+Ruleset:
+- The first complete playable character sheet is D&D 5E (2014 rules), for The Chronicles of Puma.
+- Starfleet Command and Galactic Adventures retain their existing dossier behavior; these additions do not impose D&D mechanics on those universes.
+
+Important limitations:
+- This remains a local-browser application. It does not provide player accounts, shared live play, or cloud synchronization.
+- The character sheet is a practical campaign tracker, not an automated rules adjudicator. The DM remains responsible for applying game rules and resolving edge cases.
+- This phase received static checks (JavaScript syntax, HTML parsing, duplicate IDs, archive integrity). It has not received full interactive browser QA; please test in your browser before treating every interaction as production-ready.

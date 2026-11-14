@@ -1,0 +1,29 @@
+GAME MASTER'S KEEP — PHASE 3.1 RULES LIBRARY EXPANSION
+
+Build: Phase 3.1
+Base: Phase 3.0 Rules Library Foundation
+Rules collection: D&D 5th Edition (2014), The Chronicles of Puma
+
+WHAT CHANGED
+- Expanded the Rules Library from its initial foundation to 69 concise reference entries.
+- Added additional core checks, combat procedures, movement, damage, healing, and equipment references.
+- Added condition-specific quick references.
+- Added 12 spell reference cards with level, casting time, range, components, duration, and original concise effect summaries.
+- Added Spells and Equipment category filters.
+- Improved search ordering so title matches appear before keyword and body matches.
+- Added spell fact panels and SRD attribution in the library content note.
+
+CONTENT / COPYRIGHT NOTE
+The summaries are original concise reference writing. The spell entries are based on the 2014 rules and the System Reference Document 5.1, licensed under Creative Commons Attribution 4.0 International. Attribution: Wizards of the Coast, System Reference Document 5.1, CC BY 4.0.
+This build does not include scans or copies of the user's uploaded rulebooks. Do not upload private source PDFs to the public GitHub repository.
+
+TESTING
+- JavaScript syntax checked with Node.js.
+- ZIP integrity checked after packaging.
+- Local browser interaction still requires user testing.
+
+KNOWN LIMITATIONS
+- This is an expanded reference collection, not yet an exhaustive 2014 5E database.
+- The current spell set is a starter selection, not every spell.
+- Creature/monster reference entries, full equipment catalog, class/race features, and detailed character-sheet integration remain future work.
+- Starfleet Command and Galactic Adventures retain separate ruleset placeholders and do not display D&D rules.

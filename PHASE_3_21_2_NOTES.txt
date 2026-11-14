@@ -1,0 +1,20 @@
+GAME MASTER'S KEEP — PHASE 3.21.2
+DICE CHAMBER: MATERIAL & APPEARANCE CHOICES
+
+This refinement adds a user-selectable die finish to the existing Dice Chamber.
+Available finishes:
+- Cut Gemstone
+- Forged Metal
+- Obsidian
+- Ancient Ivory
+
+The finish selector changes the presentation of the die without changing dice mechanics, results, modifiers, history, or universe selection. Existing universe palettes continue to influence the die, with material-specific overrides where appropriate.
+
+The die remains a locally rendered, faceted SVG illustration with layered shading and lighting. It is a stylized 3D-inspired visual rather than a physically simulated 3D model. All features remain local; no service or subscription is required.
+
+Validation performed:
+- JavaScript syntax check (node --check app.js)
+- HTML parse and duplicate-ID check
+- ZIP integrity check after packaging
+
+A full interactive browser test was not performed in this build environment. Please test the selector and dice rolls in the extracted folder.

@@ -1,0 +1,29 @@
+GAME MASTER'S KEEP — PHASE 3.16
+Adventure & Chronicle Builder Foundation
+
+BASELINE
+Built from the Phase 3.15 Rules Library Expansion package. The Chronicles of Puma remains the first full D&D 5E (2014) rules environment. Adventure planning fields are system-agnostic and available within each selected universe's campaign workspace.
+
+WHAT'S NEW
+- Added a dedicated Adventure Builder workspace with campaign selection and campaign-scoped saved adventure frameworks.
+- Added original adventure spark generation for a title, opening hook, objective, and complication. Generated sparks are editable drafts and are not automatically saved.
+- Added structured fields for patron/quest giver, objective, linked NPCs, linked custom creatures, antagonist/opposing force, locations, complications/revelations, rewards/consequences, and DM preparation notes.
+- Added edit and delete controls for saved adventure frameworks.
+- Added optional adventure linkage to session records. Session records display the linked adventure title.
+- Integrated saved adventure frameworks into the assembled campaign chronicle text, including linked NPC and custom-creature names where those records still exist.
+- Adventure data is stored inside each campaign object and therefore travels with the existing campaign JSON backup/export and import workflow.
+- No new external services, accounts, paid APIs, cloud storage, or subscriptions.
+
+IMPORTANT LIMITS
+- This is an Adventure Builder foundation, not a full procedural adventure writer or a complete book-layout Chronicle Builder.
+- The generator supplies short original prompts only; the DM supplies and edits the actual story, encounters, clues, maps, pacing, and outcomes.
+- NPC and creature linking currently supports campaign NPC dossiers and custom creatures. It does not automatically instantiate SRD creature stat blocks into an adventure.
+- Adventure frameworks are included in the campaign chronicle text, but are not yet formatted as separate illustrated chapters or map plates.
+- All data remains local to the browser. No multiplayer, account system, cloud synchronization, or shared live player access is included.
+- The application remains designed for $0/month static hosting on GitHub Pages.
+
+VALIDATION
+- JavaScript syntax checked with Node.js.
+- HTML parsed successfully; duplicate HTML IDs checked.
+- ZIP integrity checked after packaging.
+- Full interactive browser testing has not been completed. Please test locally before treating this phase as fully approved.

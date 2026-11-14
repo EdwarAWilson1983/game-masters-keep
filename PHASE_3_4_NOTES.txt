@@ -1,0 +1,12 @@
+GAME MASTER'S KEEP — PHASE 3.4
+Large-Batch Spell Expansion
+
+Built from the locally tested Phase 3.3.1 baseline.
+Added 150 new spell reference entries in one batch.
+The library now contains 0 spell entries by source count (verify in-app via search/filter).
+
+Entries include original concise summaries, casting time, range, components, duration, spell level/school, table notes, and SRD 5.1 source labels.
+This is a substantial expansion, not a claim of exhaustive coverage of every 2014 Player's Handbook spell.
+The public-facing spell entries are based on SRD 5.1 material and original explanations; no PDFs are bundled.
+
+Local testing recommended before any GitHub upload. Phase 2 stable branch and live deployment are untouched.

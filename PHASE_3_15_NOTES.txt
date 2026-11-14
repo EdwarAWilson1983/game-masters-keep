@@ -1,0 +1,26 @@
+GAME MASTER'S KEEP — PHASE 3.15
+Rules Library Expansion
+
+BASELINE
+Built from the Phase 3.14 Spellbook & Equipment package supplied in the active project workspace.
+The Chronicles of Puma remains the first supported rules universe, using D&D 5th Edition (2014).
+
+WHAT'S NEW
+- Added 15 original, concise 2014 5E quick-reference topics covering cover, opportunity attacks, grappling, shoving, readying actions, concentration, spell components, short and long rests, death saving throws, difficult terrain, hiding, falling, surprise, and setting ability-check DCs.
+- Added a table-side DM Ruling Assistant to the Rules Library. It searches the current reference index and presents up to three relevant topics with quick-view links.
+- Kept the existing search, category, spell-level, creature-type, challenge-rating, and environment filters.
+- The ruling assistant is hidden outside The Chronicles of Puma so D&D rules are not presented as rules for Starfleet Command or Galactic Adventures.
+
+IMPORTANT LIMITS
+- The Ruling Assistant is a keyword-based reference finder, not an AI adjudicator and not a substitute for checking the cited rulebook.
+- The new summaries are original explanations. They do not reproduce the Player's Handbook or Dungeon Master's Guide text.
+- References identify relevant 2014 Player's Handbook sections. Page numbers are intentionally omitted rather than guessed.
+- No private PDF text or book scans have been copied into the public application.
+- AD&D 2nd Edition, D&D 3.5, Starfleet Command, and Galactic Adventures remain separate future rules frameworks.
+- All data remains local to the browser; no accounts, server, cloud sync, or paid service has been added.
+
+VALIDATION
+- JavaScript syntax checked with Node.js.
+- HTML parsed successfully; no duplicate HTML IDs detected.
+- Rules Library entry IDs checked; no duplicates detected.
+- Full interactive browser testing has not been performed. Please test locally before treating this phase as fully approved.

@@ -1,0 +1,26 @@
+GAME MASTER'S KEEP — PHASE 3.13
+Bestiary & NPC Dossiers
+
+This phase adds a dedicated Bestiary & NPC Dossiers workspace for The Chronicles of Puma using the D&D 5th Edition (2014) foundation.
+
+FEATURES
+- Campaign-scoped NPC dossiers with role, disposition, appearance/manner, motivation, secrets/relationships, and campaign notes.
+- Campaign-scoped custom creature records with creature type, size, CR, XP, AC, HP, speed, initiative modifier, ability scores, traits, actions/attacks, and notes.
+- Searchable reference creature cards using the existing concise SRD 5.1 creature records.
+- Encounter Builder: add custom creatures and reference creatures, adjust quantities, remove entries, and estimate difficulty using the existing 2014 5E XP thresholds and encounter multiplier method.
+- Encounter evaluations are saved with the campaign; custom NPC and creature records are saved in campaign data.
+- Campaign data remains local to this browser. JSON backup export/import includes NPC dossiers, custom creatures, and saved encounter records.
+- The existing Rules Library remains intact; this is a dedicated working view, not a replacement for reference entries.
+
+IMPORTANT NOTES
+- Reference creature records are concise SRD 5.1 entries. Custom records are user-authored.
+- The encounter estimate is only a guide. Terrain, action economy, creature abilities, party resources, and table experience affect difficulty.
+- The workspace remains local-first. It does not provide accounts, cloud sync, or shared multiplayer access.
+- Other universes retain separate campaign records. The 5E bestiary is designed for The Chronicles of Puma; it is not automatically presented as a ruleset for Starfleet Command or Galactic Adventures.
+
+QA PERFORMED
+- JavaScript syntax check passed (node --check).
+- HTML parsed successfully; duplicate ID scan passed.
+- ZIP integrity test passed.
+- Static checks confirmed the new view, navigation entry, record storage fields, and encounter builder controls.
+- Full interactive browser testing was not performed. Please test create/edit/delete, campaign switching, encounter estimates, and JSON backup round-trip locally.

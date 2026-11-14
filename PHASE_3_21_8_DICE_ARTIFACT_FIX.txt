@@ -1,0 +1,8 @@
+PHASE 3.21.8 — DICE ARTIFACT CLEANUP
+
+- Corrected the rounded triangular face path construction to prevent unintended crossing/stray strokes.
+- Removed the decorative curved specular streak that could read as tangled black filaments on the dark material surfaces.
+- Removed cloudy/inclusion overlays; dice surfaces are now clean and smooth with broad softbox reflections.
+- Preserved dice selection, material choices, roll animation, multi-die display, roll totals, modifiers, and history.
+
+Validation: JavaScript syntax check passed. ZIP integrity checked after packaging. This is not a full browser-runtime test.

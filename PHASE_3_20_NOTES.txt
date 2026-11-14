@@ -1,0 +1,25 @@
+GAME MASTER'S KEEP — PHASE 3.20
+DM COMMAND CENTER
+
+Built on Phase 3.19 Campaign Relationships.
+
+New:
+- Dedicated DM Command Center navigation view.
+- Campaign selector scoped to the currently selected universe.
+- Campaign status and premise briefing.
+- Summary counts for characters, sessions, adventures, world records, NPCs/creatures and maps.
+- Recent session list, adventure framework list and world/faction highlights.
+- Quick navigation to existing campaign systems.
+- No new external services, subscriptions, or network dependencies.
+
+Data:
+- Reads existing campaign records; does not create a second copy of campaign data.
+- Uses existing local browser campaign storage.
+- Existing JSON backup workflow remains the backup mechanism.
+- Counts are based on records currently stored in the selected campaign. Empty categories display zero.
+
+Validation:
+- JavaScript syntax check passed.
+- HTML parsed and duplicate IDs checked.
+- ZIP archive integrity checked.
+- Full interactive browser testing has not been performed.

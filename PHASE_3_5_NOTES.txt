@@ -1,0 +1,11 @@
+GAME MASTER'S KEEP — PHASE 3.5
+Equipment Reference Expansion
+
+Built from the locally tested Phase 3.4 large-batch spell expansion.
+Adds a broad first equipment collection covering common weapons, armor, shields, and adventuring gear/tools.
+Equipment cards show compact facts on the card and full facts in the existing readable Quick View overlay.
+Search, category filters, spell-level filter, and existing spell records are retained.
+
+Equipment details are concise original reference summaries based on SRD 5.1 equipment tables and rules. Verify edge cases against the selected table rules before play.
+No sourcebook PDFs are bundled.
+Local testing recommended. Phase 2 stable branch and live deployment are untouched.

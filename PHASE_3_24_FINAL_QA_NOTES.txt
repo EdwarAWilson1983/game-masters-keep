@@ -1,0 +1,39 @@
+GAME MASTER'S KEEP — PHASE 3.24
+FINAL QUALITY ASSURANCE & RELEASE PREPARATION
+Date: 2026-11-13
+
+BASELINE
+Built from Phase 3.23 Integration & Refinement. This phase is a release-preparation pass; no new gameplay feature set was introduced.
+
+VALIDATION COMPLETED
+- app.js passed Node.js syntax validation (node --check).
+- index.html parsed successfully with Python HTMLParser.
+- 434 HTML IDs were inspected; no duplicate IDs were found.
+- Local script, stylesheet, and web manifest references were checked; all referenced files exist.
+- Responsive CSS rules are present for the dice chamber and combat console.
+- prefers-reduced-motion rules are present for dice animations.
+- Source package was extracted and repackaged; final ZIP integrity test passed.
+
+MANUAL / ENVIRONMENT LIMITATION
+A full interactive browser test could not be completed in this environment. Chromium navigation was blocked by the execution environment (ERR_BLOCKED_BY_ADMINISTRATOR), including when attempting a local HTTP preview. The owner should perform the final hands-on checks listed below before publishing.
+
+OWNER ACCEPTANCE CHECKLIST
+1. Open index.html locally in a current desktop browser.
+2. Switch through The Chronicles of Puma, Starfleet Command, and Galactic Adventures; inspect each theme and navigation.
+3. Open Game Tools; test the Dice Chamber, including all die finishes, all denominations, modifiers, multi-die rolls, result overlay, and roll history.
+4. Confirm Starfleet and Galactic Adventures dice render without the unwanted colored rectangle behind them.
+5. Create a Combat Console encounter; add player and enemy combatants; roll initiative; advance turns and rounds; adjust HP; edit conditions; remove a combatant; delete an encounter.
+6. Associate an encounter with a campaign, reload the page, and confirm the encounter remains. Export a JSON backup and verify campaign encounter data is included.
+7. Test the existing campaign backup export/import before replacing any live data.
+8. Test the sidebar scrolling and narrow-screen layout.
+
+GITHUB PAGES DEPLOYMENT NOTES
+- GitHub Pages is static hosting. This build remains a local, single-browser application; campaign data is stored in browser storage and is not automatically synchronized between devices or users.
+- Do not upload private campaign notes, sensitive personal data, or copyrighted source PDFs into a public repository.
+- Before deployment, confirm the repository's Pages source/branch and the expected project path. The app's configured base URL should be checked against the actual repository URL.
+- Preserve a complete copy of the currently working repository before replacing files.
+- Upload the contents of the game_masters_keep_v1 folder to the intended repository root (not the containing ZIP folder).
+- After deployment, test the live URL in a fresh browser session and verify asset paths, navigation, storage, and JSON backup export/import.
+
+COST / ARCHITECTURE
+No server, paid API, subscription, or backend dependency was added. GitHub Pages does not itself provide accounts, private shared campaigns, or multiplayer synchronization. Those remain Phase 4 architecture decisions and must be evaluated against the strict $0/month requirement.

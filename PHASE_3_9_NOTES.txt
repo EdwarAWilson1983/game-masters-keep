@@ -1,0 +1,21 @@
+GAME MASTER'S KEEP — PHASE 3.9
+Live Character Management
+
+Built from the Phase 3.8 character-sheet foundation.
+
+New features:
+- Skill modifiers are calculated from the associated ability modifier and proficiency bonus when the skill is listed as proficient.
+- Saving throw modifiers are calculated from the ability modifier and proficiency bonus when the save is listed as proficient.
+- Character sheet Quick View now displays all six saving throws and all eighteen standard 5E skills.
+- Trained skills and saves are visually highlighted.
+- Quick View includes live HP adjustment controls (minus/plus one HP) and a temporary-HP add control.
+- HP changes are saved to the campaign's existing local browser storage immediately.
+- Character editor includes a spell-slot tracker field and a conditions/active-effects field.
+
+Important scope notes:
+- Spell slots are recorded as user-entered current/maximum text, not automatically calculated from class and level.
+- HP controls adjust current HP by one point per click; temporary HP is added via a prompt. Damage absorption rules are not automated.
+- Weapon attack/damage calculations and class-specific spell-slot progression are not yet automated.
+- Existing records remain compatible; missing new fields simply display as empty.
+
+Ruleset: D&D 5E (2014), The Chronicles of Puma only.

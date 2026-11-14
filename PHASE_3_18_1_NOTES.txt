@@ -1,0 +1,14 @@
+GAME MASTER'S KEEP — PHASE 3.18.1
+MAPMAKER'S WORKSHOP
+
+This refinement adds a Mapmaker's Workshop to World & Factions > Maps & Geography.
+
+External tools linked:
+- Inkarnate: https://inkarnate.com/
+- Azgaar's Fantasy Map Generator: https://azgaar.github.io/Fantasy-Map-Generator/
+- Dungeon Scrawl: https://www.dungeonscrawl.com/
+- Watabou Medieval Fantasy City Generator: https://watabou.itch.io/medieval-fantasy-city-generator
+
+The panel explains the create -> export image -> upload -> place markers workflow. These are external services and their free tiers, features, and terms may change. No accounts, API keys, subscriptions, or integrations are added to Game Master's Keep. The existing local map upload and marker features are unchanged.
+
+Validation performed: static HTML parsing, JavaScript syntax check (unchanged app.js), duplicate HTML ID check, and ZIP integrity. Full browser interaction testing is not claimed.

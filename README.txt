@@ -83,3 +83,72 @@ PHASE 2.4.4 — ILLUSTRATED CHRONICLES
 - Printed / Save PDF campaign chronicles include an Illustrated Plates section grouped by session.
 - Artwork remains campaign-specific and is included in existing JSON backup/export.
 - All data remains local in this browser; no subscription or cloud storage is introduced.
+
+
+PHASE 3.0 — RULES LIBRARY FOUNDATION
+- Built from the Phase 2.4.9 stable baseline.
+- Adds a searchable Rules Library starter collection for D&D 5th Edition (2014).
+- Includes category filtering and original quick-reference explanations for core rules, combat, spellcasting, conditions, and adventuring.
+- AD&D 2nd Edition and D&D 3.5 are identified as planned, separate rulesets and are not populated or mixed into the 5E collection.
+- Does not reproduce proprietary rulebook text. Source labels are navigational references, not page citations.
+- Campaigns and catalog data continue to use browser-local storage; no cloud sync or multiplayer is added.
+
+
+PHASE 3.3 — SPELL REFERENCE EXPANSION
+- Expanded the 2014 5E spell reference collection with additional SRD 5.1 spell entries.
+- Added a spell-level filter for cantrips and 1st–9th-level spells.
+- The spell-level filter narrows the library to spell entries at the selected level.
+- Existing Quick View overlays, search, category filters, and other application features are retained.
+- SRD 5.1 attribution is displayed in the Rules Library content note.
+
+PHASE 3.5: Adds equipment reference cards with weapon damage/properties, armor AC/requirements, and common adventuring gear details.
+
+
+PHASE 3.20: Added the DM Command Center. Open the app and select DM Command Center in the sidebar. Choose a campaign to see its briefing, summary counts, recent sessions, adventures, world highlights and shortcuts.
+
+PHASE 3.21 — THE DICE CHAMBER
+The Game Tools dice roller has been upgraded with an animated dice reveal, all standard polyhedral dice plus percentile, multiple dice, modifiers, result breakdowns, natural 20/1 highlights, and a temporary recent-roll history. The interface adapts to all three universe themes. See PHASE_3_21_NOTES.txt for details.
+
+PHASE 3.21.1 VISUAL REFINEMENT
+The Dice Chamber now uses a custom faceted polyhedral die illustration rather than the earlier generic flat die shape. Its metal, facet, and numeral treatments adapt to all three universes. See PHASE_3_21_1_NOTES.txt.
+
+PHASE 3.21.6
+See PHASE_3_21_6_NOTES.txt for the latest Dice Chamber visual refinement.
+
+
+Phase 3.21.8: Dice Chamber artifact cleanup. See PHASE_3_21_8_DICE_ARTIFACT_FIX.txt.
+
+PHASE 3.22 — COMBAT CONSOLE
+Game Tools now includes an integrated initiative and combat tracker. Encounters can be associated with a campaign and are included in campaign JSON backups. The tracker supports manually added combatants, importing campaign characters, initiative rolls, turn/round progression, HP adjustments, AC display, conditions/effects notes, and removal of combatants. It remains a local DM-side tool; it does not provide multiplayer or automated rules adjudication. See PHASE_3_22_NOTES.txt.
+
+PHASE 3.23 UPDATE
+See PHASE_3_23_NOTES.txt for integration fixes to campaign-scoped encounter deletion and persistent initiative turn selection.
+
+PHASE 3.24 — FINAL QUALITY ASSURANCE & RELEASE PREPARATION
+- Final static validation and release-preparation checklist added.
+- See PHASE_3_24_FINAL_QA_NOTES.txt for validation results, owner acceptance checks, and GitHub Pages deployment precautions.
+- This remains a local, single-browser application. GitHub Pages deployment does not add cloud synchronization, user accounts, private group access, or multiplayer.
+
+PHASE 4.1 · DEVELOPMENT AUTHENTICATION ENTRY
+
+This development build adds an email/password sign-in and registration gate
+connected to the Neon Managed Better Auth endpoint for the development branch.
+The browser loads the official @neondatabase/auth client as an ES module from
+esm.sh. No database password, Neon API key, or administrator secret is stored
+in the frontend.
+
+Important limitations of this milestone:
+- Email verification is enabled in Neon. Follow the verification instructions
+  delivered by Neon before signing in.
+- A successful sign-in confirms identity only. It does NOT yet grant a DM,
+  moderator, or campaign role.
+- Moderator approval is not yet enforced by the application. Do not invite
+  other users or treat this as a production access-control release.
+- Existing campaign records still use browser-local storage. Authentication
+  does not yet synchronize or protect campaign data in the cloud.
+- The Neon Auth endpoint belongs to the development branch. A separate
+  production endpoint and configuration must be used before launch.
+
+Next implementation step: connect the approval tables and campaign membership
+policies to authenticated access, promote the first account to administrator,
+and test a second account in a pending state before enabling invitations.

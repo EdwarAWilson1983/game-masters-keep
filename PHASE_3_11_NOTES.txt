@@ -1,0 +1,28 @@
+GAME MASTER'S KEEP — PHASE 3.11
+Dungeon Master's Toolkit Foundation
+
+Built from Phase 3.10. Existing campaigns, characters, equipment, combat integration, rules library, archives, sessions, and artwork features are retained.
+
+New features:
+- Added a dedicated Dungeon Master's Toolkit workspace.
+- Adventure Seed generator: combines an original location, problem, stakes, and complication.
+- NPC generator: combines an original role, manner, goal, and hidden complication.
+- Forgotten Place generator: creates an original site concept with history, purpose, feature, and present threat.
+- D&D 5E (2014) encounter difficulty estimator using party levels, monster XP, encounter-count multipliers, and party-size adjustments.
+- Generated concepts and encounter estimates can be saved to a local preparation-notes list, removed individually, or cleared.
+
+Rules and scope:
+- Encounter thresholds and XP values follow the 2014 fifth-edition framework. This is an estimate, not a guarantee of encounter balance.
+- Generator content is original prompt material, not copied tables from the Dungeon Master's Codex.
+- This phase does not add an automated monster builder, trap mechanics, faction tracker, full settlement generator, or adventure/quest campaign editor. Those remain future modules.
+- Toolkit notes use this browser's local storage and do not sync to other devices or players.
+- The DM Toolkit is an initial foundation. Existing Game Tools dice roller remains separate and unchanged.
+
+Testing performed:
+- JavaScript syntax check passed with Node.js.
+- HTML parsed successfully; no duplicate element IDs detected.
+- Confirmed DM Toolkit navigation and view are present.
+- ZIP structure and local relative references checked after packaging.
+- No full browser automation or cross-device testing performed.
+
+Rollback: retain Phase 3.10 as the prior working copy.

@@ -1,0 +1,29 @@
+GAME MASTER'S KEEP — PHASE 3.21
+THE DICE CHAMBER
+
+This update builds on Phase 3.20 and upgrades the existing Game Tools dice roller.
+
+WHAT'S NEW
+- Replaces the plain dice form with an atmospheric Dice Chamber.
+- Adds a central animated die with a rolling reveal.
+- Adds D4, D6, D8, D10, D12, D20, and D100 selection.
+- Supports 1–20 dice per roll.
+- Adds a modifier from -99 to +99.
+- Shows the total, subtotal, individual dice, and modifier breakdown.
+- Highlights a single-die natural 20 and natural 1 on a D20.
+- Keeps the eight most recent rolls in a temporary on-screen history.
+- Adds a Clear History control.
+- Adapts the Dice Chamber to the Fantasy, Starfleet, and Galactic Adventures visual themes.
+- Honors reduced-motion accessibility preferences.
+
+NOTES
+- Dice are rolled locally in the browser; no subscription, server, or external service is used.
+- Roll history is temporary and is cleared when the page is refreshed.
+- The dice roller does not modify campaign or character data.
+- The existing Game Master's Keep features and local data architecture are retained.
+
+VALIDATION
+- app.js passes Node.js syntax validation.
+- index.html parses successfully; all 413 HTML IDs are unique.
+- ZIP integrity is checked after packaging.
+- A full interactive browser test was not completed in this environment. Please test the Dice Chamber locally in your browser.

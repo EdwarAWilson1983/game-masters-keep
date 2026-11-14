@@ -1,0 +1,15 @@
+GAME MASTER'S KEEP — PHASE 3.21.3
+3D DICE CHAMBER
+
+This update replaces the flat illustrated die with a locally rendered 3D D20.
+
+- A real icosahedron mesh with 20 triangular faces is projected and shaded in a canvas.
+- Face edges, per-face numerals, perspective, lighting, and depth sorting create a three-dimensional appearance.
+- Dice roll animation rotates the model through multiple axes with easing.
+- Four material finishes remain selectable: gemstone, forged metal, obsidian, and ancient ivory.
+- Material palettes adapt to Fantasy, Starfleet, and Galactic Adventures universes.
+- Critical and fumble result treatments remain.
+- No external libraries, CDN, account, subscription, or server required.
+- The existing dice selection, counts, modifiers, roll breakdown, and history are preserved.
+
+Technical note: the animated 3D centerpiece is a true 20-faced icosahedral D20 rendered with a lightweight custom canvas renderer. The other dice denominations still determine the actual random roll; the centerpiece remains a D20 visual rather than dynamically changing into each denomination's physical geometry. This avoids misrepresenting a visual prototype as a complete 3D polyhedral set.

@@ -1,0 +1,20 @@
+GAME MASTER'S KEEP — PHASE 3.24.1
+Workspace Layout Repair
+
+SOURCE
+Phase 3.24 Final QA ZIP.
+
+ROOT CAUSE
+The Dice Chamber markup contained an extra closing </div> immediately after the dice-stage-caption. That prematurely closed the shared <main class="main-content"> container later in browser HTML parsing. As a result, every page section after Game Tools (including DM Toolkit, Bestiary & NPC Dossiers, Spellbook & Equipment, Library & Archives, and Settings) was detached from the main workspace. Their navigation still changed the page title and active class, but the browser scrolled to the top while the selected section remained much farther down the document, producing an apparently blank workspace.
+
+REPAIR
+Removed the surplus closing div so the dice-chamber container is closed at its intended location. All page-view sections now remain children of the main workspace. No application data model, campaign records, dice logic, combat logic, universe themes, or feature behavior was intentionally changed.
+
+VALIDATION
+- HTML parsed successfully.
+- All page-view sections verified as descendants of main.main-content.
+- No duplicate HTML IDs.
+- JavaScript syntax check passed.
+- Local asset references checked.
+- ZIP integrity checked.
+- Full interactive browser testing remains a user acceptance step.

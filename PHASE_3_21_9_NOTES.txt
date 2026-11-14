@@ -1,0 +1,9 @@
+PHASE 3.21.9 — DICE BACKGROUND CLEANUP
+
+- Removed the legacy realm-specific gradient background from the 3D die container in Starfleet Command and Galactic Adventures.
+- Disabled the old pseudo-element face layer in those two universes.
+- Explicitly kept the 3D canvas transparent.
+- The Chronicles of Puma retains its existing fantasy presentation.
+- No dice logic, materials, animation, roll totals, controls, or history changed.
+
+This is a focused CSS fix based on the user's screenshots. Validate locally in all three universes.

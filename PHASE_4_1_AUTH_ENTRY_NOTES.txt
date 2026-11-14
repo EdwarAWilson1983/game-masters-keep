@@ -1,0 +1,32 @@
+GAME MASTER'S KEEP — PHASE 4.1 AUTHENTICATION ENTRY
+
+Built on the Phase 3.24.1 approved baseline.
+
+Added:
+- Full-screen sign-in and account-registration entry gate.
+- Email/password sign-in and registration through Neon Managed Better Auth.
+- Email verification reminder and post-registration sign-in guidance.
+- Session check on page load.
+- Signed-in account label and sign-out control in the application header.
+- Theme-aware authentication panel for The Chronicles of Puma, Starfleet
+  Command, and Galactic Adventures.
+- No database credentials, Neon API keys, or admin secrets in frontend code.
+
+Configured endpoint:
+https://ep-ancient-hat-bdv9eakf.neonauth.c-8.us-east-2.aws.neon.tech/neondb/auth
+
+Important:
+This is an authentication-entry milestone, not the completed moderator
+approval system. Signup is still open at the Neon Auth service. The current
+frontend does not yet query the approval tables or enforce campaign-level
+roles. Existing campaign data remains localStorage-only. Do not invite other
+users or deploy this build as the production release yet.
+
+Recommended next steps:
+1. User creates and verifies the first account through the new interface.
+2. Retrieve that account's Neon user ID.
+3. Promote that exact account to initial administrator/moderator in the
+   database using a controlled SQL operation.
+4. Connect pending approval records and moderator approval actions.
+5. Enforce authorization through Row-Level Security, not frontend-only checks.
+6. Test a second account as pending before any invitations are sent.

@@ -1,0 +1,27 @@
+GAME MASTER'S KEEP — PHASE 3.17
+World & Factions
+
+Built from Phase 3.16 Adventure & Chronicle Builder.
+
+NEW
+- Added World & Factions workspace to the main navigation.
+- Added campaign-specific Places & Settlements atlas.
+- Place fields: name, type, ruler/steward, description, notable features, connections, private DM notes.
+- Added campaign-specific Factions & Organizations directory.
+- Faction fields: name, type, leader, public purpose/methods, resources/influence, allies/rivals, private DM notes.
+- Both directories support create, edit, delete, and search.
+- Data is stored in the existing campaign records and therefore travels with the existing JSON campaign backup/import workflow.
+- Campaign chronicle assembly now includes saved atlas places and factions as reference sections.
+- Universe separation follows the existing campaign model; each universe's campaigns keep their own world records.
+
+LIMITATIONS / NEXT WORK
+- This is a campaign worldbuilding directory, not a visual map editor or GIS system.
+- Place-to-place coordinates, map pins, travel routes, and faction-to-NPC relationship graph are not implemented in this phase.
+- Records are local to this browser until exported; no account, cloud sync, or multiplayer features.
+- No new copyrighted setting text is bundled.
+
+VALIDATION
+- JavaScript syntax check passed with Node.js.
+- HTML parsed successfully; 368 unique IDs and no duplicates.
+- ZIP integrity checked after packaging.
+- Full interactive browser testing has not been performed; user should test create/edit/delete/search and backup behavior.

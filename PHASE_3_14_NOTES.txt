@@ -1,0 +1,37 @@
+GAME MASTER'S KEEP — PHASE 3.14
+Spellbook & Equipment Integration
+
+RULESET FOUNDATION
+- Initial support: D&D 5th Edition (2014), using the existing concise SRD 5.1 reference index.
+- This phase does not mix AD&D 2nd Edition or D&D 3.5 rules into the 2014 5E workspace.
+
+FEATURES
+- New Spellbook & Equipment workspace, scoped to the selected campaign and character.
+- Character Spellbook: add reference spells, search known spells, mark spells prepared, remove spells, and retain concise spell summaries and casting information.
+- Spell Slot Tracker: track maximum and expended slots independently for spell levels 1–9. These are manually managed and do not automatically calculate class progression.
+- Inventory & Equipment: add reference equipment, manage quantity, mark items equipped, remove items, and view inventory totals.
+- Equipped reference weapons, armor and shields synchronize to the existing character-sheet equipment selectors where a matching reference item is available.
+- Spell Library: searchable concise reference cards for the spell entries already present in the Rules Library, with casting time, range, duration, components and table notes where available.
+- Equipment Library: searchable/filterable reference cards for weapons, armor, shields and adventuring gear already present in the Rules Library.
+- Campaign Custom Items & Treasure: create original magic items, weapons, armor, consumables, treasure and adventuring gear; add these items to a selected character's inventory.
+- Character spellbooks, inventory, spell slot tracking and campaign custom items are retained in the existing local campaign data and JSON backup/import flow.
+- Existing campaign, character, bestiary, NPC, encounter and toolkit data is preserved.
+
+DATA / LICENSING NOTES
+- Reference content is concise SRD 5.1 material, attributed to Wizards of the Coast and licensed under CC BY 4.0.
+- This phase does not reproduce full protected spell or equipment entries from the 2014 Player's Handbook or Dungeon Master's Guide.
+- Custom item descriptions are user-authored campaign content.
+- Spell slot maximums and used counts are manual trackers; no automatic class-specific slot progression or spell preparation limits are calculated in this phase.
+- Inventory weight, encumbrance, attunement slot enforcement, ammunition consumption, coin accounting, and automatic weapon attack calculations are not yet implemented.
+
+STORAGE
+- Local browser storage only. No accounts, cloud sync, multiplayer or remote database.
+- Character spellbook and inventory records are stored on the character object. Custom items are stored on the campaign object.
+- JSON backup/import retains these fields.
+
+QA PERFORMED
+- JavaScript syntax check passed with Node.js.
+- HTML parsing and duplicate-ID scan passed.
+- ZIP integrity test passed.
+- Static checks confirmed navigation, character/campaign selectors, spellbook, spell-slot tracker, inventory, reference libraries and custom-item workflow.
+- Full interactive browser testing was not performed. Please test campaign/character selection, add/remove spell, prepared toggle, slot tracking, inventory quantities, equip/unequip, custom-item creation, and JSON backup round-trip locally.
