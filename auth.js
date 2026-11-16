@@ -219,17 +219,21 @@ $auth('signOutButton')?.addEventListener('click', async () => {
 showAuthMode('signin');
 initializeAuth();
 
-/* Phase 4.3: expose a short-lived Neon Auth JWT to trusted app code. */
-window.GMKAuth = Object.freeze({
-  async getAccessToken() {
-    if (!authClient) throw new Error('Authentication is not ready yet.');
-    if (typeof authClient.getJWTToken !== 'function') {
-      throw new Error('This Neon Auth client does not expose getJWTToken().');
+  /* Phase 4.2 preparation: expose a short-lived Neon Auth JWT to trusted app code.
+     This does not expose credentials; the token is requested only when needed. */
+  window.GMKAuth = Object.freeze({
+    async getAccessToken() {
+      if (!authClient) {
+        throw new Error('Authentication is not ready yet.');
+      }
+
+      const result = unwrapError(await authClient.getSession());
+      const token = result?.session?.access_token;
+
+      if (typeof token !== 'string' || !token) {
+        throw new Error('No signed-in access token is available. Please sign in again.');
+      }
+
+      return token;
     }
-    const token = await authClient.getJWTToken();
-    if (typeof token !== 'string' || !token) {
-      throw new Error('No signed-in access token is available. Please sign in again.');
-    }
-    return token;
-  }
-});
+  });
