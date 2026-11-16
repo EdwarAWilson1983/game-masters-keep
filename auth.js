@@ -218,3 +218,18 @@ $auth('signOutButton')?.addEventListener('click', async () => {
 
 showAuthMode('signin');
 initializeAuth();
+
+/* Phase 4.3: expose a short-lived Neon Auth JWT to trusted app code. */
+window.GMKAuth = Object.freeze({
+  async getAccessToken() {
+    if (!authClient) throw new Error('Authentication is not ready yet.');
+    if (typeof authClient.getJWTToken !== 'function') {
+      throw new Error('This Neon Auth client does not expose getJWTToken().');
+    }
+    const token = await authClient.getJWTToken();
+    if (typeof token !== 'string' || !token) {
+      throw new Error('No signed-in access token is available. Please sign in again.');
+    }
+    return token;
+  }
+});
