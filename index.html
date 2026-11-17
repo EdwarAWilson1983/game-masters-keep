@@ -700,7 +700,22 @@
 
 <section class="page-view" id="view-settings">
         <div class="page-heading"><div><div class="eyebrow">YOUR DATA, YOUR KEEP</div><h1>Settings & Backup</h1><p>Manage your local prototype data and keep a portable copy.</p></div></div>
-        <div class="settings-grid"><div class="panel"><h3>Data backup</h3><p>Export your campaign data as a JSON file. You can import it again in this browser or another copy of the app.</p><button class="primary-btn" id="exportData">↓ Export backup</button><label class="secondary-btn file-label">↑ Import backup<input type="file" id="importData" accept="application/json"></label></div><div class="panel"><h3>Workspace status</h3><p><strong>Storage:</strong> This browser's local storage</p><p><strong>Network:</strong> No account or server connection in this prototype</p><p><strong>Recurring cost:</strong> $0</p><p class="fine-print">Clearing browser data may erase campaigns that have not been exported. Keep regular backups.</p></div></div>
+        <div class="settings-grid">
+          <div class="panel"><h3>Data backup</h3><p>Export your campaign data as a JSON file. You can import it again in this browser or another copy of the app.</p><button class="primary-btn" id="exportData">↓ Export backup</button><label class="secondary-btn file-label">↑ Import backup<input type="file" id="importData" accept="application/json"></label></div>
+          <div class="panel"><h3>Workspace status</h3><p><strong>Local storage:</strong> Active in this browser</p><p><strong>Account:</strong> Neon Auth sign-in</p><p><strong>Cloud database:</strong> Phase 4.3 integration foundation</p><p class="fine-print">Keep regular backups. Cloud sync is optional and must be enabled explicitly.</p></div>
+          <div class="panel cloud-sync-panel">
+            <div class="eyebrow">PHASE 4.3 · NEON CLOUD</div>
+            <h3>Campaign cloud sync</h3>
+            <p>Connect campaign records to your Neon database. Your browser remains the working copy; cloud sync is opt-in and can be paused at any time.</p>
+            <div class="cloud-sync-actions">
+              <button class="secondary-btn" id="cloudCheckButton" type="button">Check connection</button>
+              <button class="primary-btn" id="cloudEnableButton" type="button">Enable cloud sync</button>
+              <button class="secondary-btn" id="cloudImportButton" type="button">Import cloud-only campaigns</button>
+            </div>
+            <p class="cloud-sync-status" id="cloudSyncStatus" role="status" aria-live="polite">Cloud API configuration is required before connecting.</p>
+            <p class="fine-print">Important: artwork, character portraits and campaign-map image files remain in this browser in Phase 4.3. Campaign text and structured records can sync; binary images will be connected to private Object Storage in a later phase. Do not clear browser data until you have exported a backup.</p>
+          </div>
+        </div>
       </section>
     </main>
   </div>
@@ -730,6 +745,8 @@
   </dialog>
   <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
+  <script src="phase-4-3/client/gmk-cloud.js"></script>
+  <script src="phase-4-3/client/gmk-cloud-sync.js"></script>
   <script type="module" src="auth.js"></script>
 </body>
 </html>
