@@ -227,8 +227,8 @@ initializeAuth();
         throw new Error('Authentication is not ready yet.');
       }
 
-      const result = unwrapError(await authClient.getSession());
-     const token = result?.session?.token;
+     const result = unwrapError(await authClient.token());
+const token = result?.token;
 
       if (typeof token !== 'string' || !token) {
         throw new Error('No signed-in access token is available. Please sign in again.');
