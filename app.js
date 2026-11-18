@@ -20,6 +20,7 @@ function loadCampaigns(){
     const saved=JSON.parse(localStorage.getItem(STORE_KEY)||"[]");
     if(!Array.isArray(saved)) return [];
     return saved.filter(c=>c&&typeof c==="object"&&c.name).map(c=>({
+      ...c,
       id:String(c.id||makeId()),
       name:String(c.name).slice(0,70),
       universe:["fantasy","starfleet","galaxy"].includes(c.universe)?c.universe:"fantasy",
@@ -36,7 +37,12 @@ function loadCampaigns(){
   } catch { return []; }
 }
 function makeId(){return (crypto.randomUUID?crypto.randomUUID():`gmk-${Date.now()}-${Math.random().toString(36).slice(2,8)}`)}
-function persistCampaigns(){localStorage.setItem(STORE_KEY,JSON.stringify(campaigns))}
+function persistCampaigns(){
+  localStorage.setItem(STORE_KEY,JSON.stringify(campaigns));
+  if(!window.GMKCloudSync?.applying) {
+    document.dispatchEvent(new CustomEvent("gmk:campaigns-changed"));
+  }
+}
 function save(){persistCampaigns();render()}
 function toast(message){const el=$("toast");el.textContent=message;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2400)}
 function setUniverse(universe){
@@ -128,6 +134,7 @@ function submitCampaign(e){
 function deleteCampaign(id){
   const c=campaigns.find(x=>x.id===id);if(!c)return;
   if(!confirm(`Delete “${c.name}”? This removes the campaign from this browser. Export a backup first if you may need it later.`))return;
+  document.dispatchEvent(new CustomEvent("gmk:campaign-deleted", { detail: { id: String(id) } }));
   campaigns=campaigns.filter(x=>x.id!==id);save();toast("Campaign deleted.");
 }
 function statusLabel(status){return ({active:"ACTIVE",paused:"PAUSED",completed:"COMPLETED"})[status]||"ACTIVE"}
@@ -441,6 +448,7 @@ $("importData").addEventListener("change",async e=>{
     if(!Array.isArray(data.campaigns))throw Error("Invalid backup");
     if(!confirm(`Import ${data.campaigns.length} campaigns? This replaces the campaigns currently stored in this browser.`))return;
     campaigns=data.campaigns.filter(c=>c&&typeof c.name==="string").map(c=>({
+      ...c,
       id:String(c.id||makeId()),name:c.name.slice(0,70),
       universe:["fantasy","starfleet","galaxy"].includes(c.universe)?c.universe:"fantasy",
       premise:String(c.premise||"").slice(0,1200),
@@ -1388,3 +1396,16 @@ $("rollInitiative")?.addEventListener("click",()=>{const x=activeCombat();if(!x|
 $("nextCombatTurn")?.addEventListener("click",()=>{const x=activeCombat();if(!x||!x.combatants.length){toast("Add combatants first.");return}const living=x.combatants.filter(c=>(Number(c.hp)||0)>0);if(!living.length){toast("No active combatants remain.");return}const order=x.combatants.slice().sort((a,b)=>(Number(b.initiative)||0)-(Number(a.initiative)||0));let idx=order.findIndex(c=>c.id===x.currentTurnId);if(idx<0)idx=Math.max(0,Math.min(Number(x.turnIndex)||0,order.length-1));let next=idx;for(let tries=0;tries<order.length;tries++){next=(next+1)%order.length;if(Number(order[next].hp)>0)break}if(next<=idx)x.round=Math.max(1,Number(x.round)||1)+1;x.turnIndex=next;x.currentTurnId=order[next].id;saveCombatStore();renderCombatConsole()});
 $("combatantList")?.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const x=activeCombat();if(!x)return;const id=b.dataset.id||b.dataset.hpEdit||b.dataset.condition||b.dataset.removeCombatant,c=x.combatants.find(v=>v.id===id);if(b.dataset.hpDelta&&c){c.hp=Math.max(0,Math.min(Number(c.maxHp)||9999,(Number(c.hp)||0)+Number(b.dataset.hpDelta)));saveCombatStore();renderCombatConsole();return}if(b.dataset.hpEdit&&c){const val=prompt(`Set current HP for ${c.name} (maximum ${c.maxHp}):`,String(c.hp));if(val===null)return;c.hp=Math.max(0,Math.min(Number(c.maxHp)||9999,Number(val)||0));saveCombatStore();renderCombatConsole();return}if(b.dataset.condition&&c){const val=prompt(`Conditions or effects for ${c.name}:`,c.conditions||"");if(val===null)return;c.conditions=val.trim().slice(0,180);saveCombatStore();renderCombatConsole();return}if(b.dataset.removeCombatant&&confirm(`Remove ${c?.name||"this combatant"} from the encounter?`)){x.combatants=x.combatants.filter(v=>v.id!==id);if(x.currentTurnId===id)x.currentTurnId="";x.turnIndex=Math.max(0,Math.min(x.turnIndex||0,x.combatants.length-1));saveCombatStore();renderCombatConsole()}});
 renderCombatConsole();
+
+/* Phase 4.3 bridge: cloud integration uses the existing campaign model and local backup. */
+window.GMKCampaignBridge = Object.freeze({
+  getCampaigns: () => campaigns,
+  replaceCampaigns(next) {
+    if (!Array.isArray(next)) throw new Error("Campaign data must be an array.");
+    campaigns = next;
+    persistCampaigns();
+    render();
+  },
+  persist: () => persistCampaigns(),
+  render: () => render(),
+});
