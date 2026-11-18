@@ -227,12 +227,24 @@ initializeAuth();
         throw new Error('Authentication is not ready yet.');
       }
 
-     const result = unwrapError(await authClient.token());
-const token = result?.token;
+    
+const response = await authClient.token();
 
-      if (typeof token !== 'string' || !token) {
-        throw new Error('No signed-in access token is available. Please sign in again.');
-      }
+if (response?.error) {
+  throw response.error;
+}
+
+const token = response?.data?.token ?? response?.token;
+
+if (typeof token !== 'string' || !token) {
+  const responseKeys = Object.keys(response ?? {}).join(', ');
+  const dataKeys = Object.keys(response?.data ?? {}).join(', ');
+
+  throw new Error(
+    `JWT missing. Response fields: ${responseKeys}. Data fields: ${dataKeys}.`
+  );
+}
+
 
       return token;
     }
