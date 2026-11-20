@@ -63,6 +63,7 @@ function unlockForSignedInUser(user) {
 function lockForSignedOutUser() {
   document.body.classList.remove('gmk-authenticated');
   $auth('authGate').hidden = false;
+  document.dispatchEvent(new CustomEvent('gmk:signed-out'));
   const status = $auth('accountStatus');
   if (status) status.textContent = 'SIGN IN REQUIRED';
 }
@@ -219,34 +220,20 @@ $auth('signOutButton')?.addEventListener('click', async () => {
 showAuthMode('signin');
 initializeAuth();
 
-  /* Phase 4.2 preparation: expose a short-lived Neon Auth JWT to trusted app code.
-     This does not expose credentials; the token is requested only when needed. */
-  window.GMKAuth = Object.freeze({
-    async getAccessToken() {
-      if (!authClient) {
-        throw new Error('Authentication is not ready yet.');
-      }
-
-    
-const response = await authClient.token();
-
-if (response?.error) {
-  throw response.error;
-}
-
-const token = response?.data?.token ?? response?.token;
-
-if (typeof token !== 'string' || !token) {
-  const responseKeys = Object.keys(response ?? {}).join(', ');
-  const dataKeys = Object.keys(response?.data ?? {}).join(', ');
-
-  throw new Error(
-    `JWT missing. Response fields: ${responseKeys}. Data fields: ${dataKeys}.`
-  );
-}
-
-
-      return token;
+/* Phase 4.2 preparation: expose a short-lived Neon Auth JWT to trusted app code.
+   This does not expose credentials; the token is requested only when needed. */
+window.GMKAuth = Object.freeze({
+  async getAccessToken() {
+    if (!authClient) {
+      throw new Error('Authentication is not ready yet.');
     }
-  });
 
+    const token = await authClient.getJWTToken();
+
+    if (typeof token !== 'string' || !token) {
+      throw new Error('No signed-in access token is available. Please sign in again.');
+    }
+
+    return token;
+  }
+});
