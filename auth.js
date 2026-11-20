@@ -249,3 +249,4 @@ if (typeof token !== 'string' || !token) {
       return token;
     }
   });
+
